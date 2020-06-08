@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {MetricsService} from './metrics.service';
+import { Component, OnInit } from '@angular/core';
+import { MetricsService } from './metrics.service';
 
 @Component({
   selector: 'app-metrics',
@@ -11,7 +11,9 @@ export class MetricsComponent implements OnInit {
   simpleWidgets: any[];
   trendingCards: any[];
 
-  constructor(private metrics: MetricsService) {
+  constructor(
+    private metrics: MetricsService
+  ) {
     this.widgets = this.metrics.widgets;
     this.simpleWidgets = this.metrics.simpleWidgets;
     this.trendingCards = this.metrics.trendingCards;

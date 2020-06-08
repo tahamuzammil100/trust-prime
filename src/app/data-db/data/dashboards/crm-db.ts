@@ -397,11 +397,11 @@ export class CrmDb {
     recentTickets: [
       {
         user: {
-          name: 'Joy Parish',
+          name: 'Umme Salma',
           thumb: 'https://via.placeholder.com/150X150',
           color: ''
         },
-        message: 'Need a quick support on setting of Chatbox.',
+        message: 'Need to find where I can find face masks.',
         replied: 'replied 3 days ago',
         status: {
           text: 'Normal',
@@ -410,11 +410,11 @@ export class CrmDb {
       },
       {
         user: {
-          name: 'Babulal Kumawat',
+          name: 'Hafidz Khalid',
           thumb: '',
           color: 'bg-success'
         },
-        message: 'Pre-sale query about the product for Chat Support',
+        message: 'Pending Claim for Unemployment - Please help solve.',
         replied: 'replied 2 days ago',
         status: {
           text: 'Critical',
@@ -423,11 +423,11 @@ export class CrmDb {
       },
       {
         user: {
-          name: 'Domnic Brown',
+          name: 'Dr Wafi',
           thumb: 'https://via.placeholder.com/150X150',
           color: ''
         },
-        message: 'Regarding customization service for technical issue.',
+        message: 'The garbage complain in Jln Dutta Sector 2/A.',
         replied: 'replied 3 days ago',
         status: {
           text: 'High',
@@ -466,40 +466,40 @@ export class CrmDb {
     },
     departments: [
       {
-        name: 'Sales',
+        name: 'Engineering',
         progressBar: {
-          fillVal: 14,
-          maxVal: 18,
+          fillVal: 1432,
+          maxVal: 1800,
           textColor: '',
           barPosition: 'start',
           barColor: 'bg-primary'
         }
       },
       {
-        name: 'Technical',
+        name: 'Utilities',
         progressBar: {
-          fillVal: 12,
-          maxVal: 18,
+          fillVal: 1263,
+          maxVal: 1800,
           textColor: '',
           barPosition: 'start',
           barColor: 'bg-success'
         }
       },
       {
-        name: 'Account',
+        name: 'Finance',
         progressBar: {
-          fillVal: 7,
-          maxVal: 18,
+          fillVal: 798,
+          maxVal: 1800,
           textColor: '',
           barPosition: 'start',
           barColor: 'bg-yellow'
         }
       },
       {
-        name: 'Dispute',
+        name: 'Others',
         progressBar: {
-          fillVal: 3,
-          maxVal: 18,
+          fillVal: 348,
+          maxVal: 1800,
           textColor: '',
           barPosition: 'start',
           barColor: 'bg-danger'
@@ -507,12 +507,12 @@ export class CrmDb {
       }
     ],
     operator: {
-      name: 'Joy Parish',
-      thumb: 'https://via.placeholder.com/150X150',
+      name: 'Fikri Jalil',
+      thumb: 'https://firebasestorage.googleapis.com/v0/b/trust-prime.appspot.com/o/fikri.png?alt=media&token=b9610bd5-5135-4dd7-80aa-67dda4cc1f97',
       rating: 4.8,
-      description: 'Closed 37 tickets out of 39 successfully with an average of 4.8 star rating.',
-      ticketsHandled: 39,
-      ticketsClosed: 37
+      description: 'Helped 370 citizens out of 400 assigned with 86% satisfied citizens.',
+      ticketsHandled: 400,
+      ticketsClosed: 370
     },
     ticketStatus: [
       {
@@ -531,12 +531,12 @@ export class CrmDb {
     tickets: [
       {
         user: {
-          name: 'Joy Parish',
+          name: 'Umme Salma',
           thumb: 'https://via.placeholder.com/150X150',
           color: ''
         },
-        message: 'Need a quick support on setting of Chatbox.',
-        type: 'opened',
+        message: 'Need to find where I can find face masks.',
+        type: 'open',
         replied: 'replied 3 days ago',
         status: {
           text: 'Normal',
@@ -545,11 +545,11 @@ export class CrmDb {
       },
       {
         user: {
-          name: 'Babulal Kumawat',
+          name: 'Hafidz Khalid',
           thumb: '',
           color: 'bg-success'
         },
-        message: 'Pre-sale query about the product for Chat Support',
+        message: 'Pending Claim for Unemployment - Please help solve.',
         type: 'awaiting',
         replied: 'replied 2 days ago',
         status: {
@@ -559,11 +559,11 @@ export class CrmDb {
       },
       {
         user: {
-          name: 'Domnic Brown',
+          name: 'Dr Wafi',
           thumb: 'https://via.placeholder.com/150X150',
           color: ''
         },
-        message: 'Regarding customization service for technical issue.',
+        message: 'The garbage complain in Jln Dutta Sector 2/A.',
         type: 'closed',
         replied: 'replied 3 days ago',
         status: {
@@ -573,11 +573,11 @@ export class CrmDb {
       },
       {
         user: {
-          name: 'Hathew Haden',
+          name: 'Anis Ramza',
           thumb: 'https://via.placeholder.com/150X150',
           color: ''
         },
-        message: 'Can’t find the community signup',
+        message: 'Discount for Council Tax During MCO',
         type: 'closed',
         replied: 'replied 3 days ago',
         status: {
@@ -587,11 +587,11 @@ export class CrmDb {
       },
       {
         user: {
-          name: 'Stella Johnson',
+          name: 'Shaamin Shah',
           thumb: 'https://via.placeholder.com/150X150',
           color: ''
         },
-        message: 'Regarding customization service for technical issue.',
+        message: 'Neighbour Violance, disturbances & suspected crime in the neighborhood.',
         type: 'opened',
         replied: 'replied 3 days ago',
         status: {
@@ -600,15 +600,17 @@ export class CrmDb {
         }
       }
     ],
+
+
     leads: {
-      title: 'current year leads',
+      title: 'Citizen Happiness Index',
       data: {
         desktop: {
-          lead: '9,365',
+          lead: '86',
           data: [250, 180, 200, 350, 230]
         },
         mobile: {
-          lead: '8,789',
+          lead: '89',
           data: [200, 350, 250, 180, 290]
         },
         chart: {
@@ -624,7 +626,7 @@ export class CrmDb {
               display: false
             }
           },
-          labels: ['IE & Edge', 'Firefox', 'Safari', 'Chrome', 'Opera'],
+          labels: ['Satisfied Utilities', 'Less Crime', 'Easy Living', 'Good Governance', 'Others'],
           colors: [
             {
               backgroundColor: [
@@ -639,61 +641,61 @@ export class CrmDb {
         },
         browsers: [
           {
-            title: 'IE & Edge',
+            title: 'Satisfied Utilities',
             dotColor: 'bg-sky-blue'
           },
           {
-            title: 'Firefox',
+            title: 'Less Crime',
             dotColor: 'bg-danger'
           },
           {
-            title: 'Safari',
+            title: 'Easy Living',
             dotColor: 'bg-orange'
           },
           {
-            title: 'Chrome',
+            title: 'Good Governance',
             dotColor: 'bg-yellow'
           },
           {
-            title: 'Opera',
+            title: 'Others',
             dotColor: 'bg-success'
           }
         ],
       },
       countries: {
-        heading: 'Top Countries',
-        desc: 'List of countries with the best figure lead generation.',
+        heading: 'Most Happy States %',
+        desc: 'List of States with Happiness Index.',
         data: [
           {
-            name: 'United Kingdom',
-            flag: 'gb',
-            lead: 27
-          },
-          {
-            name: 'France',
-            flag: 'mq',
-            lead: 81
-          },
-          {
-            name: 'India',
-            flag: 'in',
+            name: 'Nigeri Sembilan',
+            flag: '',
             lead: 89
           },
           {
-            name: ' Germany',
-            flag: 'de',
-            lead: 33
+            name: 'Johor',
+            flag: '',
+            lead: 81
           },
           {
-            name: ' Spain ',
-            flag: 'es',
-            lead: 79
+            name: 'Selangor',
+            flag: '',
+            lead: 65
+          },
+          {
+            name: 'Sarawak',
+            flag: '',
+            lead: 62
+          },
+          {
+            name: 'Kuala Lumpur',
+            flag: '',
+            lead: 59
           }
         ]
       },
       monthlyLead: {
-        heading: 'Monthly Leads',
-        desc: 'Bar chart based on monthly lead generation.',
+        heading: 'Adverse Ratings',
+        desc: 'Bar chart based on monthly Adverse Complaints.',
         chart: {
           chartType: 'bar',
           options: {
@@ -721,7 +723,7 @@ export class CrmDb {
           labels: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
           datasets: [
             {
-              label: 'Leads',
+              label: '-ve Happiness Index',
               borderWidth: 0,
               data: [10, 15, 8, 13, 10, 14, 5, 13, 11, 8, 13, 5, 0]
             }
@@ -806,10 +808,13 @@ export class CrmDb {
         progress: '+20%'
       }
     ],
+
+
+
     projects: [
       {
         id: 1,
-        title: 'ChatBull minor bug fixes',
+        title: 'Tender [77876] - Provision of material for Road Works',
         logo: {
           img: '',
           icon: 'chatbull',
@@ -821,7 +826,7 @@ export class CrmDb {
       },
       {
         id: 2,
-        title: 'Wireframe of new project',
+        title: '#Planning : Utility Revamping plan for city centre area',
         logo: {
           img: '',
           icon: 'projects',
@@ -833,7 +838,7 @@ export class CrmDb {
       },
       {
         id: 3,
-        title: 'New lead generation',
+        title: 'Tender [77823] - PDRM & City Govt - Installation of AES Cameras for Speed Offenders',
         logo: {
           img: '',
           icon: 'leads1',
@@ -845,7 +850,7 @@ export class CrmDb {
       },
       {
         id: 4,
-        title: 'HR Management System',
+        title: '#Financial : Budget Preperation for next Q4, 2020',
         logo: {
           img: '',
           icon: 'revenue-new',
@@ -857,7 +862,7 @@ export class CrmDb {
       },
       {
         id: 5,
-        title: 'Motorola’s New MOTO Z',
+        title: '#Engineering : Repair of LED Advertisement Boards outside Citta Mall',
         logo: {
           img: '',
           icon: 'smart-phone-fill',
@@ -869,7 +874,7 @@ export class CrmDb {
       },
       {
         id: 6,
-        title: 'Samsung’s New Galaxy',
+        title: '#Public Relations: SMS Campaign Survey for Public awareness for Face Masks.',
         logo: {
           img: '',
           icon: 'smart-phone',
@@ -885,17 +890,17 @@ export class CrmDb {
         {
           label: 'Completed',
           dotColor: 'bg-success',
-          value: 8
+          value: 31
         },
         {
           label: 'Overdue',
           dotColor: 'bg-danger',
-          value: 6
+          value: 18
         },
         {
           label: 'Due',
           dotColor: 'bg-warning',
-          value: 3
+          value: 6
         }
       ],
       chart: {
@@ -951,7 +956,7 @@ export class CrmDb {
           }]
         }],
         'allLabels': [{
-          'text': '23 Tasks',
+          'text': '55 Projects',
           'y': '45%',
           'size': 12,
           'bold': true,

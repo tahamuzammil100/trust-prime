@@ -2,8 +2,8 @@ export class TasksListDb {
   public static tasks = [
     {
       id: '3629f35f-89fb-f5ef-9564-3e544bb86f62',
-      title: 'Vertical layout with minimized and drawer style',
-      content: 'Vertical layout with minimized and drawer style Vertical layout with minimized and drawer style.',
+      title: 'Provide Survey Figures',
+      content: 'Provide latest survey figures to Engineering & Planning Departments..',
       completed: false,
       labels: [1, 2],
       created: new Date(2018, 7, 15, 10, 30),
@@ -14,8 +14,8 @@ export class TasksListDb {
     },
     {
       id: '69688a36-4a67-943a-1071-2a4498acba0f',
-      title: 'Create 3 different PSDs for Grid views',
-      content: 'Create 3 different PSDs for Grid views Create 3 different PSDs for Grid views.',
+      title: 'Evaluate Plaza Eureka Proposal at Malacca',
+      content: 'Evaluate the proposal for Plaza Eureka to be constructed at Malacca City Centre.',
       completed: true,
       labels: [1, 2, 3],
       created: new Date(2018, 6, 9, 12, 30),
@@ -26,8 +26,8 @@ export class TasksListDb {
     },
     {
       id: 'f3990065-aab1-44b3-9422-f08f6793f60d',
-      title: 'Light, Semi Dark and Dark theme',
-      content: 'Light, Semi Dark and Dark theme Light, Semi Dark and Dark theme.',
+      title: 'Provide HE the Mayor with latest utility reports',
+      content: 'Provide HE the Mayor with latest utility reports for new areas at Bukit Pelangi.',
       completed: false,
       labels: [3, 4],
       created: new Date(2018, 7, 7, 17, 47),
@@ -38,8 +38,8 @@ export class TasksListDb {
     },
     {
       id: '75a68113-6a89-8fd9-7474-e37027ee70ea',
-      title: 'Create 2 different PSDs for Lists views',
-      content: 'Create 2 different PSDs for Lists views Vertical layout with minimized and drawer style.',
+      title: 'Prepare for 23rd Press Conference',
+      content: 'Prepare for the Press Conference to be held on 23rd of this month.',
       completed: false,
       labels: [1, 4],
       created: new Date(2018, 7, 18, 11, 17),

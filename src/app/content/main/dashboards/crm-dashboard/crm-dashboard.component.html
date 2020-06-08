@@ -9,6 +9,36 @@
 
   <!-- Entry Heading -->
   <div class="dt-entry__heading">
+    <h3 class="dt-entry__title">Malaysia Today :)</h3>
+  </div>
+  <!-- /entry heading -->
+
+</div>
+<!-- /entry header -->
+
+<!-- <div class="row"> -->
+
+<!-- Grid Item -->
+<div class="row">
+
+  <div class="col-xl-3 col-sm-6" *ngFor="let item of analyticsCards">
+
+    <!-- Card -->
+    <gx-analytic-card gxCard [title]="item.title" [description]="item.description" [icon]="item.icon"
+      [number]="item.number" [percent]="item.percent" [positiveGrowth]="item.positiveGrowth"></gx-analytic-card>
+    <!-- /card -->
+
+  </div>
+</div>
+
+
+
+
+<!-- Entry Header -->
+<div class="dt-entry__header">
+
+  <!-- Entry Heading -->
+  <div class="dt-entry__heading">
     <h3 class="dt-entry__title">Smart Security</h3>
   </div>
   <!-- /entry heading -->
@@ -85,7 +115,7 @@
 
   <!-- Entry Heading -->
   <div class="dt-entry__heading">
-    <h3 class="dt-entry__title">Support &amp; Tickets</h3>
+    <h3 class="dt-entry__title">City Help Desk</h3>
   </div>
   <!-- /entry heading -->
 
@@ -106,7 +136,8 @@
   <!-- Grid Item -->
   <div class="col-xl-6 col-md-8 order-xl-4 order-md-3">
 
-    <gx-operator-card gxCard fullHeight cardTitle="Staff of the week" [operator]="widgets.operator"></gx-operator-card>
+    <gx-operator-card gxCard fullHeight cardTitle="Citizen Hero - current month" [operator]="widgets.operator">
+    </gx-operator-card>
 
   </div>
   <!-- /grid item -->
@@ -152,7 +183,8 @@
   <!-- Grid Item -->
   <div class="col-xl-6 order-md-5">
 
-    <app-section-tickets bsCard [ticketStatus]="widgets.ticketStatus" [tickets]="widgets.tickets"></app-section-tickets>
+    <app-section-tickets bsCard [ticketStatus]="widgets.ticketStatus" [tickets]="widgets.tickets">
+    </app-section-tickets>
 
   </div>
   <!-- /grid item -->
@@ -165,7 +197,7 @@
 
   <!-- Entry Heading -->
   <div class="dt-entry__heading">
-    <h3 class="dt-entry__title">Marketing &amp; Leads</h3>
+    <h3 class="dt-entry__title">Citizen Happiness Analysis</h3>
   </div>
   <!-- /entry heading -->
 
@@ -185,20 +217,20 @@
   <!-- /grid item -->
 
   <!-- Grid Item -->
-  <div class="col-md-6">
+  <!-- <div class="col-md-6">
 
     <app-section-campaigns-results gxCard fullHeight [campaigns]="widgets.campaigns"></app-section-campaigns-results>
 
-  </div>
+  </div> -->
   <!-- /grid item -->
 
   <!-- Grid Item -->
-  <div class="col-md-6">
+  <!-- <div class="col-md-6">
 
     <app-section-social-media-advertising gxCard fullHeight [socialMedia]="widgets.socialMedia">
     </app-section-social-media-advertising>
 
-  </div>
+  </div> -->
   <!-- /grid item -->
 
 </div>
@@ -209,7 +241,7 @@
 
   <!-- Entry Heading -->
   <div class="dt-entry__heading">
-    <h3 class="dt-entry__title">Projects &amp; Todos</h3>
+    <h3 class="dt-entry__title">Smart Governance &amp; Projects</h3>
   </div>
   <!-- /entry heading -->
 
