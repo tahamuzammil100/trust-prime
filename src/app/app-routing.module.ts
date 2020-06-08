@@ -1,12 +1,12 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
-import {AuthGuard} from '@app/layouts/auth-layout/auth.guard';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from '@app/layouts/auth-layout/auth.guard';
 
 const appRoutes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: '/default/main/dashboards/listing'
+    redirectTo: '/default/main/dashboards/crm'
   },
   {
     path: '',

@@ -14,7 +14,8 @@
     <span class="dt-brand__logo">
       <a class="dt-brand__logo-link" routerLink="/">
         <img class="dt-brand__logo-img d-none d-sm-inline-block" [src]="logoImageUrl" alt="Drift">
-        <img class="dt-brand__logo-symbol d-sm-none" src="https://via.placeholder.com/133x119" alt="Drift">
+        <img class="dt-brand__logo-symbol d-sm-none"
+          src="../../../../../assets/images/logo/trustprime-horizontal-logo-white.png" alt="Drift">
       </a>
     </span>
     <!-- /brand logo -->
@@ -28,15 +29,19 @@
     <!-- Search box -->
     <form class="search-box d-none d-lg-block">
       <div class="input-group">
-        <input class="form-control" placeholder="Search in app..." value="" type="search">
-        <span class="search-icon"><gx-icon name="search" size="lg"></gx-icon></span>
+        <input class="form-control" placeholder="Search by TrustPrime..." value="" type="search">
+        <span class="search-icon">
+          <gx-icon name="search" size="lg"></gx-icon>
+        </span>
         <div class="input-group-append" ngbDropdown>
-          <button class="btn btn-primary" ngbDropdownToggle>Category</button>
+          <button class="btn btn-primary" ngbDropdownToggle>Search City Record</button>
 
           <div ngbDropdownMenu>
-            <a class="dropdown-item" href="javascript:void(0)">Action</a>
-            <a class="dropdown-item" href="javascript:void(0)">Another action</a>
-            <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
+            <a class="dropdown-item" href="javascript:void(0)">Projects</a>
+            <a class="dropdown-item" href="javascript:void(0)">Support Tickets</a>
+            <a class="dropdown-item" href="javascript:void(0)">Tenders</a>
+            <a class="dropdown-item" href="javascript:void(0)">Contractors</a>
+
           </div>
         </div>
       </div>
@@ -44,7 +49,8 @@
     <!-- /search box -->
 
     <!-- Header Menu Wrapper -->
-    <div class="dt-nav-wrapper"><!-- Header Menu -->
+    <div class="dt-nav-wrapper">
+      <!-- Header Menu -->
       <ul class="dt-nav d-lg-none">
         <li class="dt-nav__item dt-notification-search" ngbDropdown>
 
@@ -59,12 +65,11 @@
 
             <!-- Search Box -->
             <form class="search-box right-side-icon">
-              <input class="form-control form-control-lg"
-                     type="search" id="address"
-                     name="address"
-                     placeholder="Search in app..."
-                     (click)="$event.stopPropagation()">
-              <button type="submit" class="search-icon" (click)="$event.stopPropagation()"><gx-icon name="search" size="lg"></gx-icon></button>
+              <input class="form-control form-control-lg" type="search" id="address" name="address"
+                placeholder="Search in app..." (click)="$event.stopPropagation()">
+              <button type="submit" class="search-icon" (click)="$event.stopPropagation()">
+                <gx-icon name="search" size="lg"></gx-icon>
+              </button>
             </form>
             <!-- /search box -->
 
@@ -87,7 +92,8 @@
           <!-- /dropdown link -->
 
           <!-- Dropdown Option -->
-          <my-apps ngbDropdownMenu perfectScrollbar [disabled]="!settings.customScrollbars"></my-apps>
+          <my-apps style="height: 335px;" ngbDropdownMenu perfectScrollbar [disabled]="!settings.customScrollbars">
+          </my-apps>
           <!-- /dropdown option -->
 
         </li>
@@ -140,7 +146,7 @@
           <!-- Dropdown Option -->
           <div ngbDropdownMenu>
             <a href="javascript:void(0)" *ngFor="let lang of languages" (click)="switchLanguage(lang)"
-               class="dropdown-item" [ngClass]="{active:lang.id === currentLanguage.id}">
+              class="dropdown-item" [ngClass]="{active:lang.id === currentLanguage.id}">
               <i class="flag-icon mr-2" [ngClass]="lang.flag"></i>
               <span>{{lang.title}}</span>
             </a>
@@ -156,13 +162,12 @@
         <li class="dt-nav__item" placement="bottom-right" ngbDropdown>
 
           <!-- Dropdown Link -->
-          <a href="javascript:void(0)" class="dt-nav__link no-arrow dt-avatar-wrapper"
-             ngbDropdownToggle>
+          <a href="javascript:void(0)" class="dt-nav__link no-arrow dt-avatar-wrapper" ngbDropdownToggle>
 
             <gx-avatar [user]="currentUser" class="size-30"></gx-avatar>
             <span class="dt-avatar-info d-none d-sm-block">
-                <span class="dt-avatar-name">{{currentUser.name}}</span>
-              </span>
+              <span class="dt-avatar-name">{{currentUser.name}}</span>
+            </span>
           </a>
           <!-- /dropdown link -->
 
@@ -171,9 +176,9 @@
             <div class="dt-avatar-wrapper flex-nowrap p-6 mt-n2 bg-gradient-purple text-white rounded-top">
               <gx-avatar [user]="currentUser"></gx-avatar>
               <span class="dt-avatar-info">
-                  <span class="dt-avatar-name">{{currentUser.name}}</span>
-                  <span class="f-12">{{currentUser.position}}</span>
-                </span>
+                <span class="dt-avatar-name">{{currentUser.name}}</span>
+                <span class="f-12">{{currentUser.position}}</span>
+              </span>
             </div>
             <a class="dropdown-item" href="javascript:void(0)">
               <gx-icon name="user" [fw]="true" class="mr-2 mr-sm-1"></gx-icon>

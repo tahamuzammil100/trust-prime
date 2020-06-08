@@ -1,14 +1,14 @@
-import {Component, HostBinding} from '@angular/core';
-import {NavigationEnd, NavigationStart, Router} from '@angular/router';
-import {Location} from '@angular/common';
+import { Component, HostBinding } from '@angular/core';
+import { NavigationEnd, NavigationStart, Router } from '@angular/router';
+import { Location } from '@angular/common';
 import * as firebase from 'firebase';
-import {Subscription} from 'rxjs/Subscription';
-import {NgProgress} from 'ngx-progressbar';
-import {TranslateService} from '@ngx-translate/core';
+import { Subscription } from 'rxjs/Subscription';
+import { NgProgress } from 'ngx-progressbar';
+import { TranslateService } from '@ngx-translate/core';
 
-import {AppService} from '@app/app.service';
-import {AuthService} from '@app/layouts/auth-layout/auth.service';
-import {SettingsService} from '@app/settings/settings.service';
+import { AppService } from '@app/app.service';
+import { AuthService } from '@app/layouts/auth-layout/auth.service';
+import { SettingsService } from '@app/settings/settings.service';
 
 @Component({
   selector: 'app-root',
@@ -24,21 +24,21 @@ export class AppComponent {
   onSettingChanged: Subscription;
 
   constructor(private appService: AppService,
-              public translate: TranslateService,
-              public authService: AuthService,
-              public settingService: SettingsService,
-              public ngProgress: NgProgress,
-              private router: Router,
-              location: Location) {
+    public translate: TranslateService,
+    public authService: AuthService,
+    public settingService: SettingsService,
+    public ngProgress: NgProgress,
+    private router: Router,
+    location: Location) {
     // set translation
-    translate.addLangs(['en', 'es']);
+    translate.addLangs(['en', 'my', 'cn']);
     translate.setDefaultLang('en');
 
     const browserLang = translate.getBrowserLang();
     translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
 
     const _language = localStorage.getItem('language');
-    if(_language) {
+    if (_language) {
       translate.use(_language);
     }
     // set translation end
@@ -61,7 +61,7 @@ export class AppComponent {
         this.isAuthenticated = this.authService.isAuthenticated();
         this.ngProgress.done();
 
-        const {fragment} = router.parseUrl(router.url);
+        const { fragment } = router.parseUrl(router.url);
         if (fragment) {
           const element = document.querySelector(`#${fragment}`);
           if (element) {

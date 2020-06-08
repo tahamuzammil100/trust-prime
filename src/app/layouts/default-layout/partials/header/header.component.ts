@@ -1,8 +1,8 @@
-import {Component, HostBinding, HostListener, OnDestroy, OnInit} from '@angular/core';
-import {Subscription} from 'rxjs/Subscription';
-import {LangChangeEvent, TranslateService} from '@ngx-translate/core';
-import {SettingsService} from '@app/settings/settings.service';
-import {AuthService} from '@app/layouts/auth-layout/auth.service';
+import { Component, HostBinding, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs/Subscription';
+import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
+import { SettingsService } from '@app/settings/settings.service';
+import { AuthService } from '@app/layouts/auth-layout/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -20,26 +20,31 @@ export class HeaderComponent implements OnInit, OnDestroy {
       flag: 'flag-icon-us'
     },
     {
-      id: 'es',
-      title: 'Spanish',
-      flag: 'flag-icon-es'
+      id: 'my',
+      title: 'Bahasa M',
+      flag: 'flag-icon-my'
+    },
+    {
+      id: 'cn',
+      title: 'Chinese',
+      flag: 'flag-icon-cn'
     }
   ];
   currentLanguage: any;
   currentUser: any = {
-    name: 'Bob Hyden',
-    thumb: 'https://via.placeholder.com/150x150',
+    name: 'Abbas Ali',
+    thumb: '../../../../../assets/images/linkedInProfileAbbas.jpeg',
     position: 'Administrator'
   };
 
-  logoImageUrl = 'https://via.placeholder.com/334x119';
+  logoImageUrl = '../../../../../assets/images/logo/trustprime-horizontal-logo-white.png';
 
   onSettingChanged: Subscription;
   onLanguageChanged: Subscription;
 
   constructor(private settingService: SettingsService,
-              public translate: TranslateService,
-              private authService: AuthService) {
+    public translate: TranslateService,
+    private authService: AuthService) {
     this.setActiveLang(this.translate.currentLang);
     this.onLanguageChanged = this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       this.setActiveLang(event.lang);
@@ -50,9 +55,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
       this.isNavFolded = this.settings.navigationStyle === 'folded' && window.innerWidth >= 992;
 
       if (settings.theme === 'light') {
-        this.logoImageUrl = 'https://via.placeholder.com/334x119';
+        this.logoImageUrl = '../../../../../assets/images/logo/trustprime-horizontal-logo.png';
       } else {
-        this.logoImageUrl = 'https://via.placeholder.com/334x119';
+        this.logoImageUrl = '../../../../../assets/images/logo/trustprime-horizontal-logo-white.png';
       }
     });
   }
@@ -79,7 +84,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   setActiveLang(lang: string) {
     this.languages.forEach((language) => {
-      if(language.id === lang) {
+      if (language.id === lang) {
         this.currentLanguage = language;
       }
     });

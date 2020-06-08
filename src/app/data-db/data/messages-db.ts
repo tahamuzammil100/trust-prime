@@ -1,39 +1,39 @@
 export class MessagesDb {
   public static data = [
     {
-      name: 'Chris Mathew',
+      name: 'Fikri S',
       thumb: 'https://via.placeholder.com/150X150',
-      message: 'Okay.. I will be waiting for your here till you return.',
+      message: 'Pls fill in the Env Survey and return asap. tq.',
       read: false,
       time: '8 hours ago'
     },
     {
-      name: 'Stella Johnson',
+      name: 'Wafi F',
       thumb: 'https://via.placeholder.com/150X150',
-      message: 'Alia Joseph just joined Messenger! Be the first to send a welcome message or sticker.',
+      message: 'Network topology at Malacca New Strait is approved.',
       read: true,
       time: '9 hours ago'
     },
     {
-      name: 'Steve Smith',
+      name: 'MBMB - Staff',
       thumb: 'https://via.placeholder.com/150X150',
-      message: 'Alex will explain you how to keep the HTML structure and all that.',
+      message: 'Everyone is required to wear face masks at all times at premises.',
       read: false,
       time: '13 hours ago'
     },
-    {
-      name: 'Domnic Brown',
-      thumb: 'https://via.placeholder.com/150X150',
-      message: 'Norman Dolphi is looking for a house in New Jersy, USA',
-      read: false,
-      time: 'one day ago'
-    },
-    {
-      name: 'John Smith',
-      thumb: '',
-      message: 'Agent Kily Johns has added 7 new photos to the property',
-      read: false,
-      time: 'few seconds ago'
-    }
+    // {
+    //   name: 'Domnic Brown',
+    //   thumb: 'https://via.placeholder.com/150X150',
+    //   message: 'Norman Dolphi is looking for a house in New Jersy, USA',
+    //   read: false,
+    //   time: 'one day ago'
+    // },
+    // {
+    //   name: 'John Smith',
+    //   thumb: '',
+    //   message: 'Agent Kily Johns has added 7 new photos to the property',
+    //   read: false,
+    //   time: 'few seconds ago'
+    // }
   ];
 }

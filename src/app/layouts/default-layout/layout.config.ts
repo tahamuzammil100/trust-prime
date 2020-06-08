@@ -4,7 +4,7 @@ export class LayoutConfig {
     mode: 'full-width', // 'boxed', 'full-width', 'framed'
     theme: 'dark',
     themeColor: '',
-    navigationStyle: 'drawer', // 'default', 'folded', 'drawer'
+    navigationStyle: 'folded', // 'default', 'folded', 'drawer'
     navigationFixed: false, // true, false
     activeNavDrawer: false, // true, false
     headerFixed: true, // true, false,
