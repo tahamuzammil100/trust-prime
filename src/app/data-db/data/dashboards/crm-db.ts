@@ -2,68 +2,68 @@ export class CrmDb {
   public static widgets = {
     revenue: {
       badge: {
-        name: 'Revenue',
+        name: 'Crime Reports',
         color: 'badge-secondary'
       },
       icon: {
-        name: 'revenue-new'
+        name: 'alert'
       },
       items: [
         {
-          value: '$25,890',
-          text: 'This July'
+          value: '25,890',
+          text: 'current week'
         }
       ]
     },
     order: {
       badge: {
-        name: 'Order',
-        color: 'badge-secondary'
+        name: 'Citizen Issues',
+        color: 'badge-primary'
       },
       icon: {
-        name: 'orders-new'
+        name: 'oarchive'
       },
       items: [
         {
-          value: '$2,569',
-          text: 'This July'
+          value: '390',
+          text: 'complaints current month'
         }
       ]
     },
     invoices: {
       badge: {
-        name: 'Invoices',
-        color: 'badge-secondary'
+        name: 'Traffic Weekly Analysis',
+        color: 'badge-primary'
       },
       icon: {
-        name: 'invoice-new'
+        name: 'breadcrumbs'
       },
       items: [
         {
-          value: '23',
-          text: 'Sent'
+          value: '294,890',
+          text: 'Vehicles'
         },
         {
-          value: '8',
-          text: 'Paid',
+          value: '192,710',
+          text: 'Cars & LTV',
           tooltip: {
-            value: '$8015',
+            value: '65.3%',
             color: 'bg-success'
           }
         },
         {
-          value: '9',
-          text: 'Due',
+          value: '69,209',
+          text: 'Buses & Public Transport',
           tooltip: {
-            value: '$1215',
+            value: '23.5%',
             color: 'bg-warning'
           }
         },
         {
-          value: '6',
-          text: 'Overdue',
+          value: '32,917',
+          text: 'Trucks & HTV',
           tooltip: {
-            value: '$415',
+            value: '11.2%',
             color: 'bg-danger'
           }
         }
@@ -71,25 +71,25 @@ export class CrmDb {
     },
     reportCards: [
       {
-        title: 'Estimates',
+        title: 'Top Crimes  | current month',
         cardData: {
-          value: '$57,985',
-          content: 'Worth Estimate',
+          value: '2,302',
+          content: 'Police Reports',
           items: [
             {
-              title: '21 Sent',
+              title: '512 Motorbike Theft',
               dotColor: 'bg-light-blue'
             },
             {
-              title: '9 Approved',
+              title: '310 Car Theft',
               dotColor: 'bg-light-green'
             },
             {
-              title: '5 Denied',
+              title: '213 Violance',
               dotColor: 'bg-light-pink'
             },
             {
-              title: '11 Expired',
+              title: '1267 Others',
               dotColor: 'bg-light'
             }
           ]
@@ -97,16 +97,16 @@ export class CrmDb {
         chart: {
           chartType: 'doughnut',
           options: {
-            centerText: 46,
+            centerText: 2302,
             height: 110,
             width: 110,
             cutoutPercentage: 90,
             responsive: false
           },
-          labels: ['Sent', 'Approved', 'Denied', 'Expired'],
+          labels: ['Motorbike Theft', 'Car Theft', 'Violance', 'Others'],
           datasets: [
             {
-              data: [21, 9, 5, 11]
+              data: [512, 310, 213, 1267]
             }
           ],
           colors: [
@@ -122,25 +122,25 @@ export class CrmDb {
         }
       },
       {
-        title: 'Proposals',
+        title: 'Traffic Incidents  | current month',
         cardData: {
-          value: '$86,910',
-          content: 'Worth Proposal',
+          value: '12,942',
+          content: 'Accidents Reported',
           items: [
             {
-              title: '30 Sent',
+              title: '6,209 Selangor',
               dotColor: 'bg-light-blue'
             },
             {
-              title: '9 Approved',
+              title: '4,912 Kuala Lumpur',
               dotColor: 'bg-light-green'
             },
             {
-              title: '3 Denied',
+              title: '930 Negeri Sembilan',
               dotColor: 'bg-light-pink'
             },
             {
-              title: '11 Expired',
+              title: '891 Malacca',
               dotColor: 'bg-light'
             }
           ]
@@ -148,16 +148,16 @@ export class CrmDb {
         chart: {
           chartType: 'doughnut',
           options: {
-            centerText: 53,
+            centerText: 100,
             height: 110,
             width: 110,
             cutoutPercentage: 80,
             responsive: false
           },
-          labels: ['Sent', 'Approved', 'Denied', 'Expired'],
+          labels: ['Selangor', 'Kuala Lumpur', 'Negeri Sembilan', 'Malacca'],
           datasets: [
             {
-              data: [30, 9, 3, 11]
+              data: [47.9, 37.9, 7.1, 7.1]
             }
           ],
           colors: [
@@ -173,6 +173,9 @@ export class CrmDb {
         }
       }
     ],
+
+
+
     overview: {
       map: {
         type: 'map',
@@ -380,14 +383,17 @@ export class CrmDb {
         }
       ],
       stats: {
-        revenue: '$25,890',
-        revenueTitle: 'Total Revenue',
-        clients: '23',
-        clientsTitle: 'Clients',
+        revenue: '12,931,009',
+        revenueTitle: 'Tourism Revenues | current month',
+        clients: '690k',
+        clientsTitle: 'Tourists',
         countries: '07',
         countriesTitle: 'Countries',
       }
     },
+
+
+
     recentTickets: [
       {
         user: {
@@ -595,7 +601,7 @@ export class CrmDb {
       }
     ],
     leads: {
-      title: 'this year leads',
+      title: 'current year leads',
       data: {
         desktop: {
           lead: '9,365',

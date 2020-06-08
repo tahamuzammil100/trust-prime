@@ -1,6 +1,6 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {CrmDashboardService} from './crm-dashboard.service';
-import {Subscription} from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { CrmDashboardService } from './crm-dashboard.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-crm-dashboard',
@@ -13,7 +13,9 @@ export class CrmDashboardComponent implements OnInit, OnDestroy {
 
   onTasksChanged: Subscription;
 
-  constructor(private dataService: CrmDashboardService) {
+  constructor(
+    private dataService: CrmDashboardService
+  ) {
     this.widgets = this.dataService.widgets;
 
     this.onTasksChanged = this.dataService.onTasksChanged.subscribe((tasks) => {

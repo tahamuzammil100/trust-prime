@@ -1,6 +1,6 @@
 <!-- Page Header -->
 <div class="dt-page__header">
-  <h1 class="dt-page__title">Dashboard - CRM</h1>
+  <h1 class="dt-page__title">TrustPrime - Key KPIs & Indexes</h1>
 </div>
 <!-- /page header -->
 
@@ -9,7 +9,7 @@
 
   <!-- Entry Heading -->
   <div class="dt-entry__heading">
-    <h3 class="dt-entry__title">Finance &amp; Sales</h3>
+    <h3 class="dt-entry__title">Smart Security</h3>
   </div>
   <!-- /entry heading -->
 
@@ -22,9 +22,8 @@
   <!-- Grid Item -->
   <div class="col-md-3 col-6">
 
-    <gx-status-card [badge]="widgets.revenue.badge"
-                    [icon]="widgets.revenue.icon"
-                    [items]="widgets.revenue.items"></gx-status-card>
+    <gx-status-card [badge]="widgets.revenue.badge" [icon]="widgets.revenue.icon" [items]="widgets.revenue.items">
+    </gx-status-card>
 
   </div>
   <!-- /grid item -->
@@ -32,9 +31,8 @@
   <!-- Grid Item -->
   <div class="col-md-3 col-6">
 
-    <gx-status-card [badge]="widgets.order.badge"
-                    [icon]="widgets.order.icon"
-                    [items]="widgets.order.items"></gx-status-card>
+    <gx-status-card [badge]="widgets.order.badge" [icon]="widgets.order.icon" [items]="widgets.order.items">
+    </gx-status-card>
 
   </div>
   <!-- /grid item -->
@@ -42,9 +40,8 @@
   <!-- Grid Item -->
   <div class="col-md-6 col-12">
 
-    <gx-status-card [badge]="widgets.invoices.badge"
-                    [icon]="widgets.invoices.icon"
-                    [items]="widgets.invoices.items"></gx-status-card>
+    <gx-status-card [badge]="widgets.invoices.badge" [icon]="widgets.invoices.icon" [items]="widgets.invoices.items">
+    </gx-status-card>
 
   </div>
   <!-- /grid item -->
@@ -52,21 +49,30 @@
   <!-- Grid Item -->
   <div class="col-md-6" *ngFor="let reportCard of widgets.reportCards">
 
-    <gx-report-card gxCard fullHeight
-                    [title]="reportCard.title"
-                    [data]="reportCard.cardData"
-                    [chart]="reportCard.chart"></gx-report-card>
+    <gx-report-card gxCard fullHeight [title]="reportCard.title" [data]="reportCard.cardData"
+      [chart]="reportCard.chart"></gx-report-card>
 
   </div>
   <!-- /grid item -->
 
+
+  <!-- Entry Header -->
+  <div class="dt-entry__header">
+
+    <!-- Entry Heading -->
+    <div class="dt-entry__heading">
+      <h3 class="dt-entry__title">Smart Tourism Analysis</h3>
+    </div>
+    <!-- /entry heading -->
+
+  </div>
+  <!-- /entry header -->
+
   <!-- Grid Item -->
   <div class="col-12">
 
-    <widget-overview gxCard
-                     [map]="widgets.overview.map"
-                     [statusReports]="widgets.overview.statusReports"
-                     [stats]="widgets.overview.stats"></widget-overview>
+    <widget-overview gxCard [map]="widgets.overview.map" [statusReports]="widgets.overview.statusReports"
+      [stats]="widgets.overview.stats"></widget-overview>
 
   </div>
   <!-- /grid item -->
@@ -100,9 +106,7 @@
   <!-- Grid Item -->
   <div class="col-xl-6 col-md-8 order-xl-4 order-md-3">
 
-    <gx-operator-card gxCard fullHeight
-                      cardTitle="Staff of the week"
-                      [operator]="widgets.operator"></gx-operator-card>
+    <gx-operator-card gxCard fullHeight cardTitle="Staff of the week" [operator]="widgets.operator"></gx-operator-card>
 
   </div>
   <!-- /grid item -->
@@ -110,16 +114,13 @@
   <!-- Grid Item -->
   <div class="col-xl-3 col-md-4 col-sm-6 order-xl-2 order-md-2">
 
-    <gx-card fullHeight
-             body-class="d-flex justify-content-center align-items-center"
-             [card-title]="widgets.ticketsStatus.title">
+    <gx-card fullHeight body-class="d-flex justify-content-center align-items-center"
+      [card-title]="widgets.ticketsStatus.title">
 
       <!-- Chart -->
-      <gx-chart [chartType]="widgets.ticketsStatus.chart.chartType"
-                [options]="widgets.ticketsStatus.chart.options"
-                [labels]="widgets.ticketsStatus.chart.labels"
-                [colors]="widgets.ticketsStatus.chart.colors"
-                [datasets]="widgets.ticketsStatus.chart.datasets"></gx-chart>
+      <gx-chart [chartType]="widgets.ticketsStatus.chart.chartType" [options]="widgets.ticketsStatus.chart.options"
+        [labels]="widgets.ticketsStatus.chart.labels" [colors]="widgets.ticketsStatus.chart.colors"
+        [datasets]="widgets.ticketsStatus.chart.datasets"></gx-chart>
       <!-- /chart -->
 
     </gx-card>
@@ -136,11 +137,9 @@
         <li class="dt-indicator-item" *ngFor="let row of widgets.departments">
           <p class="dt-indicator-title">{{row.name}}</p>
 
-          <gx-status-bar [fillVal]="row.progressBar.fillVal"
-                         [maxVal]="row.progressBar.maxVal"
-                         [textColor]="row.progressBar.textColor"
-                         [barPosition]="row.progressBar.barPosition"
-                         [barColor]="row.progressBar.barColor"></gx-status-bar>
+          <gx-status-bar [fillVal]="row.progressBar.fillVal" [maxVal]="row.progressBar.maxVal"
+            [textColor]="row.progressBar.textColor" [barPosition]="row.progressBar.barPosition"
+            [barColor]="row.progressBar.barColor"></gx-status-bar>
 
         </li>
       </ul>
@@ -179,11 +178,8 @@
   <!-- Grid Item -->
   <div class="col-12">
 
-    <app-section-leads gxCard
-                       [cardTitle]="widgets.leads.title"
-                       [data]="widgets.leads.data"
-                       [countries]="widgets.leads.countries"
-                       [monthlyLead]="widgets.leads.monthlyLead"></app-section-leads>
+    <app-section-leads gxCard [cardTitle]="widgets.leads.title" [data]="widgets.leads.data"
+      [countries]="widgets.leads.countries" [monthlyLead]="widgets.leads.monthlyLead"></app-section-leads>
 
   </div>
   <!-- /grid item -->
@@ -199,7 +195,8 @@
   <!-- Grid Item -->
   <div class="col-md-6">
 
-    <app-section-social-media-advertising gxCard fullHeight [socialMedia]="widgets.socialMedia"></app-section-social-media-advertising>
+    <app-section-social-media-advertising gxCard fullHeight [socialMedia]="widgets.socialMedia">
+    </app-section-social-media-advertising>
 
   </div>
   <!-- /grid item -->
