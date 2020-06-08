@@ -1,0 +1,37 @@
+<ng-container *ngIf="contact && isVisible">
+  <div class="p-4">
+    <div class="dt-avatar-wrapper mb-3">
+      <gx-avatar [user]="contact" [charLength]="0" class="size-50"></gx-avatar>
+
+      <div class="dt-avatar-info">
+        <span class="dt-avatar-name h4 mb-1">{{contact.first_name + ' ' + contact.last_name}}</span>
+        <span class="dt-avatar-desc f-12">{{contact.email}}</span>
+      </div>
+    </div>
+
+    <div class="mb-1">
+      <gx-icon name="maps" [fw]="true" class="mr-1"></gx-icon>
+      <span class="f-12">{{contact.location}}</span>
+    </div>
+
+    <div>
+      <gx-icon name="contacts" [fw]="true" class="mr-1"></gx-icon>
+      <span class="f-12">{{contact.connections}}</span>
+    </div>
+  </div>
+
+  <div class="px-4 py-2 border-top d-flex justify-content-between">
+    <a href="javascript:void(0)" class="card-link">Add to Contacts</a>
+    <div class="ml-2 ml-sm-10">
+      <a class="mr-1" href="javascript:void(0)">
+        <gx-icon name="mail" [fw]="true" size="xl"></gx-icon>
+      </a>
+      <a class="mr-1" href="javascript:void(0)">
+        <gx-icon name="tag-o" [fw]="true" size="xl"></gx-icon>
+      </a>
+      <a href="javascript:void(0)">
+        <gx-icon name="chat-app" [fw]="true" size="xl"></gx-icon>
+      </a>
+    </div>
+  </div>
+</ng-container>

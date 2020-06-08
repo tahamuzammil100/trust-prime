@@ -1,0 +1,45 @@
+<!-- User Activity Form Card -->
+<div class="dt-card">
+    <card-body>
+        <form [formGroup]="postForm" (ngSubmit)="postForm.valid && onSubmitPost()">
+            <!-- Media -->
+            <div class="media">
+                <!-- Avatar -->
+                <img class="dt-avatar dt-avatar__shadow size-50 mr-2"
+                     [src]="currentUser.small_image"
+                     alt="{{currentUser.name}}">
+                <!-- /avatar -->
+
+                <!-- Media Body -->
+                <div class="media-body">
+                    <!-- Text Area -->
+                    <textarea class="form-control border-0 shadow-none bg-focus" rows="3"
+                              placeholder="Whats in your mind?" formControlName="message"></textarea>
+                    <!-- /text area -->
+                </div>
+                <!-- /media body -->
+            </div>
+            <!-- /media -->
+
+            <!-- Separator -->
+            <hr>
+            <!-- /separator -->
+
+            <div class="d-flex align-items-center">
+                <div class="dt-attachment-btn border-0 d-inline-flex align-items-center overflow-hidden">
+                    <input type="file">
+                    <gx-icon name="camera" class="mr-2" size="xl"></gx-icon>
+                    <span class="d-inline-block">Add Photos/Album</span>
+                </div>
+
+                <button type="submit"
+                        class="btn btn-primary btn-xs text-uppercase ml-auto" [disabled]="postForm.invalid">send</button>
+            </div>
+        </form>
+    </card-body>
+</div>
+<!-- /card body -->
+
+<!-- User Activity Detail Card -->
+<post-detail *ngFor="let post of posts | orderBy:'created_at':true" gxCard [post]="post"></post-detail>
+<!-- /user activity detail card -->

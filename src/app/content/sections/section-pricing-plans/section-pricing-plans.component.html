@@ -1,0 +1,66 @@
+<!-- Card Header -->
+<card-header class="mb-5" card-title="Pricing Plans">
+
+  <!-- Card Tools -->
+  <card-tool>
+    <button type="button" class="btn btn-success btn-xs">Add New</button>
+  </card-tool>
+  <!-- /card tools -->
+
+</card-header>
+<!-- /card header -->
+
+<!-- Card Body -->
+<card-body class="p-0">
+
+  <!-- Widget -->
+  <div class="dt-widget dt-widget-hl-item dt-widget-hl-item-space dt-widget-mb-item dt-widget-hover-bg">
+
+    <!-- Widget Item -->
+    <div *ngFor="let plan of pricingPlans" class="dt-widget__item" [ngClass]="plan.color">
+
+      <!-- Widget Info -->
+      <div class="dt-widget__info text-truncate">
+        <div class="dt-widget__title f-16 font-weight-500 text-truncate">
+          {{plan.title}}
+        </div>
+        <p class="mb-0 text-truncate text-light-gray">
+              <span class="text-dark mr-1"><gx-icon name="wall"
+                                                    class="mr-1"></gx-icon>{{plan.subscribers | number}}</span>
+          subscribers
+        </p>
+      </div>
+      <!-- /widget info -->
+
+      <!-- Widget Extra -->
+      <div class="dt-widget__extra text-right">
+        <!-- Show Content -->
+        <div class="show-content">
+          <span class="d-block text-dark">{{plan.monthlyPrice | currency}}</span>
+          <span class="d-block">Per Month</span>
+        </div>
+        <!-- /show content -->
+        <!-- Hide Content -->
+        <div class="hide-content">
+          <!-- Action Button Group -->
+          <div class="action-btn-group">
+            <button class="btn btn-default text-success dt-fab-btn">
+              <gx-icon name="editors" size="1x"></gx-icon>
+            </button>
+            <button class="btn btn-default text-danger dt-fab-btn">
+              <gx-icon name="trash" size="1x"></gx-icon>
+            </button>
+          </div>
+          <!-- /action button group -->
+        </div>
+        <!-- /hide content -->
+      </div>
+      <!-- /widget extra -->
+
+    </div>
+    <!-- /widgets item -->
+
+  </div>
+  <!-- /widget -->
+</card-body>
+<!-- /card body -->

@@ -1,0 +1,32 @@
+<!-- Grid -->
+<div class="row">
+
+  <!-- Grid Item -->
+  <div class="col-xl-12">
+
+    <!-- Module -->
+    <div class="dt-module">
+
+      <!-- Module Sidebar -->
+      <app-task-sidebar></app-task-sidebar>
+      <!-- /module sidebar -->
+
+      <!-- Module List -->
+      <app-task-list [hidden]="currentTask"></app-task-list>
+      <!-- /module list -->
+
+      <!-- Module details -->
+      <app-task-details *ngIf="currentTask"></app-task-details>
+      <!-- /module list -->
+
+      <todo-drawer [ngClass]="{'open':drawer.isOpen}"></todo-drawer>
+
+      <div class="dt-backdrop" *ngIf="drawer.isOpen" (click)="closeDrawer($event)"></div>
+    </div>
+    <!-- /module -->
+
+  </div>
+  <!-- /Grid Item -->
+
+</div>
+<!-- /Grid -->

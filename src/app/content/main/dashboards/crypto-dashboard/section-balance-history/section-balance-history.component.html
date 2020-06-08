@@ -1,0 +1,36 @@
+<!-- Card Header -->
+<card-header [card-title]="data.title">
+
+  <!-- Card Tools -->
+  <card-tool>
+
+    <!-- Dropdown -->
+    <div class="d-inline-block" ngbDropdown placement="bottom-right">
+      <a class="d-inline-block f-12 py-1 px-2 border rounded text-light-gray"
+         href="javascript:void(0)" ngbDropdownToggle>
+        Last 30 days
+      </a>
+
+      <div ngbDropdownMenu>
+        <a class="dropdown-item" href="javascript:void(0)">Last week</a>
+        <a class="dropdown-item" href="javascript:void(0)">Last 6 month</a>
+        <a class="dropdown-item" href="javascript:void(0)">Last 1 year</a>
+      </div>
+    </div>
+    <!-- /dropdown -->
+
+  </card-tool>
+  <!-- /card tools -->
+
+</card-header>
+<!-- /card header -->
+
+<!-- Chart Body -->
+<gx-chartist-chart class="dt-chart__body"
+                   classNames="stroke-w-2 fill-opacity-1"
+                   [type]="data.chart.type"
+                   [lineSmooth]="data.chart.lineSmooth"
+                   [data]="data.chart.data"
+                   [options]="data.chart.options"
+                   [events]="data.chart.events"></gx-chartist-chart>
+<!-- /chart body -->

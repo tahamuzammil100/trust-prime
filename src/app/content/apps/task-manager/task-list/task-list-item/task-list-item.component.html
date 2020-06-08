@@ -1,0 +1,30 @@
+<!-- Checkbox Icon -->
+<btn-complete [task]="task"></btn-complete>
+<!-- /checkbox icon -->
+
+<!-- Module Content -->
+<a href="#{{task.id}}"
+   (click)="onClickTask($event, task.id)"
+   class="dt-module__list-item-content"
+   [ngClass]="{'complete':task.completed}">{{task.title || 'New Task'}}</a>
+<!-- /module content -->
+
+<!-- Module Info -->
+<div class="dt-module__list-item-info">
+
+  <!-- Badges -->
+  <task-badges [ids]="task.labels"
+               [labels]="labels"
+               [showAll]="false"></task-badges>
+  <!-- /badges -->
+
+  <!-- Module Date -->
+  <span>{{ task.dueDate | date:"MMMM d" }}</span>
+
+  <!-- Module Assignee -->
+  <ng-container *ngIf="task.user_id" #user="item" [getbyid]="task.user_id" [items]="assignees">
+    <gx-avatar [user]="user.data" class="size-25"></gx-avatar>
+  </ng-container>
+
+</div>
+<!-- /module info -->

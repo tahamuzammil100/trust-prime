@@ -1,0 +1,91 @@
+<!-- Action Bar -->
+<div class="d-flex flex-wrap mb-5">
+  <!-- Back Button -->
+  <a href="javascript:void(0)"
+     class="btn btn-outline-dark btn-sm mr-auto mb-1"
+     (click)="goToBack()">
+    <gx-icon name="arrow-left" [fw]="true" size="lg"></gx-icon>
+  </a>
+  <!-- /back button -->
+
+  <!-- Button Group -->
+  <div class="btn-group btn-group-sm mr-3 mr-lg-7 mb-1" role="group">
+    <button type="button" class="btn btn-outline-dark" (click)="setFolder('archive')">
+      <gx-icon name="archive" [fw]="true" size="lg"></gx-icon>
+    </button>
+
+    <button type="button" class="btn btn-outline-dark" (click)="setFolder('spam')">
+      <gx-icon name="spam" [fw]="true" size="lg"></gx-icon>
+    </button>
+
+    <button type="button" class="btn btn-outline-dark" (click)="setFolder('trash')">
+      <gx-icon name="trash-filled" [fw]="true" size="lg"></gx-icon>
+    </button>
+
+  </div>
+  <!-- /button group -->
+
+  <!-- Button Group -->
+  <div class="btn-group btn-group-sm mr-4 mr-lg-7 mb-1" role="group">
+
+    <div class="btn-group btn-group-sm" role="group" ngbDropdown>
+      <button type="button" class="btn btn-outline-dark no-arrow" ngbDropdownToggle>
+        <gx-icon name="folder" [fw]="true" size="lg"></gx-icon>
+      </button>
+
+      <div ngbDropdownMenu>
+        <a  *ngFor="let folder of folders"
+            href="javascript:void(0)"
+            class="dropdown-item"
+            [ngClass]="{'active':folder.handle == currentMail.folder}"
+            (click)="setFolder(folder.handle)">{{folder.title}}</a>
+      </div>
+    </div>
+    <div class="btn-group btn-group-sm" role="group" ngbDropdown placement="bottom-right">
+      <button type="button" class="btn btn-outline-dark no-arrow" ngbDropdownToggle>
+        <gx-icon name="tag" [fw]="true" size="lg"></gx-icon>
+      </button>
+
+      <div ngbDropdownMenu>
+        <a *ngFor="let label of labels"
+           href="javascript:void(0)"
+           class="dropdown-item"
+           [ngClass]="{'active':hasLabel(label.id)}"
+           (click)="toggleLabel(label.id)">{{label.title}}</a>
+      </div>
+    </div>
+
+  </div>
+  <!-- /button group -->
+
+  <!-- Dropdown -->
+  <div ngbDropdown placement="bottom-right">
+
+    <!-- Dropdown Button -->
+    <a href="javascript:void(0)" class="btn btn-outline-dark btn-sm" ngbDropdownToggle>
+      More
+    </a>
+    <!-- /dropdown button -->
+
+    <!-- Dropdown Menu -->
+    <div ngbDropdownMenu>
+      <a class="dropdown-item" href="javascript:void(0)" (click)="markAsUnread()">Unread</a>
+      <a class="dropdown-item" href="javascript:void(0)" (click)="onToggleStarred(true)">Starred</a>
+      <a class="dropdown-item" href="javascript:void(0)" (click)="onToggleStarred(false)">Unstarred</a>
+    </div>
+    <!-- /dropdown menu -->
+
+  </div>
+  <!-- /dropdown -->
+</div>
+<!-- /action bar -->
+
+<div class="d-flex flex-wrap">
+  <h3 class="mb-0 text-truncate flex-1">{{currentMail.subject}}</h3>
+
+  <!-- Badges -->
+  <task-badges class="ml-auto dt-module__list-item-info"
+               [ids]="currentMail.labels"
+               [labels]="labels"></task-badges>
+  <!-- /badges -->
+</div>

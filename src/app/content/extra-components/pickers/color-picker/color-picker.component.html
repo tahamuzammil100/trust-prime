@@ -1,0 +1,386 @@
+<!-- Page Header -->
+<div class="dt-page__header">
+  <h1 class="dt-page__title">Color Pickers</h1>
+</div>
+<!-- /page header -->
+
+<!-- Grid -->
+<ng-masonry-grid class="row"
+                 [@visibleInOut]="showMasonry"
+                 (onNgMasonryInit)="onNgMasonryInit($event)">
+
+  <!-- Grid Item -->
+  <ng-masonry-grid-item class="col-xl-4">
+
+    <!-- Card -->
+    <gx-card card-title="Basic">
+
+      <input class="form-control"
+             [style.background]="color1"
+             [(colorPicker)]="color1"
+             (colorPickerOpen)="onEventLog('colorPickerOpen', $event)"
+             (colorPickerClose)="onEventLog('colorPickerClose', $event)"
+             (cpInputChange)="onEventLog('cpInputChange', $event)"
+             (cpSliderDragStart)="onEventLog('cpSliderDragStart', $event)"
+             (cpSliderDragEnd)="onEventLog('cpSliderDragEnd', $event)"/>
+
+    </gx-card>
+    <!-- /Card -->
+
+  </ng-masonry-grid-item>
+  <!-- Grid Item -->
+
+  <!-- Grid Item -->
+  <ng-masonry-grid-item class="col-xl-4">
+
+    <!-- Card -->
+    <gx-card card-title="Show the color in the input field">
+
+      <input class="form-control text-white"
+             [value]="color2"
+             [style.background]="color2"
+             [(colorPicker)]="color2"/>
+
+    </gx-card>
+    <!-- /Card -->
+
+  </ng-masonry-grid-item>
+  <!-- Grid Item -->
+
+  <!-- Grid Item -->
+  <ng-masonry-grid-item class="col-xl-4">
+
+    <!-- Card -->
+    <gx-card card-title="Output format">
+
+      <div class="form-group">
+        <input class="form-control text-white"
+               [value]="color3"
+               [style.background]="color3"
+               [cpOutputFormat]="'rgba'"
+               [cpPosition]="'left'"
+               [(colorPicker)]="color3"/>
+      </div>
+
+      <div class="form-group">
+        <input class="form-control text-white"
+               [value]="color4"
+               [style.background]="color4"
+               [cpOutputFormat]="'hsla'"
+               [cpPosition]="'left'"
+               [(colorPicker)]="color4"/>
+      </div>
+
+    </gx-card>
+    <!-- /Card -->
+
+  </ng-masonry-grid-item>
+  <!-- Grid Item -->
+
+  <!-- Grid Item -->
+  <ng-masonry-grid-item class="col-xl-4">
+
+    <!-- Card -->
+    <gx-card card-title="Changing dialog position">
+
+      <input class="form-control text-white"
+             [value]="color5"
+             [style.background]="color5"
+             [cpPosition]="'bottom'"
+             [(colorPicker)]="color5"/>
+
+    </gx-card>
+    <!-- /Card -->
+
+  </ng-masonry-grid-item>
+  <!-- Grid Item -->
+
+  <!-- Grid Item -->
+  <ng-masonry-grid-item class="col-xl-4">
+
+    <!-- Card -->
+    <gx-card card-title="Relative picker to the html element" body-class="text-center">
+
+      <button class="btn btn-link change-me"
+              [style.color]="color6"
+              [cpPosition]="'bottom'"
+              [cpPositionOffset]="'50%'"
+              [cpPositionRelativeToArrow]="true"
+              [(colorPicker)]="color6">Change me!
+      </button>
+
+    </gx-card>
+    <!-- /Card -->
+
+  </ng-masonry-grid-item>
+  <!-- Grid Item -->
+
+  <!-- Grid Item -->
+  <ng-masonry-grid-item class="col-xl-4">
+
+    <!-- Card -->
+    <gx-card card-title="Show cancel button">
+
+      <input class="form-control text-white"
+             [value]="color7"
+             [style.background]="color7"
+             [cpPosition]="'left'"
+             [cpCancelButton]="true"
+             [cpCancelButtonClass]="'btn btn-dark btn-sm'"
+             [(colorPicker)]="color7"/>
+
+    </gx-card>
+    <!-- /Card -->
+
+  </ng-masonry-grid-item>
+  <!-- Grid Item -->
+
+  <!-- Grid Item -->
+  <ng-masonry-grid-item class="col-xl-4">
+
+    <!-- Card -->
+    <gx-card card-title="Change cancel button class">
+
+      <input class="form-control text-white"
+             [value]="color8"
+             [style.background]="color8"
+             [cpCancelButton]="true"
+             [cpCancelButtonClass]="'btn btn-primary btn-sm'"
+             [(colorPicker)]="color8"/>
+
+    </gx-card>
+    <!-- /Card -->
+
+  </ng-masonry-grid-item>
+  <!-- Grid Item -->
+
+  <!-- Grid Item -->
+  <ng-masonry-grid-item class="col-xl-4">
+
+    <!-- Card -->
+    <gx-card card-title="Show OK button">
+
+      <input class="form-control text-white"
+             [value]="color9"
+             [style.background]="color9"
+             [cpOKButton]="true"
+             [cpSaveClickOutside]="false"
+             [cpOKButtonClass]="'btn btn-primary btn-sm'"
+             [(colorPicker)]="color9"/>
+
+    </gx-card>
+    <!-- /Card -->
+
+  </ng-masonry-grid-item>
+  <!-- Grid Item -->
+
+  <!-- Grid Item -->
+  <ng-masonry-grid-item class="col-xl-4">
+
+    <!-- Card -->
+    <gx-card card-title="Change event color">
+
+      <div class="form-group">
+
+        <input class="form-control text-white"
+               [value]="color10"
+               [style.background]="color10"
+               [cpPosition]="'left'"
+               [(colorPicker)]="color10"
+               (colorPickerChange)="cmykColor=onChangeColorCmyk($event);color10=$event"/>
+
+      </div>
+
+      <div class="row">
+        <div class="col-6 text-center">
+          <span class="cmyk-text" style="color: rgb(0,255,255);" [style.font-size.px]="100 * cmykColor.c">C</span>
+        </div>
+
+        <div class="col-6 text-center">
+          <span class="cmyk-text" style="color: rgb(255,0,255)" [style.font-size.px]="100 * cmykColor.m">M</span>
+        </div>
+
+        <div class="col-6 text-center">
+          <span class="cmyk-text" style="color: rgb(255,255,0)" [style.font-size.px]="100 * cmykColor.y">Y</span>
+        </div>
+
+        <div class="col-6 text-center">
+          <span class="cmyk-text" [style.font-size.px]="100 * cmykColor.k">K</span>
+        </div>
+      </div>
+
+    </gx-card>
+    <!-- /Card -->
+
+  </ng-masonry-grid-item>
+  <!-- Grid Item -->
+
+  <!-- Grid Item -->
+  <ng-masonry-grid-item class="col-xl-4">
+
+    <!-- Card -->
+    <gx-card card-title="With preset colors">
+
+      <input class="form-control text-white"
+             [value]="color11"
+             [style.background]="color11"
+             [cpPresetColors]="['#fff', '#000', '#2889e9', '#e920e9', '#fff500', 'rgb(236,64,64)']"
+             [(colorPicker)]="color11"/>
+
+    </gx-card>
+    <!-- /Card -->
+
+  </ng-masonry-grid-item>
+  <!-- Grid Item -->
+
+  <!-- Grid Item -->
+  <ng-masonry-grid-item class="col-xl-4">
+
+    <!-- Card -->
+    <gx-card card-title="Use cpToggle with cpIgnoredElements">
+
+      <div class="form-group">
+        <input class="form-control text-white"
+               #ignoredInput
+               [style.background]="color12"
+               [cpFallbackColor]="'#f200bd'"
+               [cpIgnoredElements]="[ignoredButton, ignoredInput]"
+               [(cpToggle)]="toggle"
+               [(colorPicker)]="color12"/>
+      </div>
+
+      <div class="form-group">
+        <button #ignoredButton class="btn btn-primary" (click)="toggle=!toggle;">Toggle</button>
+      </div>
+
+      <div class="form-group"><b>Toggle status: {{toggle}}</b></div>
+
+    </gx-card>
+    <!-- /Card -->
+
+  </ng-masonry-grid-item>
+  <!-- Grid Item -->
+
+  <!-- Grid Item -->
+  <ng-masonry-grid-item class="col-xl-4">
+
+    <!-- Card -->
+    <gx-card card-title="Change alpha channel behaviour">
+
+      <div class="form-group">
+        <input class="form-control text-white"
+               [value]="color13"
+               [style.background]="color13"
+               [cpOutputFormat]="'rgba'"
+               [cpAlphaChannel]="'disabled'"
+               [cpPosition]="'left'"
+               [(colorPicker)]="color13"/>
+      </div>
+
+      <div class="form-group">
+        <input class="form-control text-white"
+               [value]="color14"
+               [style.background]="color14"
+               [cpAlphaChannel]="'always'"
+               [cpOutputFormat]="'rgba'"
+               [cpPosition]="'left'"
+               [(colorPicker)]="color14"/>
+      </div>
+
+      <div class="form-group">
+        <input class="form-control"
+               [value]="color15"
+               [style.background]="rgbaText"
+               [cpAlphaChannel]="'always'"
+               [cpOutputFormat]="'hex'"
+               [colorPicker]="color15"
+               [cpPosition]="'left'"
+               (colorPickerChange)="rgbaText=onChangeColorHex8($event);color15=$event"/>
+      </div>
+
+    </gx-card>
+    <!-- /Card -->
+
+  </ng-masonry-grid-item>
+  <!-- Grid Item -->
+
+  <!-- Grid Item -->
+  <ng-masonry-grid-item class="col-xl-4">
+
+    <!-- Card -->
+    <gx-card card-title="Add and remove preset colors">
+
+      <input class="form-control text-white"
+             [style.background]="color16"
+             [cpAlphaChannel]="'always'"
+             [cpOutputFormat]="'rgba'"
+             [cpPresetColors]="['#fff', '#2889e9']"
+             [cpAddColorButton]="true"
+             [(colorPicker)]="color16" />
+
+    </gx-card>
+    <!-- /Card -->
+
+  </ng-masonry-grid-item>
+  <!-- Grid Item -->
+
+  <!-- Grid Item -->
+  <ng-masonry-grid-item class="col-xl-6">
+
+    <!-- Card -->
+    <gx-card card-title="Show the dialog permanently">
+
+      <div class="row">
+        <div class="col-xl-6">
+          <span [style.background]="arrayColors[selectedColor]"
+                [cpToggle]="true"
+                [cpDialogDisplay]="'inline'"
+                [cpCancelButton]="true"
+                [cpCancelButtonClass]="'btn btn-primary btn-sm'"
+                [(colorPicker)]="arrayColors[selectedColor]"></span>
+        </div>
+
+        <div class="col-xl-4 offset-xl-2" fxLayout="column" fxLayoutAlign="space-between stretch">
+          <div class="color-box mb-2"
+               [style.background]="arrayColors['color1']"
+               (click)="selectedColor='color1'"></div>
+
+          <div class="color-box mb-2"
+               [style.background]="arrayColors['color2']"
+               (click)="selectedColor='color2'"></div>
+
+          <div class="color-box mb-2"
+               [style.background]="arrayColors['color3']"
+               (click)="selectedColor='color3'"></div>
+
+          <div class="color-box mb-2"
+               [style.background]="arrayColors['color4']"
+               (click)="selectedColor='color4'"></div>
+
+          <div class="color-box mb-2"
+               [style.background]="arrayColors['color5']"
+               (click)="selectedColor='color5'"></div>
+
+          <div class="color-box mb-2"
+               [style.background]="arrayColors['color6']"
+               (click)="selectedColor='color6'"></div>
+
+          <div class="color-box mb-2"
+               [style.background]="arrayColors['color7']"
+               (click)="selectedColor='color7'"></div>
+
+          <div class="color-box"
+               [style.background]="arrayColors['color8']"
+               (click)="selectedColor='color8'"></div>
+        </div>
+
+      </div>
+
+    </gx-card>
+    <!-- /Card -->
+
+  </ng-masonry-grid-item>
+  <!-- Grid Item -->
+
+</ng-masonry-grid>
+<!-- /grid -->

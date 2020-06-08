@@ -1,0 +1,38 @@
+<!-- User Detail  -->
+<div class="dt-avatar-wrapper">
+  <div class="dt-avatar-status mr-2">
+    <gx-avatar class="size-45" [user]="contact" [charLength]="0"></gx-avatar>
+    <div class="dot-shape bg-success dot-shape-lg"></div>
+  </div>
+  <span class="dt-avatar-info">
+    <a href="javascript:void(0)" class="dt-avatar-name">{{contact.name}}</a>
+    <span class="d-inline-block">{{contact.email}}</span>
+  </span>
+</div>
+<!-- User Detail  -->
+
+<!-- Dropdown -->
+<div class="ml-auto" ngbDropdown placement="bottom-right">
+  <a class="no-arrow text-dark" href="javascript:void(0)" ngbDropdownToggle>
+    <gx-icon name="horizontal-more" size="lg"></gx-icon>
+  </a>
+
+  <div ngbDropdownMenu>
+    <a class="dropdown-item" href="javascript:void(0)">
+      <gx-icon name="editors" [fw]="true"></gx-icon>
+      Edit
+    </a>
+    <a class="dropdown-item" href="javascript:void(0)">
+      <gx-icon name="trash" [fw]="true"></gx-icon>
+      Delete
+    </a>
+    <a class="dropdown-item" href="javascript:void(0)">
+      <gx-icon name="contacts" [fw]="true"></gx-icon>
+      Contact List</a>
+    <a class="dropdown-item" href="javascript:void(0)">
+      <gx-icon name="heart" [fw]="true"></gx-icon>
+      Favourite List
+    </a>
+  </div>
+</div>
+<!-- /dropdown -->

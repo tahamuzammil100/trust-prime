@@ -1,0 +1,65 @@
+<mail-search-bar></mail-search-bar>
+
+<!-- Dropdown -->
+<div class="ml-auto dt-notification" ngbDropdown placement="bottom-right">
+
+  <!-- Dropdown Button -->
+  <a href="javascript:void(0)" class="no-arrow" ngbDropdownToggle>
+    <gx-icon name="notification2" [fw]="true" size="1x" class="dt-icon-alert"></gx-icon>
+  </a>
+  <!-- /dropdown button -->
+
+  <!-- Dropdown Menu -->
+  <div ngbDropdownMenu class="dropdown-menu-media">
+    <!-- Dropdown Menu Header -->
+    <div class="dropdown-menu-header">
+      <h4 class="title">Notifications (9)</h4>
+
+      <div class="ml-auto action-area">
+        <a href="javascript:void(0)">Mark All Read</a> <a class="ml-2" href="javascript:void(0)">
+          <gx-icon name="settings" size="lg" class="text-light-gray"></gx-icon>
+        </a>
+      </div>
+    </div>
+    <!-- /dropdown menu header -->
+
+    <!-- Dropdown Menu Body -->
+    <div class="dropdown-menu-body position-relative" perfectScrollbar>
+
+      <div class="h-auto">
+        <!-- Media -->
+        <a href="javascript:void(0)" class="media" *ngFor="let notification of notifications">
+
+          <!-- Avatar -->
+          <gx-avatar [user]="notification" [charLength]="0" class="mr-3"></gx-avatar>
+          <!-- avatar -->
+
+          <!-- Media Body -->
+          <span class="media-body">
+            <span class="message" [innerHTML]="notification.message"></span>
+            <span class="meta-date">
+              <gx-icon *ngIf="notification.icon.name"
+                       [name]="notification.icon.name"
+                       [ngClass]="notification.icon.color"
+                       [fw]="true" class="mr-1"></gx-icon>
+              {{notification.time}}
+            </span>
+          </span>
+          <!-- /media body -->
+
+        </a>
+        <!-- /media -->
+      </div>
+    </div>
+
+    <!-- Dropdown Menu Footer -->
+    <div class="dropdown-menu-footer">
+      <a href="javascript:void(0)" class="card-link"> See All
+        <gx-icon name="arrow-right" [fw]="true"></gx-icon></a>
+    </div>
+    <!-- /dropdown menu footer -->
+  </div>
+  <!-- /dropdown menu -->
+
+</div>
+<!-- /dropdown -->

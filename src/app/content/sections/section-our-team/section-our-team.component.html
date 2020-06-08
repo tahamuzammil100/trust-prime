@@ -1,0 +1,77 @@
+<!-- Card Header -->
+<card-header class="mb-3 header-sm-inline" card-title="Our Team">
+
+  <!-- Card Tools -->
+  <card-tool>
+    <ul class="nav nav-sm nav-underline nav-underline-none">
+      <li class="nav-item" *ngFor="let category of teamCategories">
+        <a class="nav-link" [href]="'#'+category.slug" [ngClass]="{active:activeCategory===category.slug}"
+           (click)="getFilteredTeam(category.slug, $event)">{{category.name}}</a>
+      </li>
+    </ul>
+  </card-tool>
+  <!-- /card tools -->
+
+</card-header>
+<!-- /card header -->
+
+<!-- Card Body -->
+<card-body class="pb-4">
+
+  <!-- Tab Content-->
+  <div class="tab-content">
+
+    <!-- Tab panel -->
+    <div class="tab-pane active">
+      <!-- Grid -->
+      <div class="row no-gutters">
+
+        <!-- Grid Item -->
+        <div class="col-md-4 col-sm-6 col-12" *ngFor="let member of teamMembers">
+
+          <!-- Contact Short Info -->
+          <div class="dt-contact-info-short">
+
+            <!-- Avatar Wrapper -->
+            <div class="dt-avatar-wrapper">
+              <!-- Avatar -->
+              <img class="dt-avatar"
+                   [src]="member.thumb"
+                   alt="{{member.name}}">
+              <!-- /avatar -->
+
+              <!-- Info -->
+              <div class="dt-avatar-info">
+                <a href="javascript:void(0)"
+                   class="dt-avatar-name text-dark">{{member.name}}</a>
+                <span class="f-12 text-light-gray">{{member.phoneNo}}</span>
+              </div>
+              <!-- /info -->
+            </div>
+            <!-- /avatar wrapper -->
+
+          </div>
+          <!-- /contact short info -->
+
+        </div>
+        <!-- /grid item -->
+
+        <!-- Grid Item -->
+        <div class="col-md-4 col-12">
+          <a
+            class="border border-dashed py-3 px-4 rounded h-100 text-light-gray d-flex align-items-center justify-content-center"
+            href="javascript:void(0)">Add New</a>
+        </div>
+        <!-- /grid item -->
+
+      </div>
+      <!-- /grid -->
+
+    </div>
+    <!-- /tab panel -->
+
+  </div>
+  <!-- /tab content-->
+
+</card-body>
+<!-- /card body -->

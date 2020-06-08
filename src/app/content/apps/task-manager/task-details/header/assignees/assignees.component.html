@@ -1,0 +1,47 @@
+<!-- Dropdown -->
+<div class="mb-2" ngbDropdown>
+  <!-- Dropdown Link -->
+  <a href="javascript:void(0)" class="no-arrow dt-avatar-wrapper text-dark" ngbDropdownToggle>
+    <!-- Module Assignee -->
+    <ng-container *ngIf="task.user_id; else unassigned">
+      <ng-container #user="item"
+                    [getbyid]="task.user_id"
+                    [items]="assignees">
+        <gx-avatar [user]="user.data"
+                   class="size-35"></gx-avatar>
+        <span class="dt-avatar-info">
+            <span class="dt-avatar-name">{{user.data.name}}</span>
+          </span>
+      </ng-container>
+    </ng-container>
+
+    <ng-template #unassigned>
+      <span class="dt-avatar"><gx-icon name="user" size="xl"></gx-icon></span>
+
+      <span class="dt-avatar-info">
+        <span class="dt-avatar-name">Unassigned</span>
+      </span>
+    </ng-template>
+  </a>
+  <!-- /dropdown link -->
+
+  <!-- Dropdown Option -->
+  <div class="dropdown-menu-right" ngbDropdownMenu>
+    <ng-container *ngFor="let assignee of assignees">
+      <a class="dropdown-item dt-avatar-wrapper"
+         (click)="onAssigneeChange(assignee.id)"
+         [ngClass]="{'active':assignee.id==task.user_id}"
+         href="javascript:void(0)">
+
+        <gx-avatar [user]="assignee"
+                   class="size-30"></gx-avatar>
+        <span class="dt-avatar-info">
+            <span class="dt-avatar-name">{{assignee.name}}</span>
+          </span>
+      </a>
+    </ng-container>
+  </div>
+  <!-- /dropdown option -->
+
+</div>
+<!-- /dropdown -->

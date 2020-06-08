@@ -1,0 +1,80 @@
+<!-- Page Header -->
+<div class="dt-page__header">
+  <h1 class="dt-page__title">File Upload</h1>
+</div>
+<!-- /page header -->
+
+<!-- Grid -->
+<div class="row">
+
+  <!-- Grid Item -->
+  <div class="col-12">
+
+    <!-- Card -->
+    <gx-card card-title="Dropzone">
+
+      <!-- Dropzone -->
+      <div class="box-container" fxLayout="column" >
+
+        <div class="info-container">
+          <p>This example does not actually upload any of the selected files, only simulates the upload process.</p>
+        </div>
+
+        <div class="horizontal-container row">
+          <div class="vertical-container col-12 col-md-4">
+            <h4 class="text-muted">Controls</h4>
+
+            <div class="action-container mr-5">
+              <button type="button" class="btn btn-outline-primary mb-2 btn-block" (click)='toggleType()'>
+                {{(type == "component") ? "Switch to directive" : "Switch to component"}}
+              </button>
+
+              <button type="button" class="btn btn-outline-primary mb-2 btn-block" (click)='toggleDisabled()'>
+                Toggle disabled state
+              </button>
+
+              <button type="button" class="btn btn-outline-primary mb-2 btn-block" (click)='toggleMultiUpload()'>
+                {{(config.maxFiles !== 1) ? "Upload single file" : "Upload multiple files"}}
+              </button>
+
+              <button type="button" class="btn btn-outline-primary mb-2 btn-block" (click)='toggleAutoReset()'>
+                {{config.autoReset ? "Turn off auto reset" : "Turn on auto reset"}}
+              </button>
+
+              <button type="button" class="btn btn-outline-primary mb-2 btn-block" (click)='toggleClickAction()'>
+                {{config.clickable ? "Turn off click action" : "Turn on click action"}}
+              </button>
+
+              <button type="button" class="btn btn-outline-primary btn-block" (click)='resetDropzoneUploads()'>
+                Reset upload area
+              </button>
+            </div>
+          </div>
+
+          <div class="vertical-container col-12 col-md-8 d-flex flex-column align-items-stretch flex-1">
+            <h4 class="text-muted">Dropzone</h4>
+
+            <div class="content-container flex-fill">
+              <dropzone *ngIf="type === 'component'"
+                        class="border-dashed border-primary h-100 d-flex flex-1 flex-row"
+                        [config]="config"
+                        [disabled]="disabled"
+                        [message]="'Click or drag images here to upload'" (error)="onUploadError($event)"
+                        (success)="onUploadSuccess($event)"></dropzone>
+
+              <div *ngIf="type === 'directive'" class="dropzone border-dashed border-primary h-100" [dropzone]="config"
+                   [disabled]="disabled" (error)="onUploadError($event)" (success)="onUploadSuccess($event)"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /dropzone -->
+
+    </gx-card>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+</div>
+<!-- /grid -->

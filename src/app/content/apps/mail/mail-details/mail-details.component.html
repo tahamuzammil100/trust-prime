@@ -1,0 +1,50 @@
+<!-- Module Content Inner -->
+<div class="dt-module__content-inner">
+
+  <mail-details-header></mail-details-header>
+
+  <!-- Module List -->
+  <div class="dt-module__list mail-detail-list">
+
+    <!-- Module Item -->
+    <div class="dt-module__list-item open" [ngClass]="{'open': isOpened}">
+      <!-- Avatar -->
+      <gx-avatar [user]="currentMail.from"
+                 class="cursor-pointer mr-4"
+                 (click)="isOpened = !isOpened"></gx-avatar>
+      <!-- /avatar -->
+
+      <!-- Module Content -->
+      <div class="dt-module__list-item-content">
+        <h4 class="d-inline-block cursor-pointer mb-1"
+            (click)="isOpened = !isOpened">{{currentMail.from.name}}</h4>
+
+        <p *ngIf="!isOpened" class="mb-0 text-light-gray text-truncate"
+           [innerHTML]="currentMail.message | htmlToPlainText"></p>
+
+        <p *ngIf="isOpened" class="mb-0 text-light-gray" [innerHTML]="currentMail.message | nl2br"></p>
+      </div>
+      <!-- /module content -->
+
+      <!-- Module Info -->
+      <div class="dt-module__list-item-info">
+        <span class="mt-1">{{currentMail.time}}</span>
+
+        <!-- Checkbox -->
+        <gx-star class="ml-sm-3"
+                 [gxModel]="currentMail.starred"
+                 (gxInputChange)="onToggleStarred($event)"></gx-star>
+        <!-- /checkbox -->
+
+      </div>
+      <!-- /module info -->
+    </div>
+    <!-- /Module Item -->
+
+    <mail-conversation *ngFor="let conversation of currentMail.conversation;"
+                       [conversation]="conversation"></mail-conversation>
+
+  </div>
+  <!-- /Module List -->
+
+</div>

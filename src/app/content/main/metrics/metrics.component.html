@@ -1,0 +1,233 @@
+<!-- Page Header -->
+<div class="dt-page__header">
+  <h1 class="dt-page__title">Metrics</h1>
+</div>
+<!-- /page header -->
+
+<!-- Grid -->
+<div class="row">
+
+  <!-- Grid Item -->
+  <div class="col-xl-4 col-md-6 order-md-1">
+
+    <app-section-revenue-chart gxCard fullHeight class="dt-chart overflow-hidden"></app-section-revenue-chart>
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-6 col-md-6 order-md-2">
+
+    <app-section-static-chart gxCard fullHeight class="dt-chart overflow-hidden"></app-section-static-chart>
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-3 col-md-5 col-sm-6 order-xl-6 order-md-3">
+
+    <gx-echarts-liquidfill gxCard
+                           fullHeight
+                           title="Realtime Users"
+                           figure="270"
+                           [data]="widgets.realUsersChart"></gx-echarts-liquidfill>
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-3 col-md-5 col-sm-6 order-xl-5 order-md-6">
+
+    <gx-card fullHeight
+             body-class="d-flex justify-content-center align-items-center"
+             [card-title]="widgets.ticketsStatus.title">
+
+      <!-- Chart -->
+      <gx-chart [chartType]="widgets.ticketsStatus.chart.chartType"
+                [options]="widgets.ticketsStatus.chart.options"
+                [labels]="widgets.ticketsStatus.chart.labels"
+                [colors]="widgets.ticketsStatus.chart.colors"
+                [datasets]="widgets.ticketsStatus.chart.datasets"></gx-chart>
+      <!-- /chart -->
+
+    </gx-card>
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-6 col-md-7 order-md-4">
+
+    <!-- Card -->
+    <gx-referral-traffic gxCard fullHeight
+                         [chart]="widgets.referralTrafficChart"
+                         [progressRecords]="widgets.progressRecords"></gx-referral-traffic>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-2 col-md-7 order-xl-3 order-md-5">
+    <!-- Grid -->
+    <div class="row">
+
+      <!-- Grid Item -->
+      <div class="col-xl-12 col-6" *ngFor="let widget of simpleWidgets.slice(4, 6)">
+
+        <gx-counter-card gxCard fullHeight
+                         [data]="widget"
+                         [isVertical]="true"
+                         [ngClass]="widget.bgColor"></gx-counter-card>
+
+      </div>
+      <!-- /grid item -->
+
+    </div>
+    <!-- /grid -->
+  </div>
+  <!-- /grid item -->
+</div>
+<!-- /grid -->
+
+<!-- Grid -->
+<div class="row">
+
+  <!-- Grid Item -->
+  <div class="col-xl-3 col-sm-6" *ngFor="let widget of simpleWidgets.slice(0, 4)">
+
+    <gx-counter-card gxCard fullHeight
+                     class="text-white"
+                     [ngClass]="widget.bgColor"
+                     [data]="widget"></gx-counter-card>
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-2 col-sm-4 col-6" *ngFor="let card of trendingCards.slice(4, 7)">
+
+    <!-- Chart Card -->
+    <gx-trending-card gxCard fullHeight
+                      [data]="card.data"
+                      [isVertical]="true"
+                      [ngClass]="card.bgColor">
+      <!-- Chart -->
+      <gx-chart chartClasses="rounded-bottom"
+                [shadowType]="card.shadowType"
+                [datasets]="card.chart.datasets"
+                [labels]="card.chart.labels"
+                [options]="card.chart.options"
+                [colors]="card.chart.colors"
+                [chartType]="card.chart.chartType"
+                [gradients]="card.chart.gradients"></gx-chart>
+      <!-- /chart -->
+
+    </gx-trending-card>
+    <!-- /chart card -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-6">
+
+    <!-- Grid -->
+    <div class="row">
+      <!-- Grid Item -->
+      <div class="col-sm-6" *ngFor="let card of trendingCards.slice(0, 4)">
+
+        <!-- Chart Card -->
+        <gx-trending-card gxCard fullHeight
+                          [data]="card.data">
+          <!-- Chart -->
+          <gx-chart chartClasses="rounded-bottom"
+                    [shadowType]="card.shadowType"
+                    [datasets]="card.chart.datasets"
+                    [labels]="card.chart.labels"
+                    [options]="card.chart.options"
+                    [colors]="card.chart.colors"
+                    [chartType]="card.chart.chartType"
+                    [gradients]="card.chart.gradients"></gx-chart>
+          <!-- /chart -->
+
+        </gx-trending-card>
+        <!-- /chart card -->
+
+      </div>
+      <!-- /grid item -->
+    </div>
+    <!-- /grid -->
+
+  </div>
+  <!-- / grid Item -->
+
+  <!-- Grid Item -->
+  <div class="col-md-4 col-sm-6">
+
+    <!-- Chart Card -->
+    <gx-card body-class="p-5">
+
+      <!-- Grid -->
+      <div class="row no-gutters">
+
+        <!-- Grid Item -->
+        <div class="col-xl-5 pr-2 d-flex flex-column justify-content-center">
+          <div class="d-flex align-items-center text-success">
+            <span class="mb-0 display-3 font-weight-500 mr-1">{{widgets.chartTrafficRaise.data.trending.value}}</span>
+            <gx-icon [name]="widgets.chartTrafficRaise.data.trending.icon"></gx-icon>
+          </div>
+          <p class="mb-0 text-light-gray">{{widgets.chartTrafficRaise.data.tagLine.text}}</p>
+        </div>
+        <!-- /grid item -->
+
+        <!-- Grid Item -->
+        <div class="col-xl-7">
+
+          <!-- Chart -->
+          <gx-chart class="dt-chart__body" chartClasses="rounded-bottom"
+                    [datasets]="widgets.chartTrafficRaise.chart.datasets"
+                    [labels]="widgets.chartTrafficRaise.chart.labels"
+                    [options]="widgets.chartTrafficRaise.chart.options"
+                    [colors]="widgets.chartTrafficRaise.chart.colors"
+                    [chartType]="widgets.chartTrafficRaise.chart.chartType"></gx-chart>
+          <!-- /chart -->
+
+        </div>
+        <!-- /grid item -->
+
+      </div>
+      <!-- /grid -->
+
+    </gx-card>
+    <!-- /chart card -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-md-4"
+       *ngFor="let card of trendingCards.slice(8, 10); first as isFirst; last as isLast"
+       [ngClass]="{'col-sm-6':!isLast, 'col-sm-8': isLast}">
+
+    <!-- Chart Card -->
+    <gx-progress-card class="overflow-hidden" [data]="card.data" [coloums]="card.coloums">
+      <!-- Chart -->
+      <gx-chart class="dt-chart__body"
+                [ngClass]="{'mb-n5 mr-n5': card.chart.chartType != 'bar'}"
+                [datasets]="card.chart.datasets"
+                [labels]="card.chart.labels"
+                [options]="card.chart.options"
+                [colors]="card.chart.colors"
+                [chartType]="card.chart.chartType"
+                [gradients]="card.chart.gradients"></gx-chart>
+      <!-- /chart -->
+
+    </gx-progress-card>
+    <!-- /chart card -->
+
+  </div>
+  <!-- /grid item -->
+
+</div>
+<!-- /grid -->

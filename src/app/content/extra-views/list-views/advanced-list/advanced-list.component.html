@@ -1,0 +1,96 @@
+<!-- Page Header -->
+<div class="dt-page__header">
+  <h1 class="dt-page__title">Advanced List View</h1>
+</div>
+<!-- /page header -->
+
+<!-- Grid -->
+<div class="row">
+
+  <!-- Grid Item -->
+  <div class="col-xl-12" *ngFor="let property of realestates; index as i; first as isFirst">
+
+    <!-- Card -->
+    <gx-list class="horizontal">
+      <!-- Slider Header -->
+      <gx-slider>
+        <gx-slider-header>
+          <span *ngIf="property.is_featured" class="badge bg-orange text-white text-uppercase">featured</span>
+
+          <!-- Checkbox -->
+          <div class="dt-checkbox dt-checkbox-icon dt-checkbox-only">
+            <input id="checkbox-{{i}}" type="checkbox" [ngModel]="property.favourite">
+            <label class="font-weight-light dt-checkbox-content" for="checkbox-{{i}}">
+              <span class="unchecked"><gx-icon name="heart-o" class="text-white"></gx-icon></span>
+              <span class="checked"><gx-icon name="heart" class="text-white"></gx-icon></span>
+            </label>
+          </div>
+          <!-- /checkbox -->
+        </gx-slider-header>
+
+        <!-- Slider Carouse -->
+        <slideshow [imageUrls]="property.imageUrls"
+                   [showArrows]="false"
+                   [showDots]="true"
+                   [minHeight]="'200px'"
+                   [lazyLoad]="true">
+        </slideshow>
+        <!-- /Slider Carouse -->
+
+      </gx-slider>
+      <!-- /slider header -->
+
+      <!-- Badges -->
+      <span class="badge text-uppercase mb-2"
+            [ngClass]="{'badge-secondary':property.for==='For sale', 'bg-orange text-white':property.for!=='For sale'}">{{property.for}}</span>
+      <!-- /badges -->
+
+      <!-- Card Title-->
+      <h2 class="card-title text-truncate">{{property.title}}</h2>
+      <!-- Card Title-->
+
+      <!-- Card Sub Title-->
+      <h4 class="card-subtitle">{{property.location}}</h4>
+      <!-- /card sub title-->
+
+      <!-- Content Area -->
+      <p class="card-text text-truncate">
+        Single family home at beach side. Enjoy the beach time daily with home at beach side.
+        Enjoy the beach time daily with family home at beach side...
+      </p>
+
+      <span class="min-w-150 d-inline-block border-top mb-2"></span>
+
+      <!-- Content Area -->
+      <div class="d-flex flex-wrap mb-4">
+        <div class="pr-3">Bedrooms: <span class="text-dark">{{property.bedrooms}}</span></div>
+        <div>Area: <span class="text-dark" [innerHTML]="property.area"></span></div>
+      </div>
+      <!-- /content area -->
+
+      <div>
+        <span class="d-inline-block mr-3"><gx-icon name="user" [fw]="true"></gx-icon> {{property.author}}</span>
+        <span class="d-inline-block"><gx-icon name="calendar" [fw]="true"></gx-icon> {{property.posted}}</span>
+      </div>
+
+      <gx-list-footer class="d-flex flex-column justify-content-between">
+        <!-- Pricing -->
+        <div class="price mb-6">
+          <span class="d-block text-orange font-weight-500 display-5">{{property.price|currency:'USD':'symbol-narrow':'4.0-2'}}</span>
+          <span class="d-inline-block text-light-gray f-12">{{symbol+property.unit}}</span>
+        </div>
+        <!-- /pricing -->
+
+        <!-- Card Button -->
+        <a href="javascript:void(0)" class="btn btn-primary text-uppercase">Detail</a>
+        <!-- /card button -->
+      </gx-list-footer>
+    </gx-list>
+
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+</div>
+<!-- /Grid -->

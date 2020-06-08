@@ -1,0 +1,66 @@
+<!-- Page Header -->
+<div class="dt-page__header">
+  <h1 class="dt-page__title">Grid View</h1>
+</div>
+<!-- /page header -->
+
+<!-- Grid -->
+<div class="row">
+
+  <!-- Grid Item -->
+  <div *ngFor="let user of usersList; index as i; first as isFirst" class="col-xl-3 col-md-4 col-sm-6 col-12">
+
+    <!-- Card -->
+    <gx-grid>
+      <!-- User Avatar-->
+      <img class="dt-avatar size-60" [src]="user.picture" alt="{{user.name}}">
+      <!-- /user avatar-->
+
+      <div class="mt-7">
+        <h4 class="mb-1 mb-sm-0">{{user.name}}</h4>
+        <span class="d-block text-light-gray mb-5">{{user.position}}</span>
+        <a href="javascript:void(0)" class="btn btn-primary btn-sm">Contact</a>
+      </div>
+
+      <div class="action-tools">
+        <!-- Checkbox -->
+        <div class="dt-checkbox dt-checkbox-icon dt-checkbox-only">
+          <input id="checkbox-{{i}}" type="checkbox" [ngModel]="user.favourite">
+          <label class="font-weight-light dt-checkbox-content" for="checkbox-{{i}}">
+            <span class="unchecked"><gx-icon name="star-o" size="xl" class="text-light-gray"></gx-icon></span>
+            <span class="checked"><gx-icon name="star-fill" size="xl" class="text-secondary"></gx-icon></span>
+          </label>
+        </div>
+        <!-- /checkbox -->
+
+        <!-- Dropdown -->
+        <div ngbDropdown placement="bottom-right">
+          <a class="no-arrow" href="javascript:void(0)" ngbDropdownToggle>
+            <gx-icon name="horizontal-more" [fw]="true" size="lg" class="text-light-gray"></gx-icon>
+          </a>
+
+          <div class="dropdown-menu-right" ngbDropdownMenu>
+            <a class="dropdown-item" href="javascript:void(0)">
+              <gx-icon name="editors" [fw]="true"></gx-icon>
+              Edit
+            </a>
+            <a class="dropdown-item" href="javascript:void(0)">
+              <gx-icon name="contacts" [fw]="true"></gx-icon>
+              Contact List</a>
+            <a class="dropdown-item" href="javascript:void(0)">
+              <gx-icon name="heart" [fw]="true"></gx-icon>
+              Favourite List
+            </a>
+          </div>
+        </div>
+        <!-- /dropdown -->
+      </div>
+
+    </gx-grid>
+    <!-- /Card -->
+
+  </div>
+  <!-- /grid item -->
+
+</div>
+<!-- /Grid -->

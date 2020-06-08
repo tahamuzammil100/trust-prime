@@ -1,0 +1,26 @@
+<!-- Avatar -->
+<gx-avatar [user]="conversation.from"
+           (click)="isOpened = !isOpened"
+           class="mr-4 cursor-pointer"></gx-avatar>
+<!-- /avatar -->
+
+<!-- Module Content -->
+<div class="dt-module__list-item-content">
+  <h4 class="d-inline-block mb-1 cursor-pointer" (click)="isOpened = !isOpened">{{conversation.from.name}}</h4>
+  <p *ngIf="!isOpened" class="mb-0 text-light-gray text-truncate"
+     [innerHTML]="conversation.message | htmlToPlainText"></p>
+  <p *ngIf="isOpened" class="mb-0 text-light-gray" [innerHTML]="conversation.message | nl2br"></p>
+</div>
+<!-- /module content -->
+
+<!-- Module Info -->
+<div class="dt-module__list-item-info">
+  <span class="mt-1">{{conversation.time}}</span>
+
+  <!-- Checkbox -->
+  <gx-star class="ml-sm-3"
+           [gxModel]="conversation.starred"></gx-star>
+  <!-- /checkbox -->
+
+</div>
+<!-- /module info -->

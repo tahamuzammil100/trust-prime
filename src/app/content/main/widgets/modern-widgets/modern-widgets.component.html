@@ -1,0 +1,307 @@
+<div class="dt-page__header">
+  <h1 class="dt-page__title">Widgets</h1>
+</div>
+
+<!-- Grid -->
+<div class="row">
+  <!-- Grid Item DONE -->
+  <div class="col-xl-3 col-sm-6">
+    <gx-project-card gxCard class="overflow-hidden" [project]="widgets.project" cardTitle="Project Widget">
+
+      <a class="text-light-gray"
+         href="javascript:void(0)"
+         ngbPopover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+         triggers="mouseenter:mouseleave" container="body">
+        <gx-icon name="info" size="lg"></gx-icon>
+      </a>
+
+      <a class="text-light-gray mx-2" href="javascript:void(0)">
+        <gx-icon name="invert-color" size="lg"></gx-icon>
+      </a>
+
+      <!-- Dropdown -->
+      <div class="d-inline-block" ngbDropdown placement="bottom-right">
+        <a class="no-arrow text-light-gray" href="javascript:void(0)" ngbDropdownToggle>
+          <gx-icon name="chevrolet-down" size="lg"></gx-icon>
+        </a>
+
+        <div ngbDropdownMenu>
+          <a class="dropdown-item" href="javascript:void(0)">Action</a>
+          <a class="dropdown-item" href="javascript:void(0)">Another action</a>
+          <a class="dropdown-item" href="javascript:void(0)">Something else
+            here</a>
+        </div>
+      </div>
+      <!-- /dropdown -->
+
+    </gx-project-card>
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item DONE-->
+  <div class="col-xl-3 col-sm-6">
+    <ng-template #actionTpl>
+      <a class="dropdown-item" href="javascript:void(0)">
+        <gx-icon [fw]="true" name="editors"></gx-icon>
+        Edit
+      </a> <a class="dropdown-item" href="javascript:void(0)">
+      <gx-icon [fw]="true" name="contacts"></gx-icon>
+      Contact List</a>
+      <a class="dropdown-item" href="javascript:void(0)">
+        <gx-icon [fw]="true" name="heart"></gx-icon>
+        Favourite List </a>
+    </ng-template>
+
+    <gx-employee-card gxCard
+                      [actionItems]="actionTpl"
+                      [employee]="widgets.employee"
+                      bodyClasses="text-center"
+                      class="dt-card-performance"></gx-employee-card>
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item DONE-->
+  <div class="col-xl-3 col-sm-6">
+
+    <widget-social-media gxCard
+                         class="bg-image-v5 bg-overlay bg-overlay-black overlay-opacity-0_5 text-white"></widget-social-media>
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-3 col-sm-6">
+    <gx-media-card bsCard [data]="widgets.carousel_card">
+      <!-- Slider Carouse -->
+      <slideshow [imageUrls]="widgets.carousel_card.imageUrls"
+                 [lazyLoad]="true"
+                 [minHeight]="'180px'"
+                 [showArrows]="false"
+                 [showDots]="true"
+                 class="card-img-top overflow-hidden"
+                 dotColor="#D1C4E9">
+      </slideshow>
+      <!-- /Slider Carouse -->
+    </gx-media-card>
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-4 col-sm-6">
+
+    <gx-newsletter-card gxCard
+                        fullHeight
+                        [newsletter]="widgets.newsletter"
+                        bodyClasses="text-center"></gx-newsletter-card>
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-4 col-sm-6">
+
+    <app-widget-bgcolor gxCard
+                        fullHeight
+                        class="bg-image-v3 bg-overlay overlay-opacity-0_8 bg-gradient-blue--after text-white"></app-widget-bgcolor>
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-4 col-sm-6">
+
+    <app-widget-flying-bird gxCard
+                            fullHeight></app-widget-flying-bird>
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-2 col-md-3 col-sm-6" *ngFor="let card of widgets.info_cards">
+
+    <gx-info-card gxCard class="text-center"
+                  [style]="card.style"
+                  [data]="card.data"></gx-info-card>
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-2 col-md-3 col-sm-4">
+
+    <!-- Grid -->
+    <div class="row">
+
+      <!-- Grid Item -->
+      <div class="col-sm-6 col-4">
+        <gx-ibox class="text-primary" label="Pictures" icon="camera" icon-class="mb-1"></gx-ibox>
+      </div>
+      <!-- /grid item -->
+
+      <!-- Grid Item -->
+      <div class="col-sm-6 col-4">
+        <gx-ibox class="text-primary" label="Places" icon="pin" icon-class="mb-1"></gx-ibox>
+      </div>
+      <!-- /grid item -->
+
+      <!-- Grid Item -->
+      <div class="col-sm-6 col-4 d-sm-none">
+        <gx-ibox class="text-primary" label="burger" icon="burger" icon-class="mb-1"></gx-ibox>
+      </div>
+      <!-- /grid item -->
+
+      <!-- Grid Item -->
+      <div class="col-12">
+        <gx-media-card bsCard [data]="widgets.media_card" bodyClasses="p-4"></gx-media-card>
+      </div>
+      <!-- /grid item -->
+
+    </div>
+    <!-- /grid -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-2 col-md-3 col-sm-4">
+
+    <!-- Grid -->
+    <div class="row">
+
+      <!-- Grid Item -->
+      <div class="col-6 col-sm-12">
+
+        <bs-card fullHeight class="bg-gradient-orange text-white" body-class="p-6">
+          <p class="display-3 mb-1">523</p>
+          <p class="f-12">+18 New this week</p>
+          <a class="text-light f-12 font-weight-500 text- uppercase" href="javascript:void(0)">Photos</a>
+        </bs-card>
+
+      </div>
+      <!-- /grid item -->
+
+      <!-- Grid Item -->
+      <div class="col-6 col-sm-12">
+
+        <bs-card fullHeight class="bg-gradient-blue text-white" body-class="p-6">
+          <div class="d-flex flex-wrap mb-3">
+            <gx-icon name="open-mail" size="2x" class="mr-1"></gx-icon>
+            <a class="text-white ml-auto" href="javascript:void(0)">
+              <gx-icon name="arrow-right" size="2x"></gx-icon>
+            </a>
+          </div>
+          <p class="display-3 mb-2 font-weight-500">271</p>
+          <p class="card-text">New messages</p>
+        </bs-card>
+
+      </div>
+      <!-- /grid item -->
+
+    </div>
+    <!-- /grid -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-2 col-md-3 col-sm-4">
+
+    <!-- Grid -->
+    <div class="row">
+
+      <!-- Grid Item -->
+      <div class="col-12">
+
+        <app-widget-work-status [data]="widgets.work_status" gxCard class="dt-chart"></app-widget-work-status>
+
+      </div>
+      <!-- /grid item -->
+
+      <!-- Grid Item -->
+      <div class="col-6 d-none d-sm-block">
+        <gx-ibox class="bg-primary text-white" label="$299.32" icon="bitcoin" icon-class="mb-1"></gx-ibox>
+      </div>
+      <!-- /grid item -->
+
+      <!-- Grid Item -->
+      <div class="col-6 d-none d-sm-block">
+        <gx-ibox class="bg-secondary text-white" label="1.2k sold" icon="jumbo" icon-class="mb-1"></gx-ibox>
+      </div>
+      <!-- /grid item -->
+
+    </div>
+    <!-- /grid -->
+
+  </div>
+  <!-- /grid item -->
+
+</div>
+<!-- /grid -->
+
+<!-- Grid -->
+<div class="row">
+
+  <!-- Grid Item -->
+  <div class="col-xl-3 col-sm-6 order-xl-1">
+
+    <gx-intro-card bsCard [data]="widgets.introCard.data"
+                   [titlePos]="widgets.introCard.titlePos"></gx-intro-card>
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-3 col-sm-6 order-xl-4">
+
+    <gx-flex-card bsCard [data]="widgets.flexCard.data"
+                  [titlePos]="widgets.flexCard.titlePos"></gx-flex-card>
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-3 col-sm-6 order-xl-2">
+
+    <widget-increment-users bsCard [widget]="widgets.active_users"></widget-increment-users>
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-3 col-sm-6 order-xl-3">
+
+    <widget-campaign-stats bsCard [data]="widgets.campaign"></widget-campaign-stats>
+
+  </div>
+  <!-- /grid item -->
+
+</div>
+<!-- /grid -->
+
+<!-- Grid -->
+<div class="row">
+
+  <!-- Grid Item -->
+  <div class="col-xl-6">
+    <gx-media-card bsCard [data]="widgets.carousel_card_horizontal">
+      <!-- Slider Carouse -->
+      <slideshow [imageUrls]="widgets.carousel_card_horizontal.imageUrls"
+                 [lazyLoad]="true"
+                 [minHeight]="'180px'"
+                 [showArrows]="false"
+                 [showDots]="true"
+                 class="card-img-top overflow-hidden"
+                 dotColor="#D1C4E9">
+      </slideshow>
+      <!-- /Slider Carouse -->
+    </gx-media-card>
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item DONE-->
+  <div class="col-xl-6">
+    <gx-trip-card bsCard class="bg-image-v4 bg-overlay bg-overlay-black overlay-opacity-0_2 text-white"
+                  [data]="widgets.outdoor"></gx-trip-card>
+  </div>
+  <!-- /grid item -->
+
+</div>
+<!-- /grid -->

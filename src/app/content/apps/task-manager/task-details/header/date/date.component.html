@@ -1,0 +1,20 @@
+<!-- Calender -->
+<a href="javascript:void(0)" class="text-dark d-inline-block mb-2 mr-6" data-target-input="nearest">
+  <div class="dt-avatar-wrapper" data-target="#date-time-picker-1" data-toggle="datetimepicker">
+    <input
+      [hidden]="true"
+      name="dueDate"
+      [min]="task.created"
+      [(ngModel)]="task.dueDate"
+      (dateTimeChange)="onDuedateChange()"
+      [owlDateTime]="dueDatePicker"/>
+    <owl-date-time pickerType="calendar" [pickerMode]="'dialog'" #dueDatePicker></owl-date-time>
+    <span class="dt-avatar dt-avatar__outline size-35" [owlDateTimeTrigger]="dueDatePicker">
+          <gx-icon name="calendar" [fw]="true"></gx-icon>
+        </span>
+    <span class="dt-avatar-info" [owlDateTimeTrigger]="dueDatePicker">
+          <span class="dt-avatar-name">{{ task.dueDate | date:"d MMMM, yy" }}</span>
+        </span>
+  </div>
+</a>
+<!-- /calender -->

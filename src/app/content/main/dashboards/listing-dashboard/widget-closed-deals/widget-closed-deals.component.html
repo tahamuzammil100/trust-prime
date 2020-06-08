@@ -1,0 +1,33 @@
+<!-- Card Header -->
+<card-header class="mb-0">
+
+  <!-- Card Heading -->
+  <card-heading>
+    <h3 class="dt-card__title">{{data.title}}</h3>
+    <span class="text-light-gray f-12">{{data.sub_title}}</span>
+  </card-heading>
+  <!-- /card heading -->
+
+  <!-- Card Tools -->
+  <card-tool class="align-self-start">
+      <span *ngFor="let legend of data.legends; let idx = index"
+            class="dt-card__more font-weight-normal ml-{{idx + 1}}">
+        <span class="dot-shape mr-2" [ngClass]="legend.color"></span>{{legend.name}}
+      </span>
+  </card-tool>
+  <!-- /card tools -->
+
+</card-header>
+<!-- /card header -->
+
+<card-body class="px-4 pb-1">
+    <gx-chartist-chart
+      class="dt-chart__body my-n2 d-block"
+      [type]="chart.chartType"
+      [data]="chart.data"
+      [options]="chart.options"
+      [lineSmooth]="chart.lineSmooth"
+      [events]="events"
+      classNames="stroke-dasharray-0"
+    ></gx-chartist-chart>
+</card-body>

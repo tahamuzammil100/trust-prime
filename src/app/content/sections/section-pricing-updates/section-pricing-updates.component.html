@@ -1,0 +1,67 @@
+<!-- Card Header -->
+<card-header class="mb-5" card-title="Pricing Updates">
+
+  <!-- Card Tools -->
+  <card-tool>
+    <a href="javascript:void(0)" class="dt-card__more">
+      <gx-icon name="circle-add-o" class="mr-2"></gx-icon>Add New
+    </a>
+  </card-tool>
+  <!-- /card tools -->
+
+</card-header>
+<!-- /card header -->
+
+<!-- Card Body -->
+<div class="dt-card__body p-0">
+  <!-- Widget -->
+  <div class="dt-widget dt-widget-sm dt-widget-hover">
+
+    <!-- Widget Item -->
+    <div class="dt-widget__item" *ngFor="let row of data">
+
+      <!-- Widget Image -->
+      <div class="dt-widget__img align-self-center">
+        <!-- Avatar -->
+        <gx-icon [name]="row.icon.name" [fw]="true" size="3x" [ngClass]="row.icon.color"></gx-icon>
+        <!-- /avatar -->
+      </div>
+      <!-- /widget image -->
+
+      <!-- Widget Info -->
+      <div class="dt-widget__info text-truncate">
+        <div class="dt-widget__title d-flex">
+          <span class="f-16 font-weight-500">{{row.name}}</span>
+          <div class="trending-section ml-2" [ngClass]="row.percentage.color">
+            <span class="value">{{(row.percentage.value/100) | percent}}</span>
+            <gx-icon [name]="row.percentage.icon" class="f-10"></gx-icon>
+          </div>
+        </div>
+        <p class="mb-0 text-truncate text-light-gray">
+          High: {{row.highPrice | currency}} Low: {{row.lowPrice | currency}}
+        </p>
+      </div>
+      <!-- /widget info -->
+
+      <!-- Widget Extra -->
+      <div class="dt-widget__extra text-right">
+        <!-- Hide Content -->
+        <div class="hide-content">
+          <!-- Action Button Group -->
+          <div class="action-btn-group">
+            <button class="btn btn-primary btn-sm">Buy</button>
+            <button class="btn btn-secondary btn-sm">Sell</button>
+          </div>
+          <!-- /action button group -->
+        </div>
+        <!-- /hide content -->
+      </div>
+      <!-- /widget extra -->
+
+    </div>
+    <!-- /widgets item -->
+
+  </div>
+  <!-- /widget -->
+</div>
+<!-- /card body -->

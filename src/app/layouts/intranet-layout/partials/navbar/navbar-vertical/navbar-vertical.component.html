@@ -1,0 +1,34 @@
+<!-- Sidebar Notification -->
+<div class="dt-sidebar__notification d-none d-lg-block">
+  <ul class="dt-list dt-list-xl">
+    <li class="dt-list__item">
+      <a href="javascript:void(0)"
+         class="dt-fab-btn btn-shadow"
+         [ngClass]="{'active':activeMenu == 'notifications'}"
+         (click)="onClickMenu($event, 'notifications')">
+        <gx-icon name="notification2" size="lg"></gx-icon>
+      </a>
+    </li>
+    <li class="dt-list__item">
+      <a href="javascript:void(0)"
+         class="dt-fab-btn btn-shadow"
+         [ngClass]="{'active':activeMenu == 'messages'}"
+         (click)="onClickMenu($event, 'messages')">
+        <gx-icon name="message" size="lg"></gx-icon>
+      </a>
+    </li>
+    <li class="dt-list__item">
+      <a href="javascript:void(0)"
+         class="dt-fab-btn btn-shadow"
+         [ngClass]="{'active':activeMenu == 'search'}"
+         (click)="onClickMenu($event, 'search')">
+        <gx-icon name="menu-lines-new" size="xl"></gx-icon>
+      </a>
+    </li>
+  </ul>
+</div>
+<!-- /sidebar notification -->
+
+<div class="dt-sidebar__container">
+  <app-navigation class="dt-side-nav" layout="vertical"></app-navigation>
+</div>

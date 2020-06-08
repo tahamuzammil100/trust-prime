@@ -1,0 +1,26 @@
+<a *ngIf="itemFrom > 0"
+   class="d-inline-block mb-6 text-decoration-underline"
+   href="javascript:void(0)"
+  (click)="showOlder()">
+  +{{itemFrom}} Previous messages
+</a>
+
+<ng-container *ngFor="let comment of comments"
+              #user="item"
+              [getbyid]="comment.user_id"
+              [items]="assignees">
+
+  <!-- Media -->
+  <bs-media-object class="mb-6"
+                   [img]="{url: user.data.thumb, alt: user.data.name, classlist: 'dt-avatar size-25 mr-4'}">
+
+    <h5 class="text-light-gray mb-1">
+      {{user.data.name}}
+      <span class="d-inline-block f-12 ml-2">{{comment.createdeAt | timeAgo}}</span>
+    </h5>
+    <p class="mb-0 text-dark">{{comment.notes}}</p>
+
+  </bs-media-object>
+  <!-- /media -->
+
+</ng-container>

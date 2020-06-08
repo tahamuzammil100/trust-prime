@@ -1,0 +1,40 @@
+<!-- Grid -->
+<div class="row">
+
+  <!-- Grid Item -->
+  <div class="col-xl-12">
+
+    <!-- Module -->
+    <div class="dt-module">
+
+      <!-- Module Sidebar -->
+      <app-contacts-sidebar></app-contacts-sidebar>
+      <!-- /Module Sidebar -->
+
+      <!-- Module Container -->
+      <div class="dt-module__container">
+
+        <!-- Module Header -->
+        <app-contacts-header></app-contacts-header>
+        <!-- /Module Header -->
+
+        <!-- Module Content -->
+        <app-contacts-list perfectScrollbar></app-contacts-list>
+        <!-- Module Content -->
+
+      </div>
+      <!-- /Module Container -->
+
+      <!-- Module Drawer -->
+      <contact-drawer [ngClass]="{'open':drawer.isOpen}"></contact-drawer>
+      <div class="dt-backdrop" *ngIf="drawer.isOpen" (click)="closeDrawer($event)"></div>
+      <!-- Module Drawer -->
+
+    </div>
+    <!-- /Module -->
+
+  </div>
+  <!-- /Grid Item -->
+
+</div>
+<!-- /Grid -->

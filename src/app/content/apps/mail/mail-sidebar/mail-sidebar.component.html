@@ -1,0 +1,144 @@
+<!-- Sidebar Header -->
+<div class="dt-module__sidebar-header border-bottom">
+  <div class="d-none d-md-flex align-items-center">
+    <gx-icon name="open-mail" size="1x" class="mr-3 text-dark"></gx-icon>
+    <span class="h3 mb-0">Messages</span>
+  </div>
+
+  <!-- App Quick Menu -->
+  <div class="quick-menu-list d-md-none">
+    <a *ngIf="hiddenPageHeader"
+       href="javascript:void(0)"
+       class="quick-menu mr-auto d-md-none"
+       [ngClass]="{'active':settings.activeNavDrawer}"
+       (click)="toggleNavigation($event)">
+      <gx-icon name="menu"></gx-icon>
+    </a>
+
+    <!-- Search Box -->
+    <form class="search-box d-md-none" *ngIf="!hiddenPageHeader">
+      <input class="form-control" type="search" id="address" name="address"
+             placeholder="Search in app...">
+      <button type="submit" class="search-icon">
+        <gx-icon name="search" size="lg"></gx-icon>
+      </button>
+    </form>
+    <!-- /search box -->
+
+    <a href="javascript:void(0)"
+       class="quick-menu"
+       [ngClass]="{'active':activeMenu == 'search', 'd-none d-md-block': !hiddenPageHeader}"
+       (click)="onClickMenu($event, 'search')">
+      <gx-icon name="search"></gx-icon>
+    </a>
+
+    <a href="javascript:void(0)" class="quick-menu" (click)="onComposeMail()">
+      <gx-icon name="editors"></gx-icon>
+    </a>
+
+    <a href="javascript:void(0)"
+       class="quick-menu"
+       [ngClass]="{'active':activeMenu == 'notifications'}"
+       (click)="onClickMenu($event, 'notifications')">
+      <gx-icon name="notification2"></gx-icon>
+    </a>
+
+    <a href="javascript:void(0)"
+       class="quick-menu d-md-none"
+       [ngClass]="{'active':isOpen}"
+       (click)="toggleOpen($event)">
+      <gx-icon name="{{hiddenPageHeader? 'vertical-more': 'menu'}}"></gx-icon>
+    </a>
+  </div>
+  <!-- /app quick menu -->
+</div>
+<!-- /sidebar header -->
+
+<!-- Sidebar Menu -->
+<div class="dt-module__sidebar-content position-relative" [@collapseAppSidebar]="isOpen" perfectScrollbar>
+  <!-- Sidebar Content Inner -->
+  <div class="dt-module__sidebar-content-inner">
+    <!-- Button -->
+    <div class="action-area mt-5 mb-7 d-none d-md-block">
+      <a href="javascript:void(0)" class="btn btn-shadow btn-default compose-btn btn-rounded" (click)="onComposeMail()">
+        <gx-icon name="editors" class="mr-2" [fw]="true"></gx-icon>Compose
+      </a>
+    </div>
+    <!-- /button -->
+
+    <!-- Sidebar Navigation -->
+    <ul class="dt-module-side-nav">
+
+      <!-- Menu Header -->
+      <li class="dt-module-side-nav__header">
+        <span class="dt-module-side-nav__text">main</span>
+      </li>
+      <!-- /menu header -->
+
+      <!-- Menu Item -->
+      <li *ngFor="let folder of folders"
+          class="dt-module-side-nav__item"
+          routerLinkActive="active">
+
+        <a class="dt-module-side-nav__link"
+           [routerLink]="'/' + settings.layout + '/apps/mail/'+folder.handle">
+          <gx-icon [name]="folder.icon" size="lg" [fw]="true"></gx-icon>
+          <span class="dt-module-side-nav__text">{{folder.title}}</span>
+        </a>
+      </li>
+
+      <!-- Menu Header -->
+      <li class="dt-module-side-nav__header">
+        <span class="dt-module-side-nav__text">FILTERS</span>
+      </li>
+      <!-- /menu header -->
+
+      <!-- Menu Item -->
+      <li *ngFor="let filter of filters"
+          class="dt-module-side-nav__item"
+          routerLinkActive="active">
+        <a class="dt-module-side-nav__link"
+           [routerLink]="'/' + settings.layout + '/apps/mail/filter/'+filter.handle">
+          <gx-icon [name]="filter.icon" size="lg" [fw]="true"></gx-icon>
+          <span class="dt-module-side-nav__text">{{filter.title}}</span>
+        </a>
+      </li>
+      <!-- /menu item -->
+
+
+      <!-- Menu Header -->
+      <li class="dt-module-side-nav__header">
+        <span class="dt-module-side-nav__text">Labels</span>
+      </li>
+      <!-- /menu header -->
+
+      <!-- Menu Item -->
+      <li *ngFor="let label of labels"
+          class="dt-module-side-nav__item"
+          routerLinkActive="active">
+        <a class="dt-module-side-nav__link"
+           [routerLink]="'/' + settings.layout + '/apps/mail/label/'+label.handle">
+          <gx-icon name="tag" size="lg" [fw]="true" [ngClass]="label.icon"></gx-icon>
+          <span class="dt-module-side-nav__text">{{label.title}}</span>
+        </a>
+      </li>
+      <!-- /menu item -->
+
+    </ul>
+    <!-- /sidebar navigation -->
+
+    <!-- Contacts -->
+    <div class="dt-contacts contacts-list">
+      <h6 class="dt-contact__heading text-uppercase">CONNECTIONS</h6>
+
+      <!-- Contact -->
+      <mail-contact *ngFor="let contact of contacts"
+                    [contact]="contact"></mail-contact>
+      <!-- /contact -->
+
+    </div>
+    <!-- contacts -->
+  </div>
+  <!-- /sidebar content inner -->
+</div>
+<!-- /sidebar Menu -->

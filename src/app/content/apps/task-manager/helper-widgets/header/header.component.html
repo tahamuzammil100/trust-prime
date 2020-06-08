@@ -1,0 +1,41 @@
+<!-- Dropdown -->
+<div *ngIf="!isTask" class="dropdown" ngbDropdown>
+
+  <!-- Dropdown Button -->
+  <a href="javascript:void(0)" ngbDropdownToggle>
+    Tasks
+  </a>
+  <!-- /dropdown button -->
+
+  <!-- Dropdown Menu -->
+  <div ngbDropdownMenu>
+    <a class="dropdown-item" href="javascript:void(0)">Action</a>
+    <a class="dropdown-item" href="javascript:void(0)">Another action</a>
+    <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="javascript:void(0)">Separated link</a>
+  </div>
+  <!-- /dropdown menu -->
+
+</div>
+<!-- /dropdown -->
+
+<!-- Back -->
+<a class="text-dark" *ngIf="isTask" href="#back" (click)="goToBack($event)">
+  <gx-icon name="arrow-left" size="1x" [fw]="true"></gx-icon>
+  <span class="display-6 align-middle ml-1">Back</span>
+</a>
+<!-- /back -->
+
+<!-- Title -->
+<div class="mx-auto text-center">
+  <h3 class="dt-module__title">{{title}}</h3>
+  <gx-icon name="horizontal-more" size="xl"></gx-icon>
+</div>
+<!-- Title -->
+
+<!-- Filter -->
+<a *ngIf="!isTask" class="dt-module__filter text-dark" href="javascript:void(0)">
+  <gx-icon name="filter-new" size="xl"></gx-icon>
+</a>
+<!-- /filter -->

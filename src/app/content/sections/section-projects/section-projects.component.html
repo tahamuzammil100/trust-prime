@@ -1,0 +1,72 @@
+<!-- Card Header -->
+<card-header card-title="Projects" class="mb-4">
+  <!-- Card Tools -->
+  <card-tool>
+    <a href="javascript:void(0)" class="dt-card__more">See All</a>
+  </card-tool>
+  <!-- /card tools -->
+
+</card-header>
+<!-- /card header -->
+
+<!-- Card Body -->
+<card-body perfectScrollbar
+           [disabled]="!isScrollable"
+           class="p-0 position-relative"
+           [ngClass]="{'max-h-350':isScrollable}">
+
+  <!-- Widget-->
+  <div class="dt-widget dt-widget-xl dt-widget-separator dt-widget-hover">
+    <!-- Widget Item -->
+    <div class="dt-widget__item" *ngFor="let project of projects">
+
+      <!-- Widget Image -->
+      <div class="dt-widget__img">
+        <!-- Avatar -->
+        <img *ngIf="project.logo.img" class="" [src]="project.logo.img" alt="Logo">
+
+        <gx-icon *ngIf="project.logo.icon"
+                 [name]="project.logo.icon"
+                 size="3x"
+                 [ngClass]="project.logo.color"></gx-icon>
+        <!-- /avatar -->
+      </div>
+      <!-- /widget image -->
+
+      <!-- Shape -->
+      <div class="dot-shape dot-shape-lg mx-5" [ngClass]="project.color"></div>
+      <!-- /shape -->
+
+      <!-- Widget Info -->
+      <div class="dt-widget__info align-text-top">
+        <a class="dt-widget__title" href="javascript:void(0)">{{project.title}}</a>
+
+        <gx-status-bar showPercent
+                       [style.width.px]="120"
+                       [fillVal]="project.avgProgress"
+                       [maxVal]="100"
+                       [textColor]="''"
+                       [barPosition]="'start'"
+                       [fullWidth]="true"
+                       [barColor]="project.color"></gx-status-bar>
+      </div>
+      <!-- /widget info -->
+
+      <!-- Widget Extra -->
+      <div class="dt-widget__extra">
+        <div class="dt-task">
+          <div class="dt-task__number">{{project.tasks}} Tasks</div>
+          <a class="dt-task__redirect" href="javascript:void(0)">
+            <gx-icon name="open-new-tab"></gx-icon>
+          </a>
+        </div>
+      </div>
+      <!-- /widget extra -->
+
+    </div>
+    <!-- /widget item -->
+  </div>
+  <!-- /widget-->
+
+</card-body>
+<!-- /card body -->

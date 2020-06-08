@@ -1,0 +1,233 @@
+<!-- Page Header -->
+<div class="dt-page__header">
+  <h1 class="dt-page__title">Color Pickers Advanced</h1>
+</div>
+<!-- /page header -->
+
+<!-- Grid -->
+<ng-masonry-grid class="row"
+                 [@visibleInOut]="showMasonry"
+                 (onNgMasonryInit)="onNgMasonryInit($event)">
+
+  <!-- Grid Item -->
+  <ng-masonry-grid-item class="col-xl-4 col-md-6">
+
+    <!-- Card -->
+    <gx-card card-title="Block">
+
+      <color-block
+        [color]="state"
+        (onChangeComplete)="changeComplete($event)">
+      </color-block>
+
+    </gx-card>
+    <!-- /Card -->
+
+  </ng-masonry-grid-item>
+  <!-- Grid Item -->
+
+  <!-- Grid Item -->
+  <ng-masonry-grid-item class="col-xl-4 col-md-6">
+
+    <!-- Card -->
+    <gx-card card-title="Chrome">
+
+      <color-chrome
+        [color]="state"
+        (onChangeComplete)="changeComplete($event)">
+      </color-chrome>
+
+    </gx-card>
+    <!-- /Card -->
+
+  </ng-masonry-grid-item>
+  <!-- Grid Item -->
+
+  <!-- Grid Item -->
+  <ng-masonry-grid-item class="col-xl-4 col-md-6">
+
+    <!-- Card -->
+    <gx-card card-title="Sketch">
+
+      <color-sketch [color]="state" (onChangeComplete)="changeComplete($event)"></color-sketch>
+
+    </gx-card>
+    <!-- /Card -->
+
+  </ng-masonry-grid-item>
+  <!-- Grid Item -->
+
+  <!-- Grid Item -->
+  <ng-masonry-grid-item class="col-xl-4 col-md-6">
+
+    <!-- Card -->
+    <gx-card card-title="Twitter">
+
+      <color-twitter
+        [color]="state"
+        triangle="top-right"
+        (onChangeComplete)="changeComplete($event)"
+        (onChange)="changeComplete($event)"
+      ></color-twitter>
+
+    </gx-card>
+    <!-- /Card -->
+
+  </ng-masonry-grid-item>
+  <!-- Grid Item -->
+
+  <!-- Grid Item -->
+  <ng-masonry-grid-item class="col-xl-4 col-md-6">
+
+    <!-- Card -->
+    <gx-card card-title="Circle">
+
+      <color-circle
+        [color]="state"
+        (onChangeComplete)="changeComplete($event)"
+        (onChange)="changeComplete($event)"
+      ></color-circle>
+
+    </gx-card>
+    <!-- /Card -->
+
+  </ng-masonry-grid-item>
+  <!-- Grid Item -->
+
+  <!-- Grid Item -->
+  <ng-masonry-grid-item class="col-xl-4 col-md-6">
+
+    <!-- Card -->
+    <gx-card card-title="Compact">
+
+      <color-compact
+        [color]="state"
+        (onChangeComplete)="changeComplete($event)"
+        (onChange)="changeComplete($event)"
+      ></color-compact>
+
+    </gx-card>
+    <!-- /Card -->
+
+  </ng-masonry-grid-item>
+  <!-- Grid Item -->
+
+  <!-- Grid Item -->
+  <ng-masonry-grid-item class="col-xl-4 col-md-6">
+
+    <!-- Card -->
+    <gx-card card-title="Material">
+
+      <color-material
+        [color]="state"
+        (onChangeComplete)="changeComplete($event)"
+        (onChange)="changeComplete($event)"
+      ></color-material>
+
+    </gx-card>
+    <!-- /Card -->
+
+  </ng-masonry-grid-item>
+  <!-- Grid Item -->
+
+  <!-- Grid Item -->
+  <ng-masonry-grid-item class="col-xl-4 col-md-6">
+
+    <!-- Card -->
+    <gx-card card-title="Github">
+
+      <color-github
+        [color]="state"
+        triangle="top-right"
+        (onChangeComplete)="changeComplete($event)"
+        (onChange)="changeComplete($event)"
+      ></color-github>
+
+    </gx-card>
+    <!-- /Card -->
+
+  </ng-masonry-grid-item>
+  <!-- Grid Item -->
+
+</ng-masonry-grid>
+<!-- /Grid -->
+
+<!-- Grid -->
+<div class="row">
+
+  <!-- Grid Item -->
+  <div class="col-xl-6">
+
+    <!-- Card -->
+    <gx-card card-title="Hue Picker">
+
+      <color-hue-picker
+        [color]="state"
+        [width]="'100%'"
+        (onChangeComplete)="changeComplete($event)"
+        (onChange)="changeComplete($event)"
+      ></color-hue-picker>
+
+    </gx-card>
+    <!-- /Card -->
+
+    <!-- Card -->
+    <gx-card card-title="Alpha Picker">
+
+      <color-alpha-picker
+        [color]="state"
+        [width]="'100%'"
+        (onChangeComplete)="changeComplete($event)"
+        (onChange)="changeComplete($event)"
+      ></color-alpha-picker>
+
+    </gx-card>
+    <!-- /Card -->
+
+    <!-- Card -->
+    <gx-card card-title="Swatches">
+
+      <color-swatches
+        [color]="state"
+        [width]="'100%'"
+        (onChangeComplete)="changeComplete($event)"
+        (onChange)="changeComplete($event)"
+      ></color-swatches>
+
+    </gx-card>
+    <!-- /Card -->
+
+  </div>
+  <!-- Grid Item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-6">
+
+    <!-- Card -->
+    <gx-card card-title="Slider">
+
+      <color-slider
+        [color]="state"
+        (onChangeComplete)="changeComplete($event)"
+        (onChange)="changeComplete($event)"
+      ></color-slider>
+
+    </gx-card>
+    <!-- /Card -->
+
+    <!-- Card -->
+    <gx-card card-title="Photoshop">
+
+      <color-photoshop className="w-100"
+                       [color]="state"
+                       (onChangeComplete)="changeComplete($event)">
+      </color-photoshop>
+
+    </gx-card>
+    <!-- /Card -->
+
+  </div>
+  <!-- Grid Item -->
+
+</div>
+<!-- /Grid -->

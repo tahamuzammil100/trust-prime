@@ -1,0 +1,263 @@
+<!-- Page Header -->
+<div class="dt-page__header">
+  <h1 class="dt-page__title">ChartJS Charts</h1>
+</div>
+<!-- /page header -->
+
+<!-- Grid -->
+<div class="row">
+
+  <!-- Grid Item -->
+  <div class="col-xl-6">
+
+    <!-- Card -->
+    <gx-card [card-title]="widgets.lineChart.title">
+
+      <canvas baseChart
+              [datasets]="widgets.lineChart.datasets"
+              [labels]="widgets.lineChart.labels"
+              [options]="widgets.lineChart.options"
+              [colors]="widgets.lineChart.colors"
+              [chartType]="widgets.lineChart.chartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+
+    </gx-card>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-6">
+
+    <!-- Card -->
+    <gx-card [card-title]="widgets.areaChart.title">
+
+      <canvas #canva baseChart
+              [datasets]="widgets.areaChart.datasets"
+              [labels]="widgets.areaChart.labels"
+              [options]="widgets.areaChart.options"
+              [chartType]="widgets.areaChart.chartType"
+              [colors]="testColors"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+
+    </gx-card>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-6">
+
+    <!-- Card -->
+    <gx-card [card-title]="widgets.barChart.title">
+
+      <canvas baseChart
+              [datasets]="widgets.barChart.datasets"
+              [labels]="widgets.barChart.labels"
+              [options]="widgets.barChart.options"
+              [colors]="widgets.barChart.colors"
+              [chartType]="widgets.barChart.chartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+
+    </gx-card>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-6">
+
+    <!-- Card -->
+    <gx-card [card-title]="widgets.horizontalBarChart.title">
+
+      <canvas baseChart
+              [datasets]="widgets.horizontalBarChart.datasets"
+              [labels]="widgets.horizontalBarChart.labels"
+              [options]="widgets.horizontalBarChart.options"
+              [colors]="widgets.horizontalBarChart.colors"
+              [chartType]="widgets.horizontalBarChart.chartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+
+    </gx-card>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-6">
+
+    <!-- Card -->
+    <gx-card [card-title]="widgets.doughnutChart.title">
+
+      <canvas baseChart
+              [data]="widgets.doughnutChart.data"
+              [labels]="widgets.doughnutChart.labels"
+              [chartType]="widgets.doughnutChart.chartType"
+              [colors]="colorsPatterns"
+              [options]="widgets.doughnutChart.options"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+
+    </gx-card>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-6">
+
+    <!-- Card -->
+    <gx-card [card-title]="widgets.doughnutChart.title">
+
+      <canvas baseChart
+              [data]="widgets.doughnutChart.data"
+              [labels]="widgets.doughnutChart.labels"
+              [chartType]="widgets.doughnutChart.chartType"
+              [colors]="widgets.doughnutChart.colors"
+              [options]="widgets.doughnutChart.options"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+
+    </gx-card>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-6">
+
+    <!-- Card -->
+    <gx-card [card-title]="widgets.radarChart.title">
+
+      <canvas baseChart
+              [datasets]="widgets.radarChart.datasets"
+              [labels]="widgets.radarChart.labels"
+              [chartType]="widgets.radarChart.chartType"
+              [options]="widgets.radarChart.options"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+
+    </gx-card>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-6">
+
+    <!-- Card -->
+    <gx-card [card-title]="widgets.pieChart.title">
+
+      <canvas baseChart
+              [data]="widgets.pieChart.data"
+              [labels]="widgets.pieChart.labels"
+              [chartType]="widgets.pieChart.chartType"
+              [options]="widgets.pieChart.options"
+              [colors]="widgets.pieChart.colors"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+
+    </gx-card>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-6">
+
+    <!-- Card -->
+    <gx-card [card-title]="widgets.piePatternChart.title">
+
+      <canvas baseChart
+              [data]="widgets.piePatternChart.data"
+              [labels]="widgets.piePatternChart.labels"
+              [chartType]="widgets.piePatternChart.chartType"
+              [options]="widgets.piePatternChart.options"
+              [colors]="colorsPatterns"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+
+    </gx-card>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-6">
+
+    <!-- Card -->
+    <gx-card [card-title]="widgets.polarAreaChart.title">
+
+      <canvas baseChart
+              [data]="widgets.polarAreaChart.data"
+              [labels]="widgets.polarAreaChart.labels"
+              [chartType]="widgets.polarAreaChart.chartType"
+              [options]="widgets.polarAreaChart.options"
+              [colors]="widgets.polarAreaChart.colors"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+
+    </gx-card>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-12">
+
+    <!-- Card -->
+    <gx-card [card-title]="widgets.dyanamicChart.title">
+      <card-tool><button class="btn btn-link" (click)="randomizeType($event)">Toggle Charts</button></card-tool>
+
+      <div class="row">
+
+        <div class="col-md-6">
+
+          <canvas baseChart
+                  [datasets]="widgets.dyanamicChart.chart1.datasets"
+                  [labels]="widgets.dyanamicChart.chart1.labels"
+                  [colors]="widgets.dyanamicChart.chart1.colors"
+                  [options]="widgets.dyanamicChart.chart1.options"
+                  [chartType]="widgets.dyanamicChart.chart1.chartType"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+
+        </div>
+
+        <div class="col-md-6">
+
+          <canvas baseChart
+                  [data]="widgets.pieChart.data"
+                  [labels]="widgets.pieChart.labels"
+                  [chartType]="widgets.dyanamicChart.chart2Type"
+                  [colors]="colorsPatterns"
+                  [options]="widgets.pieChart.options"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+
+        </div>
+
+      </div>
+
+    </gx-card>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+</div>
+<!-- /grid -->

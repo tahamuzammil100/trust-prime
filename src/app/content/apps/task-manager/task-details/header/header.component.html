@@ -1,0 +1,29 @@
+<!-- Complete Button -->
+<btn-complete [task]="task" display="button"></btn-complete>
+<!-- /Complete Button -->
+
+<!-- Labels -->
+<task-labels [task]="task"></task-labels>
+<!-- /Labels -->
+
+<!-- Calender -->
+<task-date [task]="task"></task-date>
+<!-- /calender -->
+
+<!-- Assignees -->
+<task-assignees [task]="task"></task-assignees>
+<!-- /Assignees -->
+
+<!-- Dropdown -->
+<div class="ml-auto" ngbDropdown placement="bottom-right">
+  <a class="no-arrow dt-avatar dt-avatar__outline size-30" href="javascript:void(0)" ngbDropdownToggle>
+    <gx-icon name="vertical-more" [fw]="true" size="sm" class="text-light-gray"></gx-icon>
+  </a>
+
+  <div ngbDropdownMenu>
+    <a class="dropdown-item" href="javascript:void(0)">Action</a>
+    <a class="dropdown-item" href="javascript:void(0)">Another action</a>
+    <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
+  </div>
+</div>
+<!-- /dropdown -->

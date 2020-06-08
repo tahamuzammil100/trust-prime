@@ -1,0 +1,165 @@
+<!-- Sidebar Children -->
+<div class="dt-sidebar__children">
+
+  <!-- Sidebar Action Bar -->
+  <div class="dt-action-bar">
+    <!-- Action Bar Header -->
+    <div class="dt-action-bar__header">
+      <!-- Brand tool -->
+      <div class="dt-brand__tool"
+           [ngClass]="{'active':isNavOpened}"
+           (click)="onToggleNavigation($event)">
+        <div class="hamburger-inner"></div>
+      </div>
+      <!-- /brand tool -->
+    </div>
+    <!-- /action bar header -->
+
+    <!-- Action Menu -->
+    <ul class="dt-action-nav">
+
+      <!-- Menu Item -->
+      <li class="dt-action-nav__item">
+        <a href="javascript:void(0)"
+           class="dt-action-nav__link"
+           [ngClass]="{'active':activeMenu == 'search'}"
+           (click)="onClickMenu($event, 'search')">
+          <gx-icon name="search" size="1x"></gx-icon>
+        </a>
+      </li>
+      <!-- /menu item -->
+
+      <!-- Menu Item -->
+      <li class="dt-action-nav__item">
+        <a href="javascript:void(0)"
+           class="dt-action-nav__link"
+           [ngClass]="{'active':activeMenu == 'notifications'}"
+           (click)="onClickMenu($event, 'notifications')">
+          <gx-icon name="notification2" size="1x"></gx-icon>
+        </a>
+      </li>
+      <!-- /menu item -->
+
+      <!-- Menu Item -->
+      <li class="dt-action-nav__item">
+        <a href="javascript:void(0)"
+           class="dt-action-nav__link"
+           [ngClass]="{'active':activeMenu == 'messages'}"
+           (click)="onClickMenu($event, 'messages')">
+          <gx-icon name="message" size="1x"></gx-icon>
+        </a>
+      </li>
+      <!-- /menu item -->
+
+      <!-- Menu Item -->
+      <li class="dt-action-nav__item" *ngIf="settings.navigationStyle === 'folded'">
+        <a href="javascript:void(0)" class="dt-action-nav__link" (click)="onToggleNavigation($event)">
+          <gx-icon name="vertical-more" size="2x"></gx-icon>
+        </a>
+      </li>
+      <!-- /menu item -->
+
+    </ul>
+    <!-- /action menu -->
+
+    <!-- Action Menu -->
+    <ul class="dt-action-nav">
+      <!-- Menu Item -->
+      <li class="dt-action-nav__item" ngbDropdown placement="top-left">
+
+        <!-- Dropdown Link -->
+        <a href="javascript:void(0)" class="dt-action-nav__link no-arrow" ngbDropdownToggle>
+          <gx-icon name="settings" size="1x"></gx-icon>
+        </a>
+        <!-- /dropdown link -->
+
+        <!-- Dropdown Option -->
+        <div ngbDropdownMenu>
+          <a class="dropdown-item" href="javascript:void(0)">
+            <gx-icon name="editors" [fw]="true"></gx-icon>
+            Edit </a>
+          <a class="dropdown-item" href="javascript:void(0)">
+            <gx-icon name="trash" [fw]="true"></gx-icon>
+            Delete </a>
+          <a class="dropdown-item" href="javascript:void(0)">
+            <gx-icon name="heart-o" [fw]="true"></gx-icon>
+            Favourite List
+          </a>
+        </div>
+        <!-- /dropdown option -->
+
+      </li>
+      <!-- /menu item -->
+
+      <!-- Menu Item -->
+      <li class="dt-action-nav__item" ngbDropdown placement="top-left">
+
+        <!-- Dropdown Link -->
+        <a href="javascript:void(0)" class="dt-action-nav__link no-arrow" ngbDropdownToggle>
+          <gx-avatar [user]="currentUser" class="size-30 ml-n1"></gx-avatar>
+        </a>
+        <!-- /dropdown link -->
+
+        <!-- Dropdown Option -->
+        <div ngbDropdownMenu class="m-1">
+          <div class="dt-avatar-wrapper flex-nowrap p-6 mt-n2 bg-gradient-purple text-white rounded-top">
+            <gx-avatar [user]="currentUser"></gx-avatar>
+
+            <span class="dt-avatar-info">
+                  <span class="dt-avatar-name">{{currentUser.name}}</span>
+                  <span class="f-12">{{currentUser.position}}</span>
+                </span>
+          </div>
+          <a class="dropdown-item" href="javascript:void(0)">
+            <gx-icon name="user" [fw]="true" class="mr-2 mr-sm-1"></gx-icon>
+            Account
+          </a>
+          <a class="dropdown-item" href="javascript:void(0)">
+            <gx-icon name="settings" [fw]="true" class="mr-2 mr-sm-1"></gx-icon>
+            Setting </a>
+          <a class="dropdown-item" href="#logout" (click)="onLogout($event)">
+            <gx-icon name="editors" [fw]="true" class="mr-2 mr-sm-1"></gx-icon>
+            Logout
+          </a>
+        </div>
+        <!-- /dropdown option -->
+
+      </li>
+      <!-- /menu item -->
+
+    </ul>
+    <!-- /action menu -->
+  </div>
+  <!-- /sidebar action bar -->
+
+  <!-- Sidebar Wrapper -->
+  <div class="dt-sidebar__content">
+
+    <!-- Sidebar Header -->
+    <div class="dt-sidebar__header">
+      <!-- Brand -->
+      <div class="dt-brand">
+
+        <!-- Brand logo -->
+        <span class="dt-brand__logo">
+            <a class="dt-brand__logo-link" routerLink="/">
+              <img class="dt-brand__logo-img" src="https://via.placeholder.com/334x119" alt="Drift">
+              <img class="dt-brand__logo-symbol" src="https://via.placeholder.com/133x119" alt="Drift">
+            </a>
+          </span>
+        <!-- /brand logo -->
+
+      </div>
+      <!-- /brand -->
+    </div>
+    <!-- /sidebar header -->
+
+    <div class="dt-sidebar__container"
+         [perfectScrollbar]="{wheelPropagation: !settings.navigationFixed}"
+         [disabled]="!settings.customScrollbars">
+      <app-navigation class="dt-side-nav" layout="vertical"></app-navigation>
+    </div>
+  </div>
+  <!-- /sidebar wrapper -->
+</div>
+<!-- Sidebar children -->

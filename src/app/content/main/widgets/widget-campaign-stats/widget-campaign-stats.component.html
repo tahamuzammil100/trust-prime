@@ -1,0 +1,18 @@
+<bs-card-body class="py-4 px-5">
+  <div class="d-flex align-items-center justify-content-between mb-2">
+    <div class="flex-1">
+      <h4 class="mb-1">{{data.title}}</h4>
+      <span class="f-12">{{data.sub_title}}</span>
+    </div>
+    <a [routerLink]="data.route">
+      <gx-icon name="arrow-right" size="xl"></gx-icon>
+    </a>
+  </div>
+
+  <gx-status-bar fullWidth
+                 hideCounter
+                 [fillVal]="88"
+                 [maxVal]="100"
+                 barColor="bg-warning"></gx-status-bar>
+
+</bs-card-body>

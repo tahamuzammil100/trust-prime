@@ -1,0 +1,28 @@
+<form [formGroup]="chatForm" (ngSubmit)="chatForm.valid && sendMessage()">
+  <!-- Action Tools -->
+  <div class="action-tools">
+    <button class="btn btn-primary dt-fab-btn" type="submit" [disabled]="chatForm.invalid">
+      <gx-icon name="send-new" size="xl"></gx-icon>
+    </button>
+
+    <div class="dt-fab-btn dt-attachment-btn size-30">
+      <input type="file">
+      <gx-icon name="attach-v"></gx-icon>
+    </div>
+  </div>
+  <!-- /action tools -->
+
+  <!-- Media -->
+  <bs-media-object [img]="{url: operator.thumb, alt: operator.name, classlist: 'dt-avatar mr-2'}">
+    <!-- Text Area -->
+    <textarea class="form-control border-0 shadow-none bg-focus"
+              rows="1"
+              name="message"
+              formControlName="message"
+              (keydown)="onKeyDown($event)"
+              required
+              placeholder="Write your comment..."></textarea>
+    <!-- /text area -->
+  </bs-media-object>
+  <!-- /media -->
+</form>

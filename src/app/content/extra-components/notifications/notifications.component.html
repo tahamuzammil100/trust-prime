@@ -1,0 +1,91 @@
+<!-- Page Header -->
+<div class="dt-page__header" fxLayout="row" fxLayoutAlign="space-between start">
+  <h1 class="dt-page__title mb-0">Notifications</h1>
+  <a href="https://scttcper.github.io/ngx-toastr/" target="_blank" title="Reference">
+    <gx-icon name="link" size="xl"></gx-icon>
+  </a>
+</div>
+<!-- /page header -->
+
+<!-- Grid -->
+<div class="row">
+
+  <!-- Grid Item -->
+  <div class="col-xl-6">
+
+    <!-- Card -->
+    <gx-card card-title="Notification Types">
+
+      <button class="btn btn-outline-success mr-2 mb-2" (click)="showSuccess()">Success</button>
+      <button class="btn btn-outline-danger mr-2 mb-2" (click)="showError()">Error</button>
+      <button class="btn btn-outline-warning mr-2 mb-2" (click)="showWarning()">Warning</button>
+      <button class="btn btn-outline-info mb-2" (click)="showInformation()">Information</button>
+
+    </gx-card>
+    <!-- /Card -->
+
+  </div>
+  <!-- /Grid Item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-6">
+
+    <!-- Card -->
+    <gx-card card-title="Progress Bar Animation">
+
+      <button class="btn btn-outline-primary mr-2 mb-2" (click)="showProgressBar('increasing')">Increasing</button>
+      <button class="btn btn-outline-secondary mb-2" (click)="showProgressBar('decreasing')">Decreasing</button>
+
+    </gx-card>
+    <!-- /Card -->
+
+  </div>
+  <!-- /Grid Item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-6">
+
+    <!-- Card -->
+    <gx-card card-title="Notification Position">
+
+      <div class="card-row">
+        <button class="btn btn-outline-primary mr-2 mb-2" (click)="changePosition('toast-top-left')">Top Left</button>
+        <button class="btn btn-outline-primary mr-2 mb-2" (click)="changePosition('toast-top-center')">Top Center</button>
+        <button class="btn btn-outline-primary mr-2 mb-2" (click)="changePosition('toast-top-right')">Top Right</button>
+        <button class="btn btn-outline-primary mb-2" (click)="changePosition('toast-top-full-width')">Top Full Width</button>
+      </div>
+
+      <div class="card-row">
+        <button class="btn btn-outline-secondary mr-2 mb-2" (click)="changePosition('toast-bottom-left')">Bottom Left</button>
+        <button class="btn btn-outline-secondary mr-2 mb-2" (click)="changePosition('toast-bottom-center')">Bottom Center</button>
+        <button class="btn btn-outline-secondary mr-2 mb-2" (click)="changePosition('toast-bottom-right')">Bottom Right</button>
+        <button class="btn btn-outline-secondary mr-2 mb-2" (click)="changePosition('toast-bottom-full-width')">Bottom Full Width</button>
+        <button class="btn btn-primary mb-2" (click)="openInlinePosition()">Inline Position</button>
+      </div>
+
+      <div toastContainer></div>
+
+    </gx-card>
+    <!-- /Card -->
+
+  </div>
+  <!-- /Grid Item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-6">
+
+    <!-- Card -->
+    <gx-card card-title="Custom Notifications">
+
+      <button (click)="openToastNoAnimation()" type="button" class="btn btn-primary mr-2 mb-2">No Animations</button>
+      <button (click)="openPinkToast()" type="button" class="btn btn-secondary mr-2 mb-2">Pink</button>
+      <button (click)="openNotyf()" type="button" class="btn btn-dark mb-2">Notyf</button>
+
+    </gx-card>
+    <!-- /Card -->
+
+  </div>
+  <!-- /Grid Item -->
+
+</div>
+<!-- /Grid -->

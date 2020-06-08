@@ -1,0 +1,30 @@
+<!-- Chart Header -->
+<div class="dt-chart__header pt-4 px-5 mb-6">
+  <div class="d-flex align-items-center mb-2">
+    <div class="flex-1">
+      <h5 class="font-weight-500 mb-1">{{data.title}}</h5>
+      <p class="f-12 mb-0">{{data.content}}</p>
+    </div>
+    <a href="#" class="d-inline-block ml-1 mr-n2">
+      <gx-icon name="arrow-right" size="1x"></gx-icon>
+    </a>
+  </div>
+
+  <div class="trending-section align-items-baseline">
+    <span class="value display-3 font-weight-500 text-primary">{{data.profit}}</span>
+    <gx-icon name="pointer-up" size="lg"></gx-icon>
+  </div>
+</div>
+<!-- /chart header -->
+
+<!-- Chart Body -->
+<div class="dt-chart__body">
+  <!-- Chart -->
+  <gx-chartist-chart lineSmooth="1"
+                     [type]="data.chart.type"
+                     [data]="data.chart.data"
+                     [options]="data.chart.options"
+                     [events]="events"></gx-chartist-chart>
+  <!-- /chart -->
+</div>
+<!-- /chart body -->

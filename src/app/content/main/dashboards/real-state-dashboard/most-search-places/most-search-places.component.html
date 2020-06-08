@@ -1,0 +1,88 @@
+<!-- Grid -->
+<div class="row no-gutters">
+  <!-- Grid Item -->
+  <div class="col-xl-6">
+    <!-- Card Body -->
+    <div class="dt-card__body pr-xl-0 h-100">
+      <div class="embed-responsive embed-responsive-16by9 h-100">
+        <agm-map class="embed-responsive-item border" [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+          <agm-marker [latitude]="lat" [longitude]="lng">
+            <agm-info-window>
+              <h3>Default Info Window</h3>
+              Adding an Info Window to a Map Marker
+            </agm-info-window>
+          </agm-marker>
+        </agm-map>
+      </div>
+    </div>
+    <!-- /card body -->
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-6">
+
+    <!-- Card Header -->
+    <div class="dt-card__header mb-0">
+      <!-- Card Heading -->
+      <card-heading>
+        <h3 class="dt-card__title">Most Search Places</h3>
+      </card-heading>
+      <!-- /card heading -->
+
+      <!-- Card Tools -->
+      <card-tool>
+        <ul class="nav nav-sm nav-underline nav-underline-none">
+          <li class="nav-item" *ngFor="let category of categories">
+            <a href="javascript:void(0)"
+               class="nav-link"
+               [ngClass]="{'active':category.slug === currentCat}"
+               (click)="onChangeCategory(category)">{{category.name}}</a>
+          </li>
+        </ul>
+      </card-tool>
+      <!-- /card tools -->
+    </div>
+    <!-- /card header -->
+
+    <card-body>
+      <!-- Tab Content-->
+      <div class="tab-content">
+
+        <!-- Tab panel -->
+        <div class="tab-pane active">
+
+          <!-- Tables -->
+          <div class="table-responsive">
+            <table class="table table-hover-text mb-0 table-fluid">
+              <thead>
+              <tr>
+                <th scope="col">{{locationTitle}} Name</th>
+                <th class="text-right" scope="col">Properties</th>
+                <th class="text-right" scope="col">Vendors</th>
+                <th scope="col">Visitors</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let place of visibleItems">
+                <td class="text-dark">{{place.location}}</td>
+                <td class="text-right">{{place.properties|number}}</td>
+                <td class="text-right">{{place.vendors|number}}</td>
+                <td>{{place.visitors|number}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- /tables -->
+
+        </div>
+        <!-- /tab panel -->
+
+      </div>
+      <!-- /tab content-->
+    </card-body>
+
+  </div>
+  <!-- /grid item -->
+</div>
+<!-- /grid -->

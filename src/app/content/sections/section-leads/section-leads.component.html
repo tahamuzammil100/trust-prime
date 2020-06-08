@@ -1,0 +1,89 @@
+<!-- Card Header -->
+<card-header [card-title]="cardTitle"></card-header>
+<!-- /card header -->
+
+<card-body>
+
+  <!-- Grid -->
+  <div class="row">
+
+    <!-- Grid Item -->
+    <div class="col-xl-4 col-md-6 mb-8 mb-xl-0">
+
+      <div class="row no-gutters mb-5 border-bottom">
+        <div class="col-6">
+
+          <!-- Chart -->
+          <gx-chart chartClasses="ml-n5 mt-n4"
+                    [chartType]="data.chart.chartType"
+                    [options]="data.chart.options"
+                    [labels]="data.chart.labels"
+                    [colors]="data.chart.colors"
+                    [data]="leadNumbers.data"></gx-chart>
+          <!-- /chart -->
+        </div>
+
+        <div class="col-6 d-flex">
+          <div class="d-flex flex-column justify-content-end align-items-end flex-fill">
+            <a href="javascript:void(0)" id="toggle-view" class="dt-avatar bg-primary shadow-lg mb-10"
+               (click)="onToggleView()">
+              <gx-icon [name]="activeView" class="text-white"></gx-icon>
+            </a>
+
+            <div class="text-dark display-3 font-weight-500 mb-5">
+              <span>{{leadNumbers.lead}}&nbsp;</span>
+              <span class="h3">Lead</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <ul class="dt-list dt-list-col-4">
+        <li class="dt-list__item" *ngFor="let browser of data.browsers">
+          <div class="d-flex align-items-center">
+            <span class="dot-shape dot-shape-lg mr-2" [ngClass]="browser.dotColor"></span>
+            <span class="d-inline-block">{{browser.title}}</span>
+          </div>
+        </li>
+      </ul>
+
+    </div>
+    <!-- /grid item -->
+
+    <!-- Grid Item -->
+    <div class="col-xl-4 col-md-6 px-xl-10 pl-md-10 mb-8 mb-md-0">
+      <div class="h4 mb-2">{{countries.heading}}</div>
+      <p class="mb-sm-6 text-light-gray">{{countries.desc}}</p>
+
+      <ul class="dt-list flex-column">
+        <li class="dt-list__item" *ngFor="let country of countries.data">
+          <div class="d-flex align-items-center">
+            <i class="flag-icon flag-icon-rounded flag-icon-lg mr-5" [ngClass]="'flag-icon-' + country.flag"></i>
+            <span class="text-dark mr-1">{{country.name}}</span>
+            <span class="ml-auto">{{country.lead}}</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <!-- /grid item -->
+
+    <!-- Grid Item -->
+    <div class="col-xl-4">
+      <div class="h4 mb-2">{{monthlyLead.heading}}</div>
+      <p class="mb-sm-6 text-light-gray">{{monthlyLead.desc}}</p>
+
+      <!-- Chart -->
+      <gx-chart [chartType]="monthlyLead.chart.chartType"
+                [options]="barChartOptions"
+                [labels]="monthlyLead.chart.labels"
+                [colors]="monthlyLead.chart.colors"
+                [datasets]="monthlyLead.chart.datasets"></gx-chart>
+      <!-- /chart -->
+
+    </div>
+    <!-- /grid item -->
+
+  </div>
+  <!-- /grid -->
+
+</card-body>

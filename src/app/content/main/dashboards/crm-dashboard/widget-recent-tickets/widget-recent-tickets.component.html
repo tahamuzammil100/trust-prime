@@ -1,0 +1,48 @@
+<!-- Card Header -->
+<card-header class="mb-4" card-title="Recent Tickets">
+
+  <!-- Card Tools -->
+  <card-tool>
+    <a href="javascript:void(0)" class="dt-card__more">See All</a>
+  </card-tool>
+  <!-- /card tools -->
+
+</card-header>
+<!-- /card header -->
+
+<card-body class="p-0">
+  <!-- Widget -->
+  <div class="dt-widget dt-widget-hover-bg">
+    <!-- Widget Item -->
+    <div class="dt-widget__item" *ngFor="let ticket of tickets">
+
+      <!-- Widget Image -->
+      <div class="dt-widget__img">
+        <!-- Avatar -->
+        <gx-avatar [user]="ticket.user" class="size-30"></gx-avatar>
+        <!-- /avatar -->
+      </div>
+      <!-- /widget image -->
+
+      <!-- Widget Info -->
+      <div class="dt-widget__info text-truncate">
+        <a href="javascript:void(0)" class="dt-widget__title text-truncate">{{ticket.message}}</a>
+        <p class="dt-widget__subtitle text-truncate">
+          <a href="javascript:void(0)">{{ticket.user.name == 'Babulal Kumawat'? 'You' : ticket.user.name}}</a>
+          {{ticket.replied}}
+        </p>
+      </div>
+      <!-- /widget info -->
+
+      <!-- Widget Extra -->
+      <div class="dt-widget__extra">
+        <span class="badge badge-circle-animate align-text-top" [ngClass]="ticket.status.color">{{ticket.status.text}}</span>
+      </div>
+      <!-- /widget extra -->
+
+    </div>
+    <!-- /widgets item -->
+
+  </div>
+  <!-- /widget -->
+</card-body>

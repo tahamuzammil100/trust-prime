@@ -1,0 +1,87 @@
+<!-- Card Header -->
+<bs-card-header class="card-nav bg-transparent border-bottom">
+
+  <ul class="card-header-links nav nav-underline nav-scroll text-uppercase">
+    <li class="nav-item">
+      <a href="#all"
+         class="nav-link"
+         [ngClass]="{'active':activeTab == ''}"
+         (click)="onTabChange($event, '')">All</a>
+    </li>
+    <li class="nav-item" *ngFor="let status of ticketStatus">
+      <a href="#tab-pane1"
+         class="nav-link"
+         [ngClass]="{'active': activeTab == status.type}"
+         (click)="onTabChange($event, status.type)">{{status.title}}</a>
+    </li>
+  </ul>
+
+</bs-card-header>
+<!-- /card header -->
+
+<bs-card-body class="px-0 pt-4">
+
+  <!-- Tab Content-->
+  <div class="tab-content">
+
+    <!-- Tab panel -->
+    <div class="tab-pane active">
+
+      <div class="dt-widget dt-widget-sm dt-widget-hover">
+        <!-- Widget Item -->
+        <div class="dt-widget__item" *ngFor="let ticket of filteredTickets.slice(0, 4)">
+
+          <!-- Widget Image -->
+          <div class="dt-widget__img">
+            <!-- Avatar -->
+            <gx-avatar [user]="ticket.user" class="size-30"></gx-avatar>
+            <!-- /avatar -->
+          </div>
+          <!-- /widget image -->
+
+          <!-- Widget Info -->
+          <div class="dt-widget__info text-truncate">
+            <a href="javascript:void(0)" class="dt-widget__title text-truncate">{{ticket.message}}</a>
+          </div>
+          <!-- /widget info -->
+
+          <!-- Widget Extra -->
+          <div class="dt-widget__extra min-w-60 text-center align-self-center">
+            <span class="badge badge-circle-animate" [ngClass]="ticket.status.color">{{ticket.status.text}}</span>
+          </div>
+          <!-- /widget extra -->
+
+          <!-- Dropdown -->
+          <div class="align-self-center ml-1 ml-sm-10" ngbDropdown placement="bottom-right">
+            <a class="dropdown-toggle no-arrow" href="javascript:void(0)" ngbDropdownToggle>
+              <gx-icon name="vertical-more" [fw]="true" class="text-light-gray"></gx-icon>
+
+            </a>
+
+            <div ngbDropdownMenu>
+              <a class="dropdown-item" href="javascript:void(0)">Action</a>
+              <a class="dropdown-item" href="javascript:void(0)">Another action</a>
+              <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
+            </div>
+          </div>
+          <!-- /dropdown -->
+
+        </div>
+        <!-- /widgets item -->
+
+        <!-- Widget Link -->
+        <div class="dt-widget-link">
+          <a href="javascript:void(0)" class="text-uppercase font-weight-500">View all tickets</a>
+        </div>
+        <!-- /widget link -->
+
+      </div>
+
+
+    </div>
+    <!-- /tab panel -->
+
+  </div>
+  <!-- /tab content-->
+
+</bs-card-body>

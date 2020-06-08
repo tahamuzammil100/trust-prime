@@ -1,0 +1,92 @@
+<app-operator-profile (onMenuClick)="toggleOpen($event)"></app-operator-profile>
+
+<!-- Sidebar Menu -->
+<div class="dt-module__sidebar-content position-relative" [@collapseAppSidebar]="isOpen">
+  <!-- Sidebar Content Inner -->
+  <div class="dt-module__sidebar-content-inner">
+    <!-- Card Header -->
+    <div class="card-header card-nav bg-transparent border-bottom">
+      <ul class="card-header-links nav nav-underline text-uppercase" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link"
+             href="javascript:void(0)"
+             [ngClass]="{'active':activeTab == 'recent'}"
+             (click)="activeTab = 'recent'">Recent</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"
+             href="javascript:void(0)"
+             [ngClass]="{'active':activeTab == 'contact'}"
+             (click)="activeTab = 'contact'">Contact</a>
+        </li>
+      </ul>
+    </div>
+    <!-- /card header -->
+
+    <!-- Tab Content-->
+    <div class="tab-content">
+
+      <!-- Tab panel -->
+      <div class="tab-pane position-relative" [ngClass]="{'active':activeTab == 'recent'}" perfectScrollbar>
+
+        <!-- Contact Container -->
+        <div class="dt-contacts__container">
+
+          <div class="dt-contacts__container-inner">
+
+            <!-- Contacts -->
+            <div class="dt-contacts contacts-list">
+
+              <!-- Contact Heading -->
+              <h5 class="dt-contact__heading">Yesterday</h5>
+              <!-- /contact heading -->
+
+              <!-- Contact -->
+              <chat-contact *ngFor="let contact of recentChats"
+                            [contact]="contact"></chat-contact>
+              <!-- /contact -->
+
+            </div>
+            <!-- contacts -->
+
+          </div>
+
+        </div>
+        <!-- /contact container -->
+
+      </div>
+      <!-- /tab panel -->
+
+      <!-- Tab panel -->
+      <div class="tab-pane position-relative" [ngClass]="{'active':activeTab == 'contact'}" perfectScrollbar>
+
+        <!-- Contact Container -->
+        <div class="dt-contacts__container">
+
+          <div class="dt-contacts__container-inner">
+
+            <!-- Contacts -->
+            <div class="dt-contacts contacts-list">
+
+              <!-- Contact -->
+              <chat-contact *ngFor="let contact of contacts"
+                            [contact]="contact"></chat-contact>
+              <!-- /contact -->
+
+            </div>
+            <!-- contacts -->
+
+          </div>
+
+        </div>
+        <!-- /contact container -->
+
+      </div>
+      <!-- /tab panel -->
+
+    </div>
+    <!-- /tab content-->
+  </div>
+  <!-- /sidebar content inner -->
+</div>
+<!-- /sidebar Menu -->

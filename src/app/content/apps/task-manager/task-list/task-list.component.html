@@ -1,0 +1,37 @@
+<!-- Module Header -->
+<setion-header [title]="module_title"></setion-header>
+<!-- /module header -->
+
+<!-- Module Content -->
+<div class="dt-module__content position-relative" perfectScrollbar>
+
+  <!-- Module Content Inner -->
+  <div class="dt-module__content-inner">
+
+    <p *ngIf="sections.length === 0" class="text-center">No record found.</p>
+
+    <!-- Module List -->
+    <ng-container *ngFor="let section of sections; index as i_section; first as isFirstSection">
+      <div *ngIf="section.tasks.length > 0"
+           class="dt-module__list">
+
+        <!-- Module Heading -->
+        <h5 *ngIf="section.title" class="text-light-gray mb-2">{{section.title}}</h5>
+        <!-- /module heading -->
+
+        <!-- Module Item -->
+        <ng-container *ngFor="let task of section.tasks; index as i; first as isFirst">
+          <app-task-list-item
+            *ngIf="!task.deleted"
+            [task]="task"></app-task-list-item>
+        </ng-container>
+        <!-- /module item -->
+
+      </div>
+    </ng-container>
+    <!-- /Module List -->
+
+  </div>
+  <!-- /module content inner -->
+
+</div>

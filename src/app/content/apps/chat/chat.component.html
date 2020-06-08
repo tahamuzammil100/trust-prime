@@ -1,0 +1,30 @@
+<!-- Grid -->
+<div class="row">
+
+  <!-- Grid Item -->
+  <div class="col-xl-12">
+
+    <!-- Module -->
+    <div class="dt-module dt-module--chat">
+
+      <!-- Module sidebar -->
+      <app-chat-sidebar></app-chat-sidebar>
+      <!-- /module sidebar -->
+
+      <!-- Module Container -->
+      <app-chat-area></app-chat-area>
+      <!-- /module Container -->
+
+      <!-- Module Drawer -->
+      <chat-drawer [ngClass]="{'open':drawer.isOpen}"></chat-drawer>
+      <div class="dt-backdrop" *ngIf="drawer.isOpen" (click)="closeDrawer($event)"></div>
+      <!-- Module Drawer -->
+
+    </div>
+    <!-- /module -->
+
+  </div>
+  <!-- /grid Item -->
+
+</div>
+<!-- /grid -->

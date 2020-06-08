@@ -1,0 +1,99 @@
+<!-- Action Bar -->
+<div class="d-flex flex-wrap">
+  <!-- Dropdown -->
+  <div ngbDropdown class="mr-auto">
+
+    <!-- Checkbox -->
+    <gx-checkbox  class="mr-3"
+                  [gxModel]="hasSelectedMails"
+                 [indeterminate]="isIndeterminate"
+                 (gxInputChange)="toggleSelectAll()"></gx-checkbox>
+    <!-- /checkbox -->
+
+    <!-- Dropdown Button -->
+    <a href="javascript:void(0)" class="text-dark" ngbDropdownToggle> {{selected}} </a>
+    <!-- /dropdown button -->
+
+    <!-- Dropdown Menu -->
+    <div ngbDropdownMenu>
+      <a class="dropdown-item" href="javascript:void(0)" (click)="selectMails()">All</a>
+      <a class="dropdown-item" href="javascript:void(0)" (click)="deselectMails()">None</a>
+      <a class="dropdown-item" href="javascript:void(0)" (click)="selectMails('Read', 'read', true)">Read</a>
+      <a class="dropdown-item" href="javascript:void(0)" (click)="selectMails('Unread', 'read', false)">Unread</a>
+      <a class="dropdown-item" href="javascript:void(0)" (click)="selectMails('Starred', 'starred', true)">Starred</a>
+      <a class="dropdown-item" href="javascript:void(0)" (click)="selectMails('Unstarred', 'starred', false)">Unstarred</a>
+    </div>
+    <!-- /dropdown menu -->
+
+  </div>
+  <!-- /dropdown -->
+
+  <!-- Button Group -->
+  <div *ngIf="hasSelectedMails" class="btn-group btn-group-sm mr-3 mr-lg-7 mb-1" role="group">
+    <button type="button" class="btn btn-outline-dark" (click)="setFolderOnSelectedMails('archive')">
+      <gx-icon name="archive" [fw]="true" size="lg"></gx-icon>
+    </button>
+
+    <button type="button" class="btn btn-outline-dark" (click)="setFolderOnSelectedMails('spam')">
+      <gx-icon name="spam" [fw]="true" size="lg"></gx-icon>
+    </button>
+
+    <button type="button" class="btn btn-outline-dark" (click)="setFolderOnSelectedMails('trash')">
+      <gx-icon name="trash-filled" [fw]="true" size="lg"></gx-icon>
+    </button>
+  </div>
+  <!-- /button group -->
+
+  <!-- Button Group -->
+  <div *ngIf="hasSelectedMails" class="btn-group btn-group-sm mr-4 mr-lg-7 mb-1" role="group">
+
+    <div class="btn-group btn-group-sm" role="group" ngbDropdown>
+      <button type="button" class="btn btn-outline-dark no-arrow" ngbDropdownToggle>
+        <gx-icon name="folder" [fw]="true" size="lg"></gx-icon>
+      </button>
+
+      <div ngbDropdownMenu>
+        <a  *ngFor="let folder of folders"
+            href="javascript:void(0)"
+            class="dropdown-item"
+            (click)="setFolderOnSelectedMails(folder.handle)">{{folder.title}}</a>
+      </div>
+    </div>
+
+    <div class="btn-group btn-group-sm" role="group" ngbDropdown placement="bottom-right">
+      <button type="button" class="btn btn-outline-dark no-arrow" ngbDropdownToggle>
+        <gx-icon name="tag" [fw]="true" size="lg"></gx-icon>
+      </button>
+
+      <div ngbDropdownMenu>
+        <a *ngFor="let label of labels"
+           href="javascript:void(0)"
+           class="dropdown-item"
+           (click)="toggleLabelOnSelectedMails(label.id)">{{label.title}}</a>
+      </div>
+    </div>
+  </div>
+  <!-- /button group -->
+
+  <!-- Dropdown -->
+  <div *ngIf="hasSelectedMails" ngbDropdown placement="bottom-right">
+
+    <!-- Dropdown Button -->
+    <a href="javascript:void(0)" class="btn btn-outline-dark btn-sm" ngbDropdownToggle>
+      More
+    </a>
+    <!-- /dropdown button -->
+
+    <!-- Dropdown Menu -->
+    <div ngbDropdownMenu>
+      <a class="dropdown-item" href="javascript:void(0)">Read</a>
+      <a class="dropdown-item" href="javascript:void(0)">Unread</a>
+      <a class="dropdown-item" href="javascript:void(0)">Starred</a>
+      <a class="dropdown-item" href="javascript:void(0)">Unstarred</a>
+    </div>
+    <!-- /dropdown menu -->
+
+  </div>
+  <!-- /dropdown -->
+</div>
+<!-- /action bar -->

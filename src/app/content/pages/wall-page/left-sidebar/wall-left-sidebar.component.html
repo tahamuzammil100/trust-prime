@@ -1,0 +1,57 @@
+<!-- Grid Item -->
+
+    <!-- User Information -->
+    <div class="card user-bg-card"  [ngStyle]="{'background-image': 'url(' + data.user.image + ')'}">
+        <div class="user-bg-card__info p-5">
+            <a href="javascript:void(0)" class="dt-avatar-name mb-1 text-white">{{data.user.name}}</a>
+            <span class="d-inline-block f-12" *ngIf="data.user.address">{{data.user.address}}</span>
+        </div>
+    </div>
+    <!-- /user information -->
+
+    <!-- List -->
+    <ul class="dt-list dt-list-col-4 dt-list-bordered">
+        <!-- List Item -->
+        <li class="dt-list__item text-center" *ngFor="let feed of data.feeds">
+            <span class="h4 font-weight-500 mb-0">{{feed.value | thousandSuff}}</span>
+            <span class="d-block text-light-gray f-12">{{feed.label}}</span>
+        </li>
+    </ul>
+    <!-- /list -->
+
+
+<!-- Separator -->
+    <hr class="my-6">
+    <!-- /separator -->
+
+    <div class="d-none d-sm-block">
+        <div class="mb-10">
+            <p class="mb-3">You are following Chelsea Jones.</p>
+
+            <!-- Toggle Button -->
+            <a href="javascript:void(0)" class="btn btn-primary btn-xs toggle-button" [ngClass]="{'active':!follow}">
+                <span (click)="toggleFollow()">{{follow ? 'Unfollow' : 'Follow'}}</span>
+            </a>
+            <!-- /toggle button -->
+        </div>
+
+        <!-- Entry Header -->
+        <app-entry-header class="mb-5" heading="Interests"></app-entry-header>
+        <!-- /entry header -->
+
+        <!-- Interest List -->
+        <ul class="dt-list mb-8">
+            <!-- List Item -->
+            <li class="dt-list__item" *ngFor="let interest of data.interests">
+                <a href="javascript:void(0)" class="btn btn-light">{{interest}}</a>
+            </li>
+            <!-- /list item -->
+        </ul>
+        <!-- /Interest List -->
+
+        <!-- Entry Header -->
+        <app-entry-header class="mb-5" [heading]="friendListCardTitle"></app-entry-header>
+        <!-- /entry header -->
+        <gx-online-user-list-card [userList]="data.friends" limit="6"></gx-online-user-list-card>
+    </div>
+<!-- /grid item -->

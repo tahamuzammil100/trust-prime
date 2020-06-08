@@ -1,0 +1,301 @@
+<app-page-header pageTitle="Dashboard - Real Estate"></app-page-header>
+
+<!-- Grid -->
+<div class="row">
+
+  <!-- Grid Item -->
+  <div class="col-md-6 order-xl-1">
+
+    <app-section-static-chart gxCard fullHeight class="dt-chart overflow-hidden"></app-section-static-chart>
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-4 col-md-6 order-xl-3">
+
+    <app-section-revenue-chart gxCard fullHeight class="dt-chart overflow-hidden"></app-section-revenue-chart>
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-6 col-12 order-xl-2">
+
+    <!-- Grid -->
+    <div class="row">
+      <!-- Grid Item -->
+      <div class="col-sm-6" *ngFor="let row of widgets.analyticsCards">
+
+        <gx-analytic-card
+          gxCard
+          [title]="row.title"
+          [description]="row.description"
+          [icon]="row.icon"
+          [number]="row.number"
+          [percent]="row.percent"
+          [positiveGrowth]="row.positiveGrowth"></gx-analytic-card>
+
+      </div>
+      <!-- /grid item -->
+    </div>
+    <!-- /grid -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-4 col-md-6 order-xl-4">
+
+    <gx-top-vendors gxCard
+                    [vendors]="widgets.topVendors"
+                    class="pb-5"></gx-top-vendors>
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-4 col-md-6 order-xl-5">
+
+    <!-- Card -->
+    <gx-properties gxCard class="pb-4" card-title="Trending Properties" [properties]="widgets.trendingProperties"></gx-properties>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-12 order-xl-6">
+    <!-- Card -->
+    <app-most-search-places gxCard [data]="widgets.places"></app-most-search-places>
+    <!-- /card -->
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-md-6 order-xl-7">
+
+    <!-- Card -->
+    <app-section-vendor-requests gxCard fullHeight
+                                 class="pb-4"
+                                 [vendorRequests]="widgets.vendorRequests"></app-section-vendor-requests>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-md-6 order-xl-7">
+
+    <app-section-support-tickets gxCard fullHeight
+                                 class="pb-4"
+                                 [supportTickets]="widgets.supportTickets"></app-section-support-tickets>
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-6 order-xl-11">
+
+    <!-- Card -->
+    <gx-referral-traffic gxCard fullHeight
+                         [chart]="widgets.referralTrafficChart"
+                         [progressRecords]="widgets.progressRecords"></gx-referral-traffic>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-3 col-sm-6 order-xl-9">
+
+    <gx-echarts-liquidfill gxCard
+                           fullHeight
+                           title="Realtime Users"
+                           figure="270"
+                           [data]="widgets.realUsersChart"></gx-echarts-liquidfill>
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-3 col-sm-6 order-xl-10">
+
+    <!-- Card -->
+    <gx-ratings gxCard fullHeight [reviews]="widgets.reviews"></gx-ratings>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-12 order-xl-12">
+
+    <!-- Card -->
+    <gx-card card-title="Recently Added Properties" header-class="mb-0"
+             body-class="pb-3">
+
+      <card-tool><!-- List -->
+        <ul class="dt-list dt-list-sm dt-list-cm-0">
+          <!-- List Item -->
+          <li class="dt-list__item">
+            <button type="button" class="btn btn-primary btn-xs">Add New</button>
+          </li>
+          <!-- /list item -->
+
+          <!-- List Item -->
+          <li class="dt-list__item">
+            <!-- Dropdown -->
+            <div class="d-inline-block" ngbDropdown placement="bottom-right">
+              <a class="d-inline-block f-12 py-1 px-2 py-1 border rounded" href="javascript:void(0)" ngbDropdownToggle>
+                Unread
+              </a>
+
+              <div ngbDropdownMenu>
+                <a class="dropdown-item" href="javascript:void(0)">Read</a>
+                <a class="dropdown-item" href="javascript:void(0)">Unread</a>
+                <a class="dropdown-item" href="javascript:void(0)">Spam</a>
+              </div>
+            </div>
+            <!-- /dropdown -->
+          </li>
+          <!-- /list item -->
+        </ul>
+        <!-- /list -->
+      </card-tool>
+
+      <!-- Tables -->
+      <div class="table-responsive">
+        <table class="table mb-0 table-fluid">
+          <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Property Name</th>
+            <th scope="col">Owner</th>
+            <th scope="col">City</th>
+            <th scope="col">State</th>
+            <th scope="col">Price</th>
+            <th scope="col">Action</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let property of widgets.propertiesList; let i = index;">
+            <td>{{i+1}}</td>
+            <td class="text-dark">{{property.name}}</td>
+            <td>{{property.ownerName}}</td>
+            <td>{{property.city}}</td>
+            <td>{{property.state}}</td>
+            <td>{{property.price}}</td>
+            <td>
+              <!-- List -->
+              <ul class="dt-list dt-list-cm-0">
+                <!-- List Item -->
+                <li class="dt-list__item">
+                  <a class="text-light-gray" href="javascript:void(0)">
+                    <gx-icon name="editors"></gx-icon>
+                  </a>
+                </li>
+                <!-- /list item -->
+
+                <!-- List Item -->
+                <li class="dt-list__item">
+                  <a class="text-light-gray" href="javascript:void(0)">
+                    <gx-icon name="trash-filled"></gx-icon>
+                  </a>
+                </li>
+                <!-- /list item -->
+
+                <!-- List Item -->
+                <li class="dt-list__item">
+                  <!-- Dropdown -->
+                  <div ngbDropdown placement="left">
+                    <a class="no-arrow text-light-gray" href="javascript:void(0)" ngbDropdownToggle>
+                      <gx-icon name="horizontal-more" [fw]="true"></gx-icon>
+                    </a>
+
+                    <div ngbDropdownMenu>
+                      <a class="dropdown-item" href="javascript:void(0)">Action</a>
+                      <a class="dropdown-item" href="javascript:void(0)">Another action</a>
+                      <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
+                    </div>
+                  </div>
+                  <!-- /dropdown -->
+                </li>
+                <!-- /list item -->
+              </ul>
+              <!-- /list -->
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- /table -->
+
+    </gx-card>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+</div>
+<!-- /grid -->
+
+<!-- Grid -->
+<div class="row">
+
+  <!-- Grid Item -->
+  <div class="col-xl-3 col-sm-6 col-12" *ngFor="let socialCard of widgets.socialCards">
+
+    <gx-social-card [title]="socialCard.title"
+                    [color]="socialCard.color"
+                    [logoIcon]="socialCard.logoIcon"
+                    [likes]="socialCard.likes"
+                    [friends]="socialCard.friends"
+                    [followers]="socialCard.followers"></gx-social-card>
+
+  </div>
+  <!-- /grid item -->
+
+</div>
+<!-- /grid -->
+
+<!-- Grid -->
+<div class="row">
+
+  <!-- Grid Item -->
+  <div class="col-xl-7 order-xl-2">
+
+    <app-section-our-team gxCard
+                          class="dt-contact-card"
+                          [teamCategories]="widgets.teamCategories"
+                          [members]="widgets.teamMembers"></app-section-our-team>
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-5 col-md-6 order-xl-1">
+
+    <app-section-pricing-plans gxCard [pricingPlans]="widgets.pricingPlans" class="pb-4"></app-section-pricing-plans>
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-5 col-md-6 order-xl-4">
+
+    <gx-value-calculator gxCard class="bg-info text-white"></gx-value-calculator>
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-7 order-xl-3">
+
+    <gx-invoices gxCard [invoices]="widgets.invoices"></gx-invoices>
+
+  </div>
+  <!-- /grid item -->
+
+</div>
+<!-- /grid -->

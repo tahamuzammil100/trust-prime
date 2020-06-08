@@ -1,0 +1,85 @@
+<!-- Custom Container -->
+<div class="dt-container">
+  <!-- Navbar -->
+  <app-navigation layout="horizontal" class="navbar-nav navbar-expand-md dt-navbar"></app-navigation>
+  <!-- /navbar -->
+
+  <!-- Header Toolbar -->
+  <div class="dt-header__toolbar d-none d-lg-flex">
+
+    <!-- Header Menu Wrapper -->
+    <div class="dt-nav-wrapper">
+
+      <!-- Header Menu -->
+      <ul class="dt-nav">
+        <li class="dt-nav__item dt-notification-search" ngbDropdown [placement]="['bottom-right', 'bottom']">
+
+          <!-- Dropdown Link -->
+          <a href="javascript:void(0)" class="dt-nav__link no-arrow" ngbDropdownToggle>
+            <gx-icon name="search" size="xl" [fw]="true"></gx-icon>
+          </a>
+          <!-- /dropdown link -->
+
+          <!-- Dropdown Option -->
+          <div ngbDropdownMenu>
+
+            <!-- Search Box -->
+            <form class="search-box right-side-icon">
+              <input class="form-control form-control-lg"
+                     type="search"
+                     placeholder="Search in app..."
+                     (click)="$event.stopPropagation()">
+              <button type="submit" class="search-icon" (click)="$event.stopPropagation()">
+                <gx-icon name="search" size="lg"></gx-icon>
+              </button>
+            </form>
+            <!-- /search box -->
+
+          </div>
+          <!-- /dropdown option -->
+
+        </li>
+
+        <li class="dt-nav__item dt-notification" ngbDropdown [placement]="['bottom-right', 'bottom']">
+
+          <!-- Dropdown Link -->
+          <a href="javascript:void(0)" class="dt-nav__link no-arrow" ngbDropdownToggle>
+            <gx-icon name="notification2" size="xl" fw="true" class="dt-icon-alert"></gx-icon>
+          </a>
+          <!-- /dropdown link -->
+
+          <!-- Dropdown Option -->
+          <my-notifications ngbDropdownMenu class="dropdown-menu-media"></my-notifications>
+          <!-- /dropdown option -->
+
+        </li>
+
+        <li class="dt-nav__item dt-notification" ngbDropdown [placement]="['bottom-right', 'bottom']">
+
+          <!-- Dropdown Link -->
+          <a href="javascript:void(0)" class="dt-nav__link no-arrow" ngbDropdownToggle>
+            <gx-icon name="open-mail" size="xl" fw="true"></gx-icon>
+          </a>
+          <!-- /dropdown link -->
+
+          <!-- Dropdown Option -->
+          <my-messages ngbDropdownMenu class="dropdown-menu-media"></my-messages>
+          <!-- /dropdown option -->
+
+        </li>
+      </ul>
+      <!-- /header menu -->
+
+      <a routerLink="page/layouts" class="btn btn-secondary btn-sm ml-auto align-self-center">
+        <gx-icon name="layout" [fw]="true" size="lg" class="mr-2 d-none d-xl-inline-block"></gx-icon>
+        <span translate="NAV.MAIN.LAYOUTS">Layouts</span>
+      </a>
+
+    </div>
+    <!-- /header menu wrapper -->
+
+  </div>
+  <!-- /header toolbar -->
+
+</div>
+<!-- /custom container -->

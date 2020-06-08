@@ -1,0 +1,48 @@
+<!-- Checkbox -->
+<gx-checkbox class="mr-5" [gxModel]="selected" (gxInputChange)="onSelectedChange($event)"></gx-checkbox>
+<!-- /checkbox -->
+
+<gx-star class="mr-5" [gxModel]="contact.starred" (gxInputChange)="onToggleStarred($event)"></gx-star>
+
+<gx-avatar [user]="contact" class="mr-4"></gx-avatar>
+
+<!-- Module Content -->
+<div class="dt-module__list-item-content">
+  <div class="user-detail">
+    <span class="user-name">{{contact.first_name}}</span>
+    <span class="dt-separator-v">&nbsp;</span>
+    <span class="designation">{{contact.designation | htmlToPlainText | slice:0:30}}</span>
+  </div>
+  <div class="text-light-gray">
+    <span class="d-inline-block mr-3">{{contact.email}}</span>
+    <span class="d-inline-block">{{contact.phone}}</span>
+  </div>
+</div>
+<!-- /module content -->
+
+<!-- Module Info -->
+<div class="dt-module__list-item-info">
+  <!-- Dropdown -->
+  <div ngbDropdown placement="bottom-right">
+    <a class="no-arrow" href="javascript:void(0)" ngbDropdownToggle>
+      <gx-icon name="vertical-more" [fw]="true" size="xl" class="text-light-gray"></gx-icon>
+    </a>
+
+    <div ngbDropdownMenu>
+      <a class="dropdown-item" href="javascript:void(0)"  (click)="editContact(contact)">
+        <gx-icon name="editors" [fw]="true"></gx-icon>
+        Edit
+      </a>
+      <a class="dropdown-item" href="javascript:void(0)" (click)="deleteContact(contact)">
+        <gx-icon name="trash" [fw]="true"></gx-icon>
+        Delete
+      </a>
+      <a class="dropdown-item" href="javascript:void(0)" (click)="onFavouriteContact()">
+        <gx-icon name="heart-o" [fw]="true"></gx-icon>
+        Favourite List
+      </a>
+    </div>
+  </div>
+  <!-- /dropdown -->
+</div>
+<!-- /module info -->

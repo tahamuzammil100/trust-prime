@@ -1,0 +1,56 @@
+<!-- Entry Header -->
+<app-entry-header class="mb-5" heading="Recent Activities"></app-entry-header>
+<!-- /entry header -->
+
+<!-- Widget -->
+<div *ngFor="let item of data" class="dt-widget dt-widget-hover">
+    <span class="dt-widget__heading px-0">{{item.date}}</span>
+    <!-- Widget Item -->
+    <div *ngFor="let activity of item.activities" class="dt-widget__item px-0">
+
+        <!-- Widget Image -->
+        <div class="dt-widget__img">
+
+            <span class="dt-avatar size-35 rounded {{activity.imageClass ? activity.imageClass: 'bg-light-blue' }} text-white"
+                  *ngIf="!activity.image">{{activity.name | shortTitle}}</span>
+
+            <!-- Avatar -->
+            <img *ngIf="activity.image" class="dt-avatar size-35 rounded"
+                 src="{{activity.image}}" alt="User">
+            <!-- /avatar -->
+        </div>
+        <!-- /widget image -->
+
+        <!-- Widget Info -->
+        <div class="dt-widget__info">
+            <a href="javascript:void(0)" class="dt-widget__title">{{activity.content}}</a>
+            <ul class="dt-team-list mt-2" *ngIf="activity.hasOwnProperty('images')">
+                <li *ngFor="let image of activity.images; let last = last">
+                    <!-- Avatar -->
+                    <a class="dt-avatar size-35 min-w-55 rounded" href="javascript:void(0)">
+                        <img class="img-fluid" src="{{image}}" alt="Beach">
+                    </a>
+                    <!-- /avatar -->
+                </li>
+                <li>
+                    <!-- Avatar -->
+                    <a class="border py-2 px-4 rounded text-light-gray d-inline-block" href="javascript:void(0)">
+                        +5 More
+                    </a>
+                    <!-- /avatar -->
+                </li>
+            </ul>
+        </div>
+        <!-- /widget info -->
+
+    </div>
+    <!-- /widgets item -->
+</div>
+<!-- /widget -->
+
+<!-- Widget Link -->
+<div class="dt-widget-link px-0">
+    <a href="javascript:void(0)" class="text-uppercase font-weight-500">Load More</a>
+</div>
+<!-- /widget link -->
+

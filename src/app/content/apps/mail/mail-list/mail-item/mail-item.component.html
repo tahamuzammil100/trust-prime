@@ -1,0 +1,34 @@
+<!-- Checkbox -->
+<gx-checkbox class="mr-5" [gxModel]="selected" (gxInputChange)="onSelectedChange($event)"></gx-checkbox>
+<!-- /checkbox -->
+
+<gx-star class="mr-5" [gxModel]="mail.starred" (gxInputChange)="onToggleStarred($event)"></gx-star>
+
+<!-- Avatar -->
+<gx-avatar [user]="mail.from" class="mr-4"></gx-avatar>
+<!-- /avatar -->
+
+<!-- Module Content -->
+<div class="dt-module__list-item-content"
+     data-location="mail-detail.html">
+  <div class="user-detail">
+    <span class="user-name">{{mail.from.name}}</span>
+    <span class="dt-separator-v">&nbsp;</span>
+    <span class="designation">{{mail.subject | htmlToPlainText | slice:0:30}}</span>
+  </div>
+  <p class="mb-0 text-light-gray text-truncate">{{mail.message | htmlToPlainText | slice:0:100}}</p>
+</div>
+<!-- /module content -->
+
+<!-- Module Info -->
+<div class="dt-module__list-item-info">
+  <!-- Badges -->
+  <task-badges class="badge-group"
+               [ids]="mail.labels"
+               [labels]="labels"
+               [showAll]="false"></task-badges>
+  <!-- /badges -->
+
+  <span>{{mail.time}}</span>
+</div>
+<!-- /module info -->

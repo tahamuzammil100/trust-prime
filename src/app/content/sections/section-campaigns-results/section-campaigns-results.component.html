@@ -1,0 +1,83 @@
+<!-- Card Header -->
+<card-header card-title="Campaigns &amp; Results"></card-header>
+<!-- /card header -->
+
+<card-body class="pb-3">
+
+  <!-- Campaigns Widget -->
+  <div class="campaigns-widget">
+
+    <!-- Grid -->
+    <div class="row no-gutters pb-3 mb-1 border-bottom">
+
+      <!-- Grid Item -->
+      <div class="col-5 col-sm-6 text-truncate pr-2">Campaign Name</div>
+      <!-- /grid item -->
+
+      <!-- Grid Item -->
+      <div class="col-7 col-sm-6">Leads & Conversion</div>
+      <!-- /grid item -->
+
+    </div>
+    <!-- /grid -->
+
+    <!-- Widget -->
+    <div class="dt-widget dt-widget-hover-bg">
+
+      <!-- Widget Item -->
+      <div class="dt-widget__item" *ngFor="let campaign of campaigns">
+
+        <!-- Grid -->
+        <div class="row no-gutters">
+
+          <!-- Grid Item -->
+          <div class="col-5 col-sm-6 pr-2">
+            <p class="dt-widget__title mb-0 text-truncate">{{campaign.title}}</p>
+          </div>
+          <!-- /grid item -->
+
+          <!-- Grid Item -->
+          <div class="col-7 col-sm-6">
+            <div class="row no-gutters">
+              <div class="col-sm-6 col-7">
+                <span class="d-inline-block text-nowrap">
+                  <span class="text-dark">{{campaign.leadGain}}</span>
+                  out of <span class="text-dark">{{campaign.totalLead}}</span>
+                </span>
+              </div>
+              <div class="col-sm-4 col-4 text-center">
+                <span class="d-inline-block" [ngClass]="campaign.percentColor">{{campaign.percentLead}}</span>
+              </div>
+
+              <div class="col-sm-2 col-1 text-right">
+                <!-- Dropdown -->
+                <div class="d-inline-block" ngbDropdown placement="bootom-right">
+                  <a class="no-arrow" href="javascript:void(0)" ngbDropdownToggle>
+                    <gx-icon name="vertical-more" [fw]="true" class="text-light-gray"></gx-icon>
+                  </a>
+
+                  <div ngbDropdownMenu>
+                    <a class="dropdown-item" href="javascript:void(0)">Action</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Another action</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
+                  </div>
+                </div>
+                <!-- /dropdown -->
+              </div>
+            </div>
+          </div>
+          <!-- /grid item -->
+
+        </div>
+        <!-- /grid -->
+
+      </div>
+      <!-- /widgets item -->
+
+    </div>
+    <!-- /widget -->
+
+  </div>
+  <!-- /campaigns widget -->
+
+</card-body>

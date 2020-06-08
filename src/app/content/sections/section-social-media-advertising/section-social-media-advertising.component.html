@@ -1,0 +1,34 @@
+<!-- Card Header -->
+<card-header class="mb-3" card-title="Social Media Advertising"></card-header>
+<!-- /card header -->
+
+<card-body class="pb-2">
+
+  <!-- Media -->
+  <div class="media py-5" *ngFor="let row of socialMedia; last as isLast;" [ngClass]="{'border-bottom ':!isLast}">
+
+    <!-- Icon -->
+    <gx-icon [name]="row.logo.icon" size="4x" class="mr-4" [ngClass]="row.logo.color"></gx-icon>
+    <!-- /icon -->
+
+    <!-- Media Body -->
+    <div class="media-body">
+      <a class="dt-widget__title font-weight-500" href="javascript:void(0)">{{row.title}}</a>
+      <p class="dt-widget__subtitle">{{row.likes}} Likes, {{row.shares}} Shares</p>
+    </div>
+    <!-- /media body -->
+
+    <span class="d-block min-w-60 text-center mr-xl-10 mr-md-2 mr-sm-10 ml-2">
+       <span class="d-block font-weight-500 mb-1 h4">{{row.spent | currency:'USD':'symbol':'0.0-0'}}</span>
+       <span class="d-block f-12">Spent</span>
+     </span>
+
+    <span class="d-block min-w-60 text-center ml-xl-10">
+      <span class="d-block text-success mb-1 h5"><gx-icon name="profit" [fw]="true"></gx-icon>{{row.progress}}</span>
+      <span class="d-block f-12">up</span>
+    </span>
+
+  </div>
+  <!-- /media -->
+
+</card-body>

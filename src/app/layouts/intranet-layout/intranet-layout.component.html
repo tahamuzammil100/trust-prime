@@ -1,0 +1,39 @@
+<div class="dt-root__intra">
+  <!-- HEADER: Full -->
+  <app-header></app-header>
+  <!-- / HEADER: Full -->
+
+  <!-- Site Content Wrapper -->
+  <main class="dt-main">
+
+    <!-- NAVBAR: Left -->
+    <app-navbar-vertical></app-navbar-vertical>
+
+    <div *ngIf="settings.activeNavDrawer" class="dt-backdrop" (click)="onClickOverlay()"></div>
+    <!-- / NAVBAR: Left -->
+
+    <!-- Site Content -->
+    <div class="dt-content-wrapper">
+
+      <!-- Site Content -->
+      <div class="dt-content">
+
+        <router-outlet></router-outlet>
+
+      </div>
+      <!-- /site content -->
+
+      <!-- FOOTER: Default -->
+      <app-footer></app-footer>
+      <!-- / FOOTER: Default -->
+
+    </div>
+    <!-- /Site Content Wrapper-->
+
+  </main>
+  <!-- /site content -->
+</div>
+
+<app-customizer class="position-static"></app-customizer>
+
+<app-drawer></app-drawer>

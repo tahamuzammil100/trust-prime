@@ -1,0 +1,16 @@
+<ng-container *ngIf="renderMessage">
+
+  <gx-avatar [user]="avatar" class="size-30" [charLength]=""></gx-avatar>
+
+  <!-- Messages -->
+  <div class="dt-chat__message-wrapper">
+
+    <!-- Message -->
+    <div class="dt-chat__message"
+         *ngFor="let item of messageList" [innerHTML]="item.message | nl2br"></div>
+    <!-- /message -->
+
+  </div>
+  <!-- /messages -->
+
+</ng-container>

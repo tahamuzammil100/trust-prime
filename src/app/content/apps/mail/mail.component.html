@@ -1,0 +1,43 @@
+<!-- Grid -->
+<div class="row">
+
+  <!-- Grid Item -->
+  <div class="col-xl-12">
+
+    <!-- Module -->
+    <div class="dt-module">
+
+      <!-- Module Sidebar -->
+      <mail-sidebar></mail-sidebar>
+      <!-- /Module Sidebar -->
+
+      <!-- Module Container -->
+      <div class="dt-module__container">
+
+        <!-- Module Header -->
+        <mail-module-header></mail-module-header>
+        <!-- /Module Header -->
+
+        <!-- Module Content -->
+        <app-mail-list [hidden]="currentMail" perfectScrollbar></app-mail-list>
+        <!-- Module Content -->
+
+        <app-mail-details *ngIf="currentMail" perfectScrollbar></app-mail-details>
+
+      </div>
+      <!-- /Module Container -->
+
+      <!-- Module Drawer -->
+      <mail-drawer [ngClass]="{'open':drawer.isOpen}"></mail-drawer>
+      <div class="dt-backdrop" *ngIf="drawer.isOpen" (click)="closeDrawer($event)"></div>
+      <!-- Module Drawer -->
+
+    </div>
+    <!-- /Module -->
+
+  </div>
+  <!-- /Grid Item -->
+
+</div>
+<!-- /Grid -->
+

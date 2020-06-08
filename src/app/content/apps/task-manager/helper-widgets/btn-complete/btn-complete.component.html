@@ -1,0 +1,23 @@
+<span *ngIf="display === 'checkbox'; else typeBtn" class="dt-checkbox dt-checkbox-icon dt-checkbox-only mr-4" [ngClass]="{'active':task.completed}"
+      (click)="$event.stopPropagation()">
+  <input id="task-checkbox-{{task.id}}" type="checkbox" [(ngModel)]="task.completed" (change)="onToggleChange()">
+  <label class="font-weight-light dt-checkbox-content" for="task-checkbox-{{task.id}}">
+    <span class="unchecked">
+      <gx-icon name="circle-check-o" [fw]="true" size="1x" class="text-light-gray"></gx-icon>
+    </span>
+    <span class="checked">
+      <gx-icon name="circle-check-o" [fw]="true" size="1x" class="text-success"></gx-icon>
+    </span>
+  </label>
+</span>
+
+<ng-template #typeBtn>
+  <button type="button" class="btn btn-outline-dark btn-sm mb-2 mr-5"
+          [ngClass]="{'btn-success text-white':task.completed,'btn-outline-dark':!task.completed}"
+          (click)="onToggleClick()"
+          data-toggle="button" aria-pressed="false">
+    <gx-icon name="check" [fw]="true" class="mr-1"></gx-icon>
+    {{task.completed? 'Completed':'Mark As Done'}}
+  </button>
+</ng-template>
+

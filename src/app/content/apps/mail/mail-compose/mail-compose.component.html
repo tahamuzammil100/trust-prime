@@ -1,0 +1,82 @@
+<div perfectScrollbar>
+  <!-- Compose Mail Header -->
+  <div class="compose-mail-box__header cursor-pointer" (click)="minimized = !minimized">
+    <div class="title">
+      <gx-icon name="editors" class="mr-2" [fw]="true" size="xl"></gx-icon>
+      Compose New Message
+    </div>
+
+    <div class="action-area ml-auto">
+      <a *ngIf="minimized" class="text-white mr-3" href="javascript:void(0)">
+        <gx-icon name="chevrolet-up" size="xl"></gx-icon>
+      </a>
+
+      <a *ngIf="!minimized" class="text-white mr-3" href="javascript:void(0)">
+        <gx-icon name="chevrolet-down" size="xl"></gx-icon>
+      </a>
+      <a class="text-white" href="javascript:void(0)" (click)="onCloseClick($event)">
+        <gx-icon name="remove" size="sm"></gx-icon>
+      </a>
+    </div>
+  </div>
+  <!-- /compose mail header -->
+
+  <!-- Compose Mail Body -->
+  <div class="compose-mail-box__body" [hidden]="minimized">
+    <!-- Form -->
+    <form [formGroup]="composeMailForm" (submit)="onSubmitForm()">
+
+      <!-- Form Group -->
+      <div class="form-group mb-1" formArrayName="to">
+        <div [formGroupName]="0">
+          <label class="sr-only" for="email">Email address</label>
+          <input type="email"
+                 class="form-control"
+                 id="email"
+                 placeholder="Enter email"
+                 name="email"
+                 formControlName="email">
+        </div>
+      </div>
+      <!-- /form group -->
+
+      <!-- Form Group -->
+      <div class="form-group">
+        <label class="sr-only" for="subject">Subject</label>
+        <input type="text"
+               class="form-control"
+               placeholder="Subject"
+               id="subject"
+               name="subject"
+               formControlName="subject">
+      </div>
+      <!-- /form group -->
+
+      <!-- Form Group -->
+      <div class="form-group">
+        <label class="sr-only" for="textarea">Example textarea</label>
+        <textarea class="form-control"
+                  placeholder="Your message here..."
+                  id="textarea"
+                  name="message"
+                  formControlName="message"></textarea>
+      </div>
+      <!-- /form group -->
+
+      <!-- Form Group -->
+      <div class="d-flex align-items-center">
+        <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+
+        <div class="action-area ml-auto">
+          <a class="text-dark" href="javascript:void(0)" (click)="onDiscardMail()">
+            <gx-icon name="trash" class="mr-1"></gx-icon>
+            <span class="f-12 text-uppercase">discard</span>
+          </a>
+        </div>
+      </div>
+      <!-- /form group -->
+    </form>
+    <!-- /form -->
+  </div>
+  <!-- /compose mail body -->
+</div>

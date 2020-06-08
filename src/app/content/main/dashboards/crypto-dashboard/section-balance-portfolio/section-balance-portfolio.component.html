@@ -1,0 +1,100 @@
+<!-- Card Header -->
+<card-header class="mb-4">
+
+  <!-- Card Heading -->
+  <card-heading>
+    <h3 class="dt-card__title">
+      <gx-icon name="revenue" size="xl" class="mr-3"></gx-icon>
+      <span class="align-bottom">{{data.title}}</span>
+    </h3>
+  </card-heading>
+  <!-- /card heading -->
+
+  <!-- Card Tools -->
+  <card-tool>
+    <a href="javascript:void(0)" class="dt-card__more">
+      <gx-icon name="circle-add-o" class="mr-2"></gx-icon>Add New
+    </a>
+  </card-tool>
+  <!-- /card tools -->
+
+</card-header>
+<!-- /card header -->
+
+<card-body class="pb-4">
+  <!-- Grid -->
+  <div class="row no-gutters">
+    <!-- Grid Item -->
+    <div class="col-sm-7 mb-8 mb-sm-0">
+      <div class="d-flex align-items-baseline mb-1">
+        <span class="display-2 font-weight-500 text-dark mr-2">{{data.amount}}</span>
+        <div class="trending-section font-weight-500" [ngClass]="data.progress.color">
+          <span class="value">{{data.progress.value}}</span>
+          <gx-icon [name]="data.progress.icon"></gx-icon>
+        </div>
+      </div>
+      <p class="mb-0">Overall balance</p>
+    </div>
+    <!-- /grid item -->
+
+    <!-- Grid Item -->
+    <div class="col-sm-5">
+      <div class="mb-3">
+        <button *ngFor="let btn of data.buttons" class="btn mr-3 btn-sm" [ngClass]="btn.style">{{btn.label}}</button>
+      </div>
+      <p class="mb-0">A/C: 4578******45</p>
+    </div>
+    <!-- /grid item -->
+
+  </div>
+  <!-- /grid -->
+
+  <!-- Separator -->
+  <hr class="my-5">
+  <!-- /separator -->
+
+  <div class="position-relative">
+    <h5>{{data.statusTitle}}</h5>
+    <!-- Grid -->
+    <div class="row no-gutters">
+      <!-- Grid Item -->
+      <div class="col-sm-4 col-12 mb-2 mb-sm-0" *ngFor="let row of data.records">
+        <!-- Media -->
+        <div class="media">
+
+          <circle-progress
+            class="mr-2 size-50"
+            [percent]="row.circleProgress.percent"
+            [radius]="row.circleProgress.radius"
+            [outerStrokeWidth]="row.circleProgress.thickness"
+            [outerStrokeColor]="row.circleProgress.color"
+            [innerStrokeWidth]="row.circleProgress.thickness"
+            [innerStrokeColor]="'#e7e8ea'"
+            [space]="-row.circleProgress.thickness"
+            [animation]="true"
+            [animationDuration]="300"
+            [showTitle]="false"
+            [showSubtitle]="false"
+            [showUnits]="false"></circle-progress>
+
+          <!-- Media Body -->
+          <div class="media-body align-self-center">
+            <h5 class="mb-0">{{row.label}}</h5>
+            <div class="d-flex align-items-baseline">
+              <span class="display-5 font-weight-500 text-primary mr-2">{{row.value}}</span>
+              <div class="trending-section">
+                <span class="value f-12">{{(row.percentage/100) | percent:'1.0-2'}}</span>
+              </div>
+            </div>
+          </div>
+          <!-- /media body -->
+
+        </div>
+        <!-- /media -->
+      </div>
+      <!-- /grid item -->
+    </div>
+    <!-- /grid -->
+  </div>
+
+</card-body>

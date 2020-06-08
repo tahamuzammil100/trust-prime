@@ -1,0 +1,26 @@
+<ng-container *ngIf="settings.layout !== 'intranet'">
+  <!-- Page Header -->
+  <app-page-header pageTitle="Blank Page"></app-page-header>
+  <!-- /page header -->
+
+  <!-- Grid -->
+  <div class="row">
+
+    <!-- Grid Item -->
+    <div class="col-xl-12">
+
+      <p class="lead">This is a blank page provided in the template which could be used to setup your
+        own custom page.</p>
+
+    </div>
+    <!-- /grid item -->
+
+  </div>
+  <!-- /grid -->
+</ng-container>
+
+<ng-container *ngIf="settings.layout === 'intranet'">
+  <gx-card card-title="Blank Page" [ngStyle]="{height: '400px'}">
+    <p class="lead">This is a blank page provided in the template which could be used to setup your own custom page.</p>
+  </gx-card>
+</ng-container>

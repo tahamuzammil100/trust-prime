@@ -1,0 +1,17 @@
+<div class="form-group">
+  <div class="input-group">
+    <input class="form-control"
+           placeholder="Date Time (French):"
+           [owlDateTimeFilter]="myFilter"
+           [owlDateTimeTrigger]="dtPicker10"
+           [owlDateTime]="dtPicker10" />
+
+    <div class="input-group-append" data-toggle="datetimepicker" [owlDateTimeTrigger]="dtPicker10">
+      <div class="input-group-text">
+        <gx-icon name="calendar"></gx-icon>
+      </div>
+    </div>
+
+    <owl-date-time #dtPicker10></owl-date-time>
+  </div>
+</div>

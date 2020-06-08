@@ -1,0 +1,45 @@
+<!-- Card Header -->
+<card-header card-title="Revenue">
+
+  <card-tool>
+    <!-- Dropdown -->
+    <div class="d-inline-block" ngbDropdown placement="bottom-right">
+      <a class="d-inline-block f-12 py-1 px-2 py-1 border rounded" href="javascript:void(0)" ngbDropdownToggle>{{selectedDay.name}}</a>
+
+      <div ngbDropdownMenu>
+        <a *ngFor="let day of days" href="javascript:void(0)" class="dropdown-item" [ngClass]="{active:selectedDay.slug === day.slug}"
+           (click)="onClickDay($event, day)">{{day.name}}</a>
+      </div>
+    </div>
+    <!-- /dropdown -->
+  </card-tool>
+
+</card-header>
+<!-- /card header -->
+
+<div class="px-7 mb-7">
+  <!-- Media -->
+  <div class="media">
+    <!-- Media Body -->
+    <div class="media-body">
+      <p class="mb-1 h3 text-sky-blue font-weight-500">$12,45,125</p>
+      <span class="d-block">Business Revenue</span>
+    </div>
+    <!-- /media body -->
+    <!-- Media Body -->
+    <div class="media-body">
+      <p class="mb-1 h3 text-warning font-weight-500">$14,200</p>
+      <span class="d-block">Total Expenses</span>
+    </div>
+    <!-- /media body -->
+  </div>
+  <!-- /media -->
+</div>
+
+<gx-chart
+  class="dt-chart__body"
+  [datasets]="chart.dataSets[selectedDay.slug]"
+  [labels]="chart.labels"
+  [options]="chart.options"
+  [colors]="chart.colors"
+  [chartType]="chart.chartType"></gx-chart>

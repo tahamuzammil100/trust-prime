@@ -1,0 +1,530 @@
+<!-- Page Header -->
+<div class="dt-page__header">
+  <h1 class="dt-page__title">Date &amp; Time Pickers</h1>
+</div>
+<!-- /page header -->
+
+<!-- Grid -->
+<div class="row">
+
+  <!-- Grid Item -->
+  <div class="col-xl-4 col-md-6">
+
+    <!-- Card -->
+    <gx-card card-title="Basic Use">
+
+      <div class="form-group">
+        <input class="form-control" [owlDateTimeTrigger]="dt" [owlDateTime]="dt">
+        <owl-date-time #dt></owl-date-time>
+      </div>
+
+    </gx-card>
+    <!-- /Card -->
+
+  </div>
+  <!-- /Grid Item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-4 col-md-6">
+
+    <!-- Card -->
+    <gx-card card-title="Trigger Picker by Icon">
+
+      <div class="form-group">
+        <div class="input-group date" data-target-input="nearest">
+          <input class="form-control datetimepicker-input" [owlDateTime]="dt2" [owlDateTimeTrigger]="dt2"/>
+          <div class="input-group-append" data-toggle="datetimepicker" [owlDateTimeTrigger]="dt2">
+            <div class="input-group-text">
+              <gx-icon name="calendar"></gx-icon>
+            </div>
+          </div>
+          <owl-date-time #dt2></owl-date-time>
+        </div>
+      </div>
+
+    </gx-card>
+    <!-- /Card -->
+
+  </div>
+  <!-- /Grid Item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-4 col-md-6">
+
+    <!-- Card -->
+    <gx-card card-title="Open Picker as a Dialog">
+
+      <div class="form-group">
+        <div class="input-group date" data-target-input="nearest">
+          <input class="form-control datetimepicker-input" [owlDateTime]="dt3" [owlDateTimeTrigger]="dt3"/>
+          <div class="input-group-append" data-toggle="datetimepicker" [owlDateTimeTrigger]="dt3">
+            <div class="input-group-text">
+              <gx-icon name="calendar"></gx-icon>
+            </div>
+          </div>
+          <owl-date-time [pickerMode]="'dialog'" #dt3></owl-date-time>
+        </div>
+      </div>
+
+    </gx-card>
+    <!-- /Card -->
+
+  </div>
+  <!-- /Grid Item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-6 col-md-6">
+
+    <!-- Card -->
+    <gx-card card-title="Stand-alone Calendar and Timer">
+
+      <!-- Form -->
+      <div class="form-row">
+        <div class="col-md-6 mb-2">
+          <label for="input-date" class="sr-only">Date</label>
+          <input class="form-control" id="input-date" placeholder="Date" [owlDateTime]="dt4"
+                 [owlDateTimeTrigger]="dt4"/>
+          <owl-date-time [pickerType]="'calendar'" #dt4></owl-date-time>
+        </div>
+        <div class="col-md-6 mb-2">
+          <label for="input-time" class="sr-only">Time</label>
+          <input class="form-control" id="input-time" placeholder="Time" [owlDateTime]="dt5"
+                 [owlDateTimeTrigger]="dt5"/>
+          <owl-date-time [pickerType]="'timer'" #dt5></owl-date-time>
+        </div>
+      </div>
+      <!-- /form -->
+
+    </gx-card>
+    <!-- /Card -->
+
+  </div>
+  <!-- /Grid Item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-6 col-md-6">
+
+    <!-- Card -->
+    <gx-card card-title="Picker with range selection">
+
+      <div class="form-group">
+        <div class="input-group date" data-target-input="nearest">
+          <input class="form-control datetimepicker-input" [owlDateTime]="dt6" [owlDateTimeTrigger]="dt6" [selectMode]="'range'"/>
+          <div class="input-group-append" data-toggle="datetimepicker" [owlDateTimeTrigger]="dt6">
+            <div class="input-group-text">
+              <gx-icon name="calendar"></gx-icon>
+            </div>
+          </div>
+          <owl-date-time #dt6></owl-date-time>
+        </div>
+      </div>
+
+    </gx-card>
+    <!-- /Card -->
+
+  </div>
+  <!-- /Grid Item -->
+
+</div>
+
+<div class="row">
+  <!-- Grid Item -->
+  <div class="col-md-6">
+
+    <!-- Card -->
+    <gx-card card-title="Picker with rangeFrom and rangeTo selection">
+
+      <div class="form-group">
+        <label class="col-form-label" for="datetime-range-from">Date Time Range From:</label>
+        <div class="input-group" data-target-input="nearest">
+          <input class="form-control datetimepicker-input"
+                 id="datetime-range-from"
+                 [(ngModel)]="selectedMoments"
+                 [owlDateTime]="dt7"
+                 [owlDateTimeTrigger]="dt7"
+                 [selectMode]="'rangeFrom'"/>
+          <div class="input-group-append" data-toggle="datetimepicker" [owlDateTimeTrigger]="dt7">
+            <div class="input-group-text">
+              <gx-icon name="calendar"></gx-icon>
+            </div>
+          </div>
+          <owl-date-time #dt7></owl-date-time>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-form-label" for="datetime-range-to">Date Time Range To:</label>
+        <div class="input-group" data-target-input="nearest">
+          <input class="form-control datetimepicker-input"
+                 id="datetime-range-to"
+                 [(ngModel)]="selectedMoments"
+                 [owlDateTime]="dt8"
+                 [owlDateTimeTrigger]="dt8"
+                 [selectMode]="'rangeTo'"/>
+          <div class="input-group-append" data-toggle="datetimepicker" [owlDateTimeTrigger]="dt8">
+            <div class="input-group-text">
+              <gx-icon name="calendar"></gx-icon>
+            </div>
+          </div>
+          <owl-date-time #dt8></owl-date-time>
+        </div>
+      </div>
+
+    </gx-card>
+    <!-- /Card -->
+
+    <!-- Card -->
+    <gx-card card-title="DateTime Picker with selected value">
+
+      <div class="form-group">
+        <label class="col-form-label" for="datetime-dtPicker1">Date Time (binding via ngModel)</label>
+        <div class="input-group" data-target-input="nearest">
+          <input class="form-control datetimepicker-input"
+                 id="datetime-dtPicker1"
+                 [(ngModel)]="datetime1"
+                 [owlDateTimeTrigger]="dtPicker1"
+                 [owlDateTime]="dtPicker1"/>
+          <div class="input-group-append" data-toggle="datetimepicker" [owlDateTimeTrigger]="dtPicker1">
+            <div class="input-group-text">
+              <gx-icon name="calendar"></gx-icon>
+            </div>
+          </div>
+          <owl-date-time #dtPicker1></owl-date-time>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-form-label" for="datetime-dtPicker2">Date Time (via reactive form)</label>
+        <div class="input-group" data-target-input="nearest">
+          <input class="form-control datetimepicker-input"
+                 id="datetime-dtPicker2"
+                 [formControl]="datetime2"
+                 [owlDateTimeTrigger]="dtPicker2"
+                 [owlDateTime]="dtPicker2"/>
+          <div class="input-group-append" data-toggle="datetimepicker" [owlDateTimeTrigger]="dtPicker2">
+            <div class="input-group-text">
+              <gx-icon name="calendar"></gx-icon>
+            </div>
+          </div>
+          <owl-date-time #dtPicker2></owl-date-time>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-form-label" for="datetime-dtPicker3">Date Time Range</label>
+        <div class="input-group" data-target-input="nearest">
+          <input class="form-control datetimepicker-input"
+                 id="datetime-dtPicker3"
+                 [(ngModel)]="datetime3"
+                 [selectMode]="'range'"
+                 [owlDateTimeTrigger]="dtPicker3"
+                 [owlDateTime]="dtPicker3"/>
+          <div class="input-group-append" data-toggle="datetimepicker" [owlDateTimeTrigger]="dtPicker3">
+            <div class="input-group-text">
+              <gx-icon name="calendar"></gx-icon>
+            </div>
+          </div>
+          <owl-date-time #dtPicker3></owl-date-time>
+        </div>
+      </div>
+
+    </gx-card>
+    <!-- /Card -->
+
+    <!-- Card -->
+    <gx-card card-title="Setting the calendar starting view">
+
+      <div class="form-group form-row">
+        <label class="col-xl-3 col-form-label text-right" for="multi-years">Date</label>
+        <div class="input-group col-xl-9">
+          <input class="form-control" id="multi-years" [owlDateTime]="dtPicker4" [owlDateTimeTrigger]="dtPicker4"/>
+          <div class="input-group-append" data-toggle="datetimepicker" [owlDateTimeTrigger]="dtPicker4">
+            <div class="input-group-text">
+              <gx-icon name="calendar"></gx-icon>
+            </div>
+          </div>
+          <owl-date-time [pickerType]="'calendar'" [startView]="'multi-years'" #dtPicker4></owl-date-time>
+        </div>
+      </div>
+
+      <div class="form-group form-row">
+        <label class="col-xl-3 col-form-label text-right" for="single-years">Date</label>
+        <div class="input-group col-xl-9">
+          <input class="form-control" id="single-years" [owlDateTime]="dtPicker5" [owlDateTimeTrigger]="dtPicker5"/>
+          <div class="input-group-append" data-toggle="datetimepicker" [owlDateTimeTrigger]="dtPicker5">
+            <div class="input-group-text">
+              <gx-icon name="calendar"></gx-icon>
+            </div>
+          </div>
+          <owl-date-time [pickerType]="'calendar'" [startView]="'year'" #dtPicker5></owl-date-time>
+        </div>
+      </div>
+
+    </gx-card>
+    <!-- /Card -->
+
+  </div>
+  <!-- /Grid Item -->
+
+  <!-- Grid Item -->
+  <div class="col-md-6">
+
+    <!-- Card -->
+    <gx-card card-title="Setting the picker default start moment">
+
+      <div class="form-group">
+        <div class="input-group">
+          <input class="form-control" [owlDateTime]="dtPicker6" [owlDateTimeTrigger]="dtPicker6"/>
+          <div class="input-group-append" data-toggle="datetimepicker" [owlDateTimeTrigger]="dtPicker6">
+            <div class="input-group-text">
+              <gx-icon name="calendar"></gx-icon>
+            </div>
+          </div>
+          <owl-date-time [startAt]="startAt" #dtPicker6></owl-date-time>
+        </div>
+      </div>
+
+    </gx-card>
+    <!-- /Card -->
+
+    <!-- Card -->
+    <gx-card card-title="Picker with only month and year">
+
+      <div class="form-group">
+        <div class="input-group">
+          <input class="form-control" [formControl]="datetime4" [owlDateTime]="dtPicker7"
+                 [owlDateTimeTrigger]="dtPicker7"/>
+          <div class="input-group-append" data-toggle="datetimepicker" [owlDateTimeTrigger]="dtPicker7">
+            <div class="input-group-text">
+              <gx-icon name="calendar"></gx-icon>
+            </div>
+          </div>
+          <owl-date-time #dtPicker7="owlDateTime"
+                         [pickerType]="'calendar'"
+                         [startView]="'multi-years'"
+                         (yearSelected)="chosenYearHandler($event)"
+                         (monthSelected)="chosenMonthHandler($event, dtPicker7)"></owl-date-time>
+        </div>
+      </div>
+
+    </gx-card>
+    <!-- /Card -->
+
+    <!-- Card -->
+    <gx-card card-title="Picker with min & max Restriction">
+
+      <div class="form-group">
+        <div class="input-group">
+          <input class="form-control"
+                 [min]="min"
+                 [max]="max"
+                 [owlDateTime]="dtPicker8"
+                 [owlDateTimeTrigger]="dtPicker8"/>
+
+          <div class="input-group-append" data-toggle="datetimepicker" [owlDateTimeTrigger]="dtPicker8">
+            <div class="input-group-text">
+              <gx-icon name="calendar"></gx-icon>
+            </div>
+          </div>
+          <owl-date-time #dtPicker8></owl-date-time>
+        </div>
+      </div>
+
+    </gx-card>
+    <!-- /Card -->
+
+    <!-- Card -->
+    <gx-card card-title="Picker with date filter Restriction">
+
+      <div class="form-group">
+        <div class="input-group">
+          <input class="form-control"
+                 [(ngModel)]="dateTime5"
+                 [owlDateTimeFilter]="myFilter"
+                 [owlDateTimeTrigger]="dtPicker9"
+                 [owlDateTime]="dtPicker9"/>
+
+          <div class="input-group-append" data-toggle="datetimepicker" [owlDateTimeTrigger]="dtPicker9">
+            <div class="input-group-text">
+              <gx-icon name="calendar"></gx-icon>
+            </div>
+          </div>
+
+          <owl-date-time [startAt]="startAt" #dtPicker9></owl-date-time>
+        </div>
+      </div>
+
+    </gx-card>
+    <!-- /Card -->
+
+    <!-- Card -->
+    <gx-card card-title="Localization">
+
+      <dtp-localization></dtp-localization>
+
+    </gx-card>
+    <!-- /Card -->
+
+  </div>
+  <!-- /Grid Item -->
+
+
+  <!-- Grid Item -->
+  <div class="col-12">
+
+    <!-- Card -->
+    <gx-card card-title="Validation Errors">
+
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <div class="example-row mb-3">
+            <h4 class="text-muted">Min and Max Validation</h4>
+
+            <div class="form-group">
+              <div class="input-group">
+                <input class="form-control"
+                       placeholder="Date Time"
+                       [(ngModel)]="invalidDateTime1"
+                       [min]="min"
+                       [max]="max"
+                       [owlDateTimeTrigger]="dtPicker11"
+                       [owlDateTime]="dtPicker11"
+                       #dateTime1="ngModel"/>
+
+                <div class="input-group-append" data-toggle="datetimepicker" [owlDateTimeTrigger]="dtPicker11">
+                  <div class="input-group-text">
+                    <gx-icon name="calendar"></gx-icon>
+                  </div>
+                </div>
+
+                <owl-date-time #dtPicker11></owl-date-time>
+              </div>
+
+              <p class="text-danger" *ngIf="dateTime1.invalid && dateTime1.errors.owlDateTimeMin">
+                Date Time value must after {{min | date: 'medium'}}
+              </p>
+              <p class="text-danger" *ngIf="dateTime1.invalid && dateTime1.errors.owlDateTimeMax">
+                Date Time value must before {{max | date: 'medium'}}
+              </p>
+            </div>
+          </div>
+
+          <div class="example-row">
+            <h4 class="text-muted">Filter Validation</h4>
+
+            <div class="form-group">
+              <div class="input-group">
+                <input class="form-control"
+                       placeholder="Date Time"
+                       [(ngModel)]="invalidDateTime2"
+                       [owlDateTimeFilter]="myFilter"
+                       [owlDateTimeTrigger]="dtPicker12"
+                       [owlDateTime]="dtPicker12"
+                       #dateTime2="ngModel"/>
+
+                <div class="input-group-append" data-toggle="datetimepicker" [owlDateTimeTrigger]="dtPicker12">
+                  <div class="input-group-text">
+                    <gx-icon name="calendar"></gx-icon>
+                  </div>
+                </div>
+
+                <owl-date-time #dtPicker12></owl-date-time>
+              </div>
+              <p class="text-danger" *ngIf="dateTime2.invalid && dateTime2.errors.owlDateTimeFilter">
+                Date Time value must not be Saturday or Sunday
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <div class="example-row mb-3">
+            <h4 class="text-muted">Parse Validation</h4>
+
+            <div class="form-group">
+              <div class="input-group">
+                <input class="form-control"
+                       placeholder="Date Time"
+                       [(ngModel)]="invalidDateTime3"
+                       [owlDateTimeTrigger]="dtPicker13"
+                       [owlDateTime]="dtPicker13"
+                       #dateTime3="ngModel"/>
+
+                <div class="input-group-append" data-toggle="datetimepicker" [owlDateTimeTrigger]="dtPicker13">
+                  <div class="input-group-text">
+                    <gx-icon name="calendar"></gx-icon>
+                  </div>
+                </div>
+
+                <owl-date-time #dtPicker13></owl-date-time>
+              </div>
+              <p class="text-danger" *ngIf="dateTime3.invalid && dateTime3.errors.owlDateTimeParse">
+                Date Time value invalid.
+              </p>
+            </div>
+          </div>
+
+          <div class="example-row">
+            <h4 class="text-muted">Range Validation</h4>
+
+            <div class="form-group">
+              <div class="input-group">
+                <input class="form-control"
+                       placeholder="Date Time"
+                       [(ngModel)]="invalidDateTime4"
+                       [selectMode]="'range'"
+                       [owlDateTimeTrigger]="dtPicker14"
+                       [owlDateTime]="dtPicker14"
+                       #dateTime4="ngModel"/>
+
+                <div class="input-group-append" data-toggle="datetimepicker" [owlDateTimeTrigger]="dtPicker14">
+                  <div class="input-group-text">
+                    <gx-icon name="calendar"></gx-icon>
+                  </div>
+                </div>
+
+                <owl-date-time #dtPicker14></owl-date-time>
+              </div>
+              <p class="text-danger" *ngIf="dateTime4.invalid && dateTime4.errors.owlDateTimeRange">
+                Date Time Range Invalid.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </gx-card>
+    <!-- /Card -->
+
+  </div>
+  <!-- /Grid Item -->
+
+  <!-- Grid Item -->
+  <div class="col-12">
+
+    <!-- Card -->
+    <gx-card card-title="Picker as Inline element">
+
+      <div class="form-row">
+        <div class="col-xl-4 mb-3 d-flex flex-column align-items-center">
+          <owl-date-time-inline [(ngModel)]="selectedMoment"></owl-date-time-inline>
+        </div>
+
+        <div class="col-xl-4 mb-3 d-flex flex-column align-items-center">
+          <owl-date-time-inline class="mb-3" pickerType="calendar" [(ngModel)]="selectedMoment"></owl-date-time-inline>
+          <owl-date-time-inline pickerType="timer" [(ngModel)]="selectedMoment"></owl-date-time-inline>
+        </div>
+
+        <div class="col-xl-4 mb-3 d-flex flex-column align-items-center">
+          <owl-date-time-inline selectMode="range" [(ngModel)]="selectedMoments"></owl-date-time-inline>
+        </div>
+      </div>
+
+    </gx-card>
+    <!-- /Card -->
+
+  </div>
+  <!-- /Grid Item -->
+
+</div>
+<!-- /Grid -->

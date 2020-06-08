@@ -1,0 +1,20 @@
+<!-- Page Header -->
+<app-page-header pageTitle="Wall Page"></app-page-header>
+<!-- /page header -->
+
+<!-- Grid -->
+<div class="row">
+
+    <!-- Grid Item -->
+        <wall-left-sidebar [leftSidebarData]="pageInfo"></wall-left-sidebar>
+    <!-- /grid item -->
+
+    <!-- Grid Item -->
+        <posts></posts>
+    <!-- /grid item -->
+
+    <!-- Grid Item -->
+        <wall-right-sidebar [rightSidebarData]="pageInfo.recent_activities"></wall-right-sidebar>
+    <!-- /grid item -->
+
+</div>

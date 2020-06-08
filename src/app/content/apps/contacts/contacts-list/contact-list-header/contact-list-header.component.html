@@ -1,0 +1,72 @@
+<!-- Action Bar -->
+<div class="d-flex flex-wrap">
+  <!-- Dropdown -->
+  <div ngbDropdown class="mr-auto">
+
+    <!-- Checkbox -->
+    <gx-checkbox class="mr-3"
+                 [gxModel]="hasSelectedContacts"
+                 [indeterminate]="isIndeterminate"
+                 (gxInputChange)="toggleSelectAll()"></gx-checkbox>
+    <!-- /checkbox -->
+
+    <!-- Dropdown Button -->
+    <a href="javascript:void(0)" class="text-dark" ngbDropdownToggle> {{selected}} </a>
+    <!-- /dropdown button -->
+
+    <!-- Dropdown Menu -->
+    <div ngbDropdownMenu>
+      <a class="dropdown-item" href="javascript:void(0)" (click)="selectContacts()">All</a>
+      <a class="dropdown-item" href="javascript:void(0)" (click)="deselectContacts()">None</a>
+      <a class="dropdown-item" href="javascript:void(0)"
+         (click)="selectContacts('Starred', 'starred', true)">Starred</a>
+      <a class="dropdown-item" href="javascript:void(0)"
+         (click)="selectContacts('Unstarred', 'starred', false)">Unstarred</a>
+      <a class="dropdown-item" href="javascript:void(0)"
+         (click)="selectContacts('Favourite', 'favourite', true)">Favourite</a>
+      <a class="dropdown-item" href="javascript:void(0)"
+         (click)="selectContacts('Unfavourite', 'favourite', false)">Unfavourite</a>
+    </div>
+    <!-- /dropdown menu -->
+
+  </div>
+  <!-- /dropdown -->
+
+  <!-- Button Group -->
+  <div *ngIf="hasSelectedContacts" class="btn-group btn-group-sm mr-4 mr-lg-7 mb-1" role="group">
+    <button type="button" class="btn btn-outline-dark" (click)="setPropertyOnSelectedContacts('favourite', true)">
+      <gx-icon name="heart-o" [fw]="true" size="lg"></gx-icon>
+    </button>
+    <button type="button" class="btn btn-outline-dark" (click)="setPropertyOnSelectedContacts('starred', true)">
+      <gx-icon name="star-fill" [fw]="true" size="lg"></gx-icon>
+    </button>
+    <button type="button" class="btn btn-outline-dark" (click)="setPropertyOnSelectedContacts('suggested', true)">
+      <gx-icon name="contacts" [fw]="true" size="lg"></gx-icon>
+    </button>
+  </div>
+  <!-- /button group -->
+
+  <!-- Dropdown -->
+  <div *ngIf="hasSelectedContacts" ngbDropdown placement="bottom-right">
+
+    <!-- Dropdown Button -->
+    <a href="javascript:void(0)" class="btn btn-outline-dark btn-sm" ngbDropdownToggle>
+      More
+    </a>
+    <!-- /dropdown button -->
+
+    <!-- Dropdown Menu -->
+    <div ngbDropdownMenu>
+      <a class="dropdown-item" href="javascript:void(0)" (click)="setPropertyOnSelectedContacts('favourite', false)">Unfavourite</a>
+      <a class="dropdown-item" href="javascript:void(0)" (click)="setPropertyOnSelectedContacts('favourite', true)">Favourite</a>
+      <a class="dropdown-item" href="javascript:void(0)" (click)="setPropertyOnSelectedContacts('suggested', true)">Add
+        in Suggestions</a>
+      <a class="dropdown-item" href="javascript:void(0)" (click)="setPropertyOnSelectedContacts('starred', true)">Starred</a>
+      <a class="dropdown-item" href="javascript:void(0)" (click)="setPropertyOnSelectedContacts('starred', false)">Unstarred</a>
+    </div>
+    <!-- /dropdown menu -->
+
+  </div>
+  <!-- /dropdown -->
+</div>
+<!-- /action bar -->

@@ -1,0 +1,67 @@
+<!-- Module Header -->
+<setion-header [title]="projects | getById:currentTask.project_id:'title'"></setion-header>
+<!-- /module header -->
+
+<!-- Module Content -->
+<div class="dt-module__content position-relative" perfectScrollbar>
+
+  <!-- Module Content Inner -->
+  <div class="dt-module__content-inner">
+
+    <!-- task header -->
+    <task-header [task]="currentTask"></task-header>
+    <!-- /task header -->
+
+    <!-- Form -->
+    <form [formGroup]="taskForm">
+
+      <h2 class="display-4">
+        {{currentTask.title}}
+        <a href="javascript:void(0)" class="ml-auto" (click)="editTitle = !editTitle">
+          <gx-icon name="editors"></gx-icon>
+        </a>
+      </h2>
+      <div class="form-group" *ngIf="editTitle">
+        <textarea class="form-control bg-focus display-4"
+                rows="2"
+                name="title"
+                formControlName="title"
+                placeholder="Title"></textarea>
+
+        <button class="btn btn-primary btn-xs mt-1" (click)="editTitle = !editTitle">Done</button>
+      </div>
+
+      <!-- Badges -->
+      <task-badges class="d-block mb-5" [wrap]="true"
+                   [ids]="currentTask.labels"
+                   [labels]="labels"></task-badges>
+      <!-- /badges -->
+
+      <!-- Text Area -->
+      <div class="form-group d-flex">
+        <gx-icon name="forms-advanced" class="mt-2 mr-1"></gx-icon>
+        <textarea class="form-control border-0 shadow-none bg-focus"
+                  rows="2"
+                  name="content"
+                  formControlName="content"
+                  placeholder="Description"></textarea>
+      </div>
+      <!-- /text area -->
+
+    </form>
+    <!-- /form -->
+
+    <!-- Separator -->
+    <hr class="my-7">
+    <!-- /separator -->
+
+    <app-task-conversation></app-task-conversation>
+
+  </div>
+  <!-- /module content inner -->
+
+</div>
+
+<!-- Comment Box -->
+<app-comment-box></app-comment-box>
+<!-- /comment box -->

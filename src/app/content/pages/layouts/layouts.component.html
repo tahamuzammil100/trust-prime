@@ -1,0 +1,35 @@
+<!-- Page Header -->
+<div class="dt-page__header">
+  <h1 class="dt-page__title">Layouts</h1>
+</div>
+<!-- /page header -->
+
+<!-- Grid -->
+<div class="row">
+
+  <!-- Grid Item -->
+  <div class="col-md-6 col-12" *ngFor="let layout of layouts">
+
+    <!-- Card -->
+    <gx-card class="dt-showcase-card" [card-title]="layout.name">
+
+      <card-tool>
+        <a [href]="getLayoutUrl(layout.slug)" class="dt-card__more">View Demo</a>
+        <gx-icon name="chevrolet-right" size="lg" class="ml-1"></gx-icon>
+      </card-tool>
+
+      <!-- Card Body -->
+      <div class="layout-container">
+        <a [href]="getLayoutUrl(layout.slug)" class="d-block">
+          <img class="img-fluid" [src]="layout.thumb" alt="{{layout.name}}"> </a>
+      </div>
+      <!-- /card body -->
+
+    </gx-card>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+</div>
+<!-- /grid -->

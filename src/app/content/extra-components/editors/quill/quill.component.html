@@ -1,0 +1,98 @@
+<!-- Page Header -->
+<div class="dt-page__header">
+  <h1 class="dt-page__title">Quill Editor</h1>
+</div>
+<!-- /page header -->
+
+<!-- Grid -->
+<div class="row">
+  <div class="col-12">
+    <gx-card card-title="Default editor">
+      <quill-editor [style]="{height: '200px'}" (onEditorCreated)="setFocus($event)"></quill-editor>
+    </gx-card>
+
+    <gx-card card-title="Reactive Forms and patch value">
+      <form [formGroup]="form">
+        <div class="btn-toolbar mb-4">
+          <button type="button" class="btn btn-primary mr-2 mb-2" (click)="hide=!hide">hide / show</button>
+          <button type="button" class="btn btn-primary mr-2 mb-2" (click)="patchValue()">patchValue</button>
+          <button type="button" class="btn btn-primary mb-2" (click)="setControl()">setControl</button>
+        </div>
+
+        <quill-editor class="mb-4" #editor [style.display]="hide ? 'none' : 'block'"
+                      [formControl]="form.controls['editor']"></quill-editor>
+        <p class="mb-0">Output: {{form.controls.editor.value}}</p>
+      </form>
+    </gx-card>
+
+    <gx-card card-title="Bubble editor">
+      <div class="btn-toolbar mb-4">
+        <button type="button" class="btn btn-primary" (click)="placeholder='Insert your text here...'">Change
+          placeholder
+        </button>
+      </div>
+
+      <quill-editor theme="bubble" [placeholder]="placeholder"></quill-editor>
+    </gx-card>
+
+    <gx-card
+      card-title="Editor without toolbar + required and ngModule + Keybinding on '<span class='text-lowercase'>b</span>'">
+      <div class="btn-toolbar mb-4">
+        <button class="btn btn-primary" (click)="toggleReadOnly()">Toggle ReadOnly</button>
+      </div>
+      <quill-editor class="mb-4"
+                    [(ngModel)]="title"
+                    [maxLength]="5"
+                    [minLength]="3"
+                    [required]="true"
+                    [readOnly]="isReadOnly"
+                    [modules]="{toolbar: false}"
+                    (onContentChanged)="logChange($event);"
+                    (onSelectionChanged)="logSelection($event);"
+                    (onEditorCreated)="addBindingCreated($event)"></quill-editor>
+
+      <p>ReadOnly: {{isReadOnly}}</p>
+      <p>Title : {{title}}</p>
+    </gx-card>
+
+    <gx-card card-title="Custom Toolbar with toolbar title-attributes + Word counter">
+      <quill-editor [modules]="{ counter: { container: '#counter', unit: 'word' } }">
+        <div quill-editor-toolbar>
+          <span class="ql-formats">
+            <select class="ql-font">
+              <option value="aref">Aref Ruqaa</option>
+              <option value="mirza">Mirza</option>
+              <option selected>Roboto</option>
+            </select>
+            <select class="ql-align" [title]="'Aligment'">
+              <option selected></option>
+              <option value="center"></option>
+              <option value="right"></option>
+              <option value="justify"></option>
+            </select>
+            <select class="ql-align" [title]="'Aligment2'">
+              <option selected></option>
+              <option value="center"></option>
+              <option value="right"></option>
+              <option value="justify"></option>
+            </select>
+          </span>
+          <span class="ql-formats">
+            <div id="counter"></div>
+          </span>
+        </div>
+      </quill-editor>
+    </gx-card>
+
+    <gx-card card-title="Format - Object">
+      <quill-editor class="mb-4" format="object" [(ngModel)]="objectFormat"></quill-editor>
+      <pre>{{ objectFormat | json }}</pre>
+    </gx-card>
+
+    <gx-card card-title="Format - Text">
+      <quill-editor class="mb-4" format="text" [(ngModel)]="textFormat"></quill-editor>
+      <pre>{{ textFormat }}</pre>
+    </gx-card>
+  </div>
+</div>
+

@@ -1,0 +1,66 @@
+<!-- Card Header -->
+<card-header class="mb-3" card-title="Support Tickets">
+  <card-tool>
+    <!-- Dropdown -->
+    <div class="d-inline-block" ngbDropdown placement="bottom-right">
+      <a class="d-inline-block f-12 py-1 px-2 py-1 border rounded" href="javascript:void(0)" ngbDropdownToggle>
+        Unread
+      </a>
+
+      <div ngbDropdownMenu>
+        <a class="dropdown-item" href="javascript:void(0)">Read</a>
+        <a class="dropdown-item" href="javascript:void(0)">Unread</a>
+        <a class="dropdown-item" href="javascript:void(0)">Spam</a>
+      </div>
+    </div>
+    <!-- /dropdown -->
+  </card-tool>
+</card-header>
+<!-- /card header -->
+
+<!-- Card Body -->
+<card-body perfectScrollbar class="p-0 max-h-400 position-relative">
+
+
+    <!-- Widget -->
+    <div class="dt-widget dt-widget-hover">
+
+      <!-- Widget Item -->
+      <div class="dt-widget__item" *ngFor="let ticket of supportTickets">
+
+        <!-- Widget Image -->
+        <div class="dt-widget__img">
+          <img class="dt-avatar size-35" [src]="ticket.user.thumb" alt="User">
+        </div>
+        <!-- /widget image -->
+
+        <!-- Widget Info -->
+        <div class="dt-widget__info text-truncate">
+          <a href="javascript:void(0)" class="dt-widget__title text-truncate">{{ticket.heading}}</a>
+          <p class="dt-widget__subtitle text-truncate text-light-gray">
+            <a class="text-dark" href="javascript:void(0)">{{ticket.user.name}}</a>
+            created ticket {{ticket.created | timeAgo}}
+          </p>
+        </div>
+        <!-- /widget info -->
+
+        <!-- Widget Extra -->
+        <div class="dt-extra animate-slide align-self-center">
+              <span class="badge badge-circle-animate badge-pill badge-sm align-text-top"
+                    [ngClass]="ticket.priority.color">{{ticket.priority.label}}</span>
+          <div class="slide-content">
+            <a href="javascript:void(0)">
+              <gx-icon name="arrow-right" size="xl" [fw]="true"></gx-icon>
+            </a>
+          </div>
+        </div>
+        <!-- /widget extra -->
+
+      </div>
+      <!-- /widgets item -->
+
+    </div>
+    <!-- /widget -->
+
+</card-body>
+<!-- /card body -->

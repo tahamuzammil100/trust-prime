@@ -1,0 +1,21 @@
+<!-- Dropdown -->
+<div class="mb-2 mr-6" ngbDropdown>
+  <!-- Dropdown Button -->
+  <button class="btn btn-outline-dark btn-sm" type="button" ngbDropdownToggle>
+    <gx-icon name="check" [fw]="true" class="mr-1"></gx-icon>
+    Label
+  </button>
+  <!-- /dropdown button -->
+
+  <!-- Dropdown Menu -->
+  <div ngbDropdownMenu>
+    <a *ngFor="let label of labels" class="dropdown-item" href="javascript:void(0)"
+       (click)="onToggleLabel(label.id)">
+      <gx-icon name="box-check" [fw]="true" class="mr-1" *ngIf="hasLabel(label.id)"></gx-icon>
+      <gx-icon name="box-o" [fw]="true" class="mr-1" *ngIf="!hasLabel(label.id)"></gx-icon>
+      {{label.title}}
+    </a>
+  </div>
+  <!-- /dropdown menu -->
+</div>
+<!-- /dropdown -->

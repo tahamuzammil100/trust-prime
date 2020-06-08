@@ -1,0 +1,83 @@
+<!-- Page Header -->
+<app-page-header pageTitle="Search Page"></app-page-header>
+<!-- /page header -->
+
+<!-- Grid -->
+<div class="row">
+
+    <!-- Grid Item -->
+    <div class="col-xl-12">
+
+        <!-- Card -->
+        <div class="dt-card">
+
+            <!-- Card Body -->
+            <div class="dt-card__body">
+                <h2 class="display-4 mb-2">{{data.length}} results found <ng-container *ngIf="filterKeyword">for: <span class="text-primary">“{{filterKeyword}}”</span></ng-container>
+                </h2>
+                <small class="d-block mb-4">Request time (0.23 seconds)</small>
+
+                <!-- Search Box -->
+                <form class="search-box right-side-icon mw-100" [formGroup]="searchForm" (ngSubmit)="searchData()">
+                    <input class="form-control form-control-lg" type="search"
+                           name="address"
+                           placeholder="Search in app..." formControlName="keyword">
+                    <button type="submit" class="search-icon">
+                      <gx-icon name="search" size="lg"></gx-icon>
+                    </button>
+                </form>
+                <!-- /search box -->
+
+                <ng-container *ngFor="let item of pagedItems; let last = last">
+                    <!-- Separator -->
+                    <hr class="border-dashed my-6">
+                    <!-- /separator -->
+
+                    <!-- Search Result-->
+                    <div class="search-result">
+                        <h3 class="search-heading"><a href="javascript:void(0)">{{item.title}}</a>
+                        </h3>
+                        <a href="javascript:void(0)" class="search-link">{{item.url}}</a>
+                        <p>
+                            {{item.text}}
+                        </p>
+                    </div>
+                    <!-- /search result-->
+
+                    <!-- Separator -->
+                    <hr *ngIf="last" class="border-dashed my-6">
+                    <!-- /separator -->
+                </ng-container>
+
+                <!-- Pagination -->
+                <nav>
+                    <ul *ngIf="pager.pages && pager.pages.length" class="pagination justify-content-center mb-0">
+                        <li [ngClass]="{disabled:pager.currentPage === 1}" class="page-item">
+                            <a class="page-link" href="javascript:void(0)" (click)="setPage(1)">
+                                <gx-icon name="chevrolet-left"></gx-icon>
+                            </a>
+                        </li>
+                        <li class="page-item" *ngFor="let page of pager.pages"
+                            [ngClass]="{'active':pager.currentPage === page}">
+                            <a class="page-link" href="javascript:void(0)" (click)="setPage(page)">{{page}}</a>
+                        </li>
+
+                        <li class="page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                            <a class="page-link" href="javascript:vo0id(0)" (click)="setPage(pager.totalPages)">
+                                <gx-icon name="chevrolet-right"></gx-icon>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- /pagination -->
+            </div>
+            <!-- /card body -->
+
+        </div>
+        <!-- /card -->
+
+    </div>
+    <!-- /grid item -->
+
+</div>
+<!-- /grid -->

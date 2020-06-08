@@ -1,0 +1,129 @@
+<!-- Sidebar Header -->
+<div class="dt-module__sidebar-header border-bottom">
+  <div class="d-none d-md-flex align-items-center">
+    <gx-icon name="user-account" size="1x" class="mr-3 text-dark"></gx-icon>
+    <span class="h3 mb-0">Contacts</span>
+  </div>
+
+  <!-- App Quick Menu -->
+  <div class="quick-menu-list d-md-none">
+    <a *ngIf="hiddenPageHeader"
+       href="javascript:void(0)"
+       class="quick-menu mr-auto d-md-none"
+       [ngClass]="{'active':settings.activeNavDrawer}"
+       (click)="toggleNavigation($event)">
+      <gx-icon name="menu"></gx-icon>
+    </a>
+
+    <!-- Search Box -->
+    <form class="search-box d-md-none" *ngIf="!hiddenPageHeader">
+      <input class="form-control" type="search" id="address" name="address" placeholder="Search in app...">
+      <button type="submit" class="search-icon">
+        <gx-icon name="search" size="lg"></gx-icon>
+      </button>
+    </form>
+    <!-- /search box -->
+
+    <a href="javascript:void(0)"
+       class="quick-menu"
+       [ngClass]="{'active':activeMenu == 'search', 'd-none d-md-block': !hiddenPageHeader}"
+       (click)="onClickMenu($event, 'search')">
+      <gx-icon name="search"></gx-icon>
+    </a>
+
+    <a href="javascript:void(0)" class="quick-menu" (click)="onClickNewContact()">
+      <gx-icon name="contacts"></gx-icon>
+    </a>
+
+    <a href="javascript:void(0)"
+       class="quick-menu"
+       [ngClass]="{'active':activeMenu == 'notifications'}"
+       (click)="onClickMenu($event, 'notifications')">
+      <gx-icon name="notification2"></gx-icon>
+    </a>
+
+    <a href="javascript:void(0)"
+       class="quick-menu d-md-none"
+       [ngClass]="{'active':isOpen}"
+       (click)="toggleOpen($event)">
+      <gx-icon name="{{hiddenPageHeader? 'vertical-more': 'menu'}}"></gx-icon>
+    </a>
+  </div>
+  <!-- /app quick menu -->
+</div>
+<!-- /sidebar header -->
+
+<!-- Sidebar Menu -->
+<div class="dt-module__sidebar-content position-relative" [@collapseAppSidebar]="isOpen" perfectScrollbar>
+  <!-- Sidebar Content Inner -->
+  <div class="dt-module__sidebar-content-inner">
+    <!-- Button -->
+    <div class="action-area mt-5 mb-7 d-none d-md-block">
+      <a href="javascript:void(0)"
+         class="btn btn-shadow btn-default compose-btn btn-rounded"
+         (click)="onClickNewContact()">
+        <gx-icon name="contacts" class="mr-2" [fw]="true"></gx-icon>Add Contact
+      </a>
+    </div>
+    <!-- /button -->
+
+    <!-- Sidebar Navigation -->
+    <ul class="dt-module-side-nav">
+
+      <!-- Menu Header -->
+      <li class="dt-module-side-nav__header">
+        <span class="dt-module-side-nav__text">Contacts</span>
+      </li>
+      <!-- /menu header -->
+
+      <!-- Menu Item -->
+      <li class="dt-module-side-nav__item" routerLinkActive="active">
+        <a class="dt-module-side-nav__link" [routerLink]="'/' + settings.layout + '/apps/contacts/all'">
+          <gx-icon name="contacts" size="lg" [fw]="true"></gx-icon>
+          <span class="dt-module-side-nav__text">All Contacts</span>
+        </a>
+      </li>
+      <!-- /menu item -->
+
+      <!-- Menu Item -->
+      <li class="dt-module-side-nav__item" routerLinkActive="active">
+        <a class="dt-module-side-nav__link" [routerLink]="'/' + settings.layout + '/apps/contacts/favourite'">
+          <gx-icon name="heart-o" size="lg" [fw]="true"></gx-icon>
+          <span class="dt-module-side-nav__text">Favourite List</span>
+        </a>
+      </li>
+      <!-- /menu item -->
+
+      <!-- Menu Item -->
+      <li class="dt-module-side-nav__item" routerLinkActive="active">
+        <a class="dt-module-side-nav__link" [routerLink]="'/' + settings.layout + '/apps/contacts/suggested'">
+          <gx-icon name="contacts" size="lg" [fw]="true"></gx-icon>
+          <span class="dt-module-side-nav__text">Suggestions</span>
+        </a>
+      </li>
+      <!-- /menu item -->
+
+      <!-- Menu Item -->
+      <li class="dt-module-side-nav__item" routerLinkActive="active">
+        <a class="dt-module-side-nav__link" [routerLink]="'/' + settings.layout + '/apps/contacts/starred'">
+          <gx-icon name="star-o" size="lg" [fw]="true"></gx-icon>
+          <span class="dt-module-side-nav__text">Starred contacts</span>
+        </a>
+      </li>
+      <!-- /menu item -->
+
+      <!-- Menu Item -->
+      <li class="dt-module-side-nav__item">
+        <a href="javascript:void(0)" class="dt-module-side-nav__link">
+          <gx-icon name="settings" size="lg" [fw]="true"></gx-icon>
+          <span class="dt-module-side-nav__text">Settings</span>
+        </a>
+      </li>
+      <!-- /menu item -->
+
+    </ul>
+    <!-- /sidebar navigation -->
+  </div>
+  <!-- /sidebar content inner -->
+</div>
+<!-- /sidebar Menu -->

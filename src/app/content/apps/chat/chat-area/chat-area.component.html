@@ -1,0 +1,43 @@
+<app-chat-header *ngIf="chatData.length > 0" [contact]="currentContact"></app-chat-header>
+
+<!-- Module Content -->
+<div class="dt-module__content position-relative" perfectScrollbar>
+
+  <div *ngIf="chatData.length === 0"
+       class="dt-module__content-inner h-100 d-flex flex-column justify-content-center align-items-center">
+    <gx-icon name="message" [fw]="true" size="7x" class="mb-2"></gx-icon>
+    <h1 class="display-4">Select User to start Chat</h1>
+
+    <button class="btn btn-primary d-md-none"
+            (click)="toggleOpen($event)">Select contact to start Chat
+    </button>
+  </div>
+
+  <ng-container *ngIf="chatData.length > 0">
+
+    <!-- Module Content Inner -->
+    <div class="dt-module__content-inner">
+
+      <!-- Chat Conversation -->
+      <div class="dt-chat__conversation">
+
+        <app-chat-conversation *ngFor="let message of chatData; let i = index;"
+                               [chatData]="chatData"
+                               [message]="message"
+                               [index]="i"
+                               [operator]="operator"
+                               [contact]="currentContact"></app-chat-conversation>
+
+      </div>
+      <!-- /chat conversation -->
+
+    </div>
+    <!-- /module content inner -->
+
+  </ng-container>
+
+</div>
+<!-- /module content -->
+
+<app-chat-box *ngIf="chatData.length > 0"
+              [operator]="operator"></app-chat-box>

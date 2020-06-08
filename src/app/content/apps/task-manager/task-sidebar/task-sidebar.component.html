@@ -1,0 +1,162 @@
+<!-- Sidebar Header -->
+<div class="dt-module__sidebar-header">
+
+  <!-- App Quick Menu -->
+  <div class="quick-menu-list">
+    <a *ngIf="hiddenPageHeader"
+       href="javascript:void(0)"
+       class="quick-menu mr-auto d-md-none"
+       [ngClass]="{'active':settings.activeNavDrawer}"
+       (click)="toggleNavigation($event)">
+      <gx-icon name="menu"></gx-icon>
+    </a>
+
+    <!-- Search Box -->
+    <form class="search-box d-md-none" *ngIf="!hiddenPageHeader">
+      <input class="form-control" type="search" id="address" name="address" placeholder="Search in app...">
+      <button type="submit" class="search-icon">
+        <gx-icon name="search" size="lg"></gx-icon>
+      </button>
+    </form>
+    <!-- /search box -->
+
+    <a href="javascript:void(0)"
+       class="quick-menu"
+       [ngClass]="{'active':activeMenu == 'search', 'd-none d-md-block': !hiddenPageHeader}"
+       (click)="onClickMenu($event, 'search')">
+      <gx-icon name="search"></gx-icon>
+    </a>
+
+    <a href="javascript:void(0)"
+       class="quick-menu"
+       [ngClass]="{'active':activeMenu == 'notifications'}"
+       (click)="onClickMenu($event, 'notifications')">
+      <gx-icon name="notification2"></gx-icon>
+    </a>
+
+    <a href="javascript:void(0)"
+       class="quick-menu"
+       [ngClass]="{'active':activeMenu == 'messages'}"
+       (click)="onClickMenu($event, 'messages')">
+      <gx-icon name="message"></gx-icon>
+    </a>
+
+    <!-- Dropdown -->
+    <div class="quick-menu" ngbDropdown placement="bottom-right">
+      <a href="javascript:void(0)" class="no-arrow" ngbDropdownToggle>
+        <gx-icon name="circle-add-o"></gx-icon>
+      </a>
+
+      <!-- Dropdown Menu -->
+      <div ngbDropdownMenu>
+        <a class="dropdown-item" href="javascript:void(0)">Add New Project</a>
+        <a class="dropdown-item" href="javascript:void(0)" (click)="onCreateTask()">Add New Task</a>
+        <a class="dropdown-item" href="javascript:void(0)">Add New Team Member</a>
+      </div>
+      <!-- /dropdown menu -->
+    </div>
+    <!-- /dropdown -->
+
+    <a href="javascript:void(0)"
+       class="quick-menu d-md-none"
+       [ngClass]="{'active':isOpen}"
+       (click)="toggleOpen($event)">
+      <gx-icon name="{{hiddenPageHeader? 'vertical-more': 'menu'}}"></gx-icon>
+    </a>
+  </div>
+  <!-- /app quick menu -->
+
+</div>
+<!-- /sidebar header -->
+
+<!-- Sidebar Content -->
+<div class="dt-module__sidebar-content position-relative" [@collapseAppSidebar]="isOpen" perfectScrollbar>
+  <!-- Sidebar Content Inner -->
+  <div class="dt-module__sidebar-content-inner pt-md-7">
+    <!-- Sidebar Navigation -->
+    <ul class="dt-module-side-nav">
+
+      <!-- Menu Header -->
+      <li class="dt-module-side-nav__header">
+        <span class="dt-module-side-nav__text">QUICK MENU</span>
+      </li>
+      <!-- /menu header -->
+
+      <!-- Menu Item -->
+      <li class="dt-module-side-nav__item"
+          routerLinkActive="active">
+        <a class="dt-module-side-nav__link"
+           [routerLink]="'/' + settings.layout + '/apps/task-manager/dashboard'">
+          <gx-icon name="dashboard" [fw]="true" size="lg"></gx-icon>
+          <span class="dt-module-side-nav__text">Dashboard</span>
+        </a>
+      </li>
+      <!-- /menu item -->
+
+      <!-- Menu Item -->
+      <li class="dt-module-side-nav__item"
+          routerLinkActive="active">
+        <a class="dt-module-side-nav__link"
+           [routerLink]="'/' + settings.layout + '/apps/task-manager/user/'+currentUser.id">
+          <gx-icon name="description" [fw]="true" size="lg"></gx-icon>
+          <span class="dt-module-side-nav__text">My Tasks</span>
+        </a>
+      </li>
+      <!-- /menu item -->
+
+      <!-- Menu Item -->
+      <li class="dt-module-side-nav__item"
+          routerLinkActive="active">
+        <a class="dt-module-side-nav__link"
+           [routerLink]="'/' + settings.layout + '/apps/task-manager/user/watchlist'">
+          <gx-icon name="users" [fw]="true" size="lg"></gx-icon>
+          <span class="dt-module-side-nav__text">My Watchlist</span>
+        </a>
+      </li>
+      <!-- /menu item -->
+
+      <!-- Menu Header -->
+      <li class="dt-module-side-nav__header">
+        <span class="dt-module-side-nav__text">PROJECTS</span>
+      </li>
+      <!-- /menu header -->
+
+      <!-- Menu Item -->
+      <li class="dt-module-side-nav__item"
+          *ngFor="let project of projects; index as i; first as isFirst"
+          routerLinkActive="active">
+        <a class="dt-module-side-nav__link"
+           [routerLink]="'/' + settings.layout + '/apps/task-manager/project/'+project.id">
+          <span class="dt-module-side-nav__text">{{project.title}}</span>
+        </a>
+      </li>
+      <!-- /menu item -->
+
+    </ul>
+    <!-- /sidebar navigation -->
+
+    <!-- Contacts -->
+    <div class="dt-contacts contacts-list">
+
+      <!-- Contact Heading -->
+      <h6 class="dt-contact__heading text-uppercase">Team</h6>
+      <!-- /contact heading -->
+
+      <div class="action-area">
+        <ul class="dt-team-list">
+          <li *ngFor="let user of assignees; last as isLast" [ngClass]="{'mb-2':!isLast}">
+            <!-- Avatar -->
+            <a [routerLink]="'/' + settings.layout + '/apps/task-manager/user/'+user.id">
+              <gx-avatar [user]="user" class="size-30"></gx-avatar>
+            </a>
+            <!-- /avatar -->
+          </li>
+        </ul>
+      </div>
+
+    </div>
+    <!-- contacts -->
+  </div>
+  <!-- /sidebar content inner -->
+</div>
+<!-- /sidebar content -->

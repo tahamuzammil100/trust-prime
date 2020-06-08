@@ -1,0 +1,6 @@
+<div class="badge-group">
+<span *ngFor="let lid of items" class="badge"
+      [ngClass]="labels | getById:lid:'color'">{{labels | getById:lid:'title'}}</span>
+
+  <span *ngIf="!showAll && ids.length > 2" #moreBadges class="badge badge-light">...</span>
+</div>

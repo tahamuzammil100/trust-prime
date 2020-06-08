@@ -1,0 +1,22 @@
+<!-- Module Content Inner -->
+<div class="dt-module__content-inner">
+
+  <mail-header></mail-header>
+
+  <!-- Module List -->
+  <div class="dt-module__list">
+
+    <div *ngIf="mails.length == 0" class="dt-module__list-item">
+      <p class="empty-result">No record found.</p>
+    </div>
+
+    <!-- Module Item -->
+    <mail-item *ngFor="let mail of mails | filter: searchQuery"
+               [mail]="mail"
+               (click)="omMailClick(mail.id)"></mail-item>
+    <!-- /Module Item -->
+
+  </div>
+  <!-- /Module List -->
+
+</div>
