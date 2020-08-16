@@ -19,7 +19,7 @@ TrustPrime web portal, integrates other parts of different portals from 'Trust-P
 
 ## Documentations
 
-Drift Angular is well documented [here](https://docs-drift-angular.g-axon.work/ "Documentation") .
+Theme is well documented [here](https://docs-drift-angular.g-axon.work/ "Documentation") .
 
 ## Issues
 ##### issues should be directed to the organization directly at issues@trustsign.com.my:
