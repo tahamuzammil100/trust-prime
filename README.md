@@ -5,13 +5,14 @@ TrustPrime web portal, integrates other parts of different portals from 'Trust-P
 | Module Name                             | Integration   |
 | ---------------------------------- | ------------- |
 | `Navigation & Auth`                           | Under Process |
-| `1.0 Planning` | Not Initiated |
-| `2.0 Security` | Not Initiated |
-| `3.0 Monitoring & Enforcement` | Not Initiated |
-| `4.0 Business` | Not Initiated |
-| `5.0 Services` | Not Initiated |
-| `6.0 Community` | Not Initiated |
-| `7.0 Performance` | Not Initiated |
+| `Theming` | Under Process |
+| `Planning` | Not Initiated |
+| `Security` | Not Initiated |
+| `Monitoring & Enforcement` | Not Initiated |
+| `Business` | Not Initiated |
+| `Services` | Not Initiated |
+| `Community` | Not Initiated |
+| `Performance` | Not Initiated |
 <!-- | `skeleton`                         | This branch is for you to kickstart your app with the skeleton with auth (Firebase).  |
 | `skeleton-rtl`                     | This branch is for RTL supported apps. |
 | `skeleton-without-auth`            | If you are looking to use a different authentication system, this is the right branch for you to start with. | -->
